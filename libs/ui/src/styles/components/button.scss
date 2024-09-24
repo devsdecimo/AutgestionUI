@@ -1,0 +1,18 @@
+@layer components {
+
+  $variants: 'primary', 'success', 'warning', 'danger';
+
+  button {
+    @apply px-6 py-3 bg-gray-500 text-white rounded-full font-semibold focus:outline-none transition-colors duration-300;
+
+    &.btn {
+
+      @each $variants in $variants {
+
+        &--#{$variants} {
+          @apply bg-#{$variants};
+        }
+      }
+    }
+  }
+}

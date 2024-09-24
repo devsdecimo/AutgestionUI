@@ -1,13 +1,28 @@
-import { createMemoryHistory, createRouter } from 'vue-router'
+import { createWebHistory, createRouter } from 'vue-router';
 
-// Pages
-import HomePage from '../pages/home/home.vue'
+// Layouts
+import { MainLayout, AuthLayout } from '@ventura/ui';
 
 const routes = [
-  { path: '/', component: HomePage }
+  {
+    path: '/',
+    component: () => import('../pages/home/home.vue'),
+    meta: {
+      layout: MainLayout
+    }
+  },
+  {
+    path: '/login',
+    component: () => import('../pages/login/login.vue'),
+    meta: {
+      layout: AuthLayout
+    }
+  }
 ]
 
-export const router = createRouter({
-  history: createMemoryHistory(),
+const router = createRouter({
+  history: createWebHistory(),
   routes,
 })
+
+export default router

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 </script>
 
 <template>
@@ -22,7 +24,7 @@
       to="/login"
       class="text-blue-500"
     >
-      Ir a login
+      <FontAwesomeIcon :icon="fas.faHouse" /> Ir a login
     </RouterLink>
   </div>
 </template>

@@ -1,9 +1,10 @@
 <script setup lang="ts">
-// defineProps<{}>()
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 </script>
 
 <template>
-  <p>Welcome to Accordion!</p>
+  <p><FontAwesomeIcon :icon="fas.faHouse" /> Welcome to Accordion!</p>
 </template>
 
 <style scoped></style>

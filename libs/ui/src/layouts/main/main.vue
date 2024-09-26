@@ -2,7 +2,10 @@
 </script>
 
 <template>
-  <div class="min-h-full flex flex-col">
+  <div
+    class="min-h-full flex flex-col"
+    data-test="main-layout"
+  >
     <nav class="border-b border-gray-200 bg-white">
       <div class="mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 justify-between">

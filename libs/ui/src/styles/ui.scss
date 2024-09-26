@@ -4,3 +4,9 @@
 
 // Components
 @import "components/button";
+
+@layer base {
+  html, body, #root {
+    @apply h-full min-h-full
+  }
+}

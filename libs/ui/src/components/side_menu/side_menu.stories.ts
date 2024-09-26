@@ -1,4 +1,4 @@
-import SideMenu from './side_menu.vue'; // Asegúrate de ajustar la ruta
+import SideMenu from './side_menu.vue';
 import { Meta, StoryFn } from '@storybook/vue3';
 
 export default {
@@ -67,9 +67,9 @@ export const Default = Template.bind({});
 Default.args = {
   initialCollapsed: false,
   isResponsive: true,
-  logoSrc: 'https://via.placeholder.com/150x50', // Reemplaza con la ruta correcta
-  smallLogoSrc: 'https://via.placeholder.com/50', // Reemplaza con la ruta correcta
-  footerLogoSrc: 'https://via.placeholder.com/100x30', // Reemplaza con la ruta correcta
+  logoSrc: 'https://via.placeholder.com/150x50',
+  smallLogoSrc: 'https://via.placeholder.com/50',
+  footerLogoSrc: 'https://via.placeholder.com/100x30',
   links: [
     { text: 'General', icon: ['fas', 'home'], href: '#', isSelected: true },
     { text: 'Mi Perfil', icon: ['fas', 'user'], href: '#', isSelected: false },
@@ -86,9 +86,9 @@ export const Collapsed = Template.bind({});
 Collapsed.args = {
   initialCollapsed: true,
   isResponsive: true,
-  logoSrc: 'https://via.placeholder.com/150x50', // Reemplaza con la ruta correcta
-  smallLogoSrc: 'https://via.placeholder.com/50', // Reemplaza con la ruta correcta
-  footerLogoSrc: 'https://via.placeholder.com/100x30', // Reemplaza con la ruta correcta
+  logoSrc: 'https://via.placeholder.com/150x50',
+  smallLogoSrc: 'https://via.placeholder.com/50',
+  footerLogoSrc: 'https://via.placeholder.com/100x30',
   links: [
     { text: 'General', icon: ['fas', 'home'], href: '#', isSelected: true },
     { text: 'Mi Perfil', icon: ['fas', 'user'], href: '#', isSelected: false },
@@ -105,9 +105,9 @@ export const Mobile = Template.bind({});
 Mobile.args = {
   initialCollapsed: true,
   isResponsive: true,
-  logoSrc: 'https://via.placeholder.com/150x50', // Reemplaza con la ruta correcta
-  smallLogoSrc: 'https://via.placeholder.com/50', // Reemplaza con la ruta correcta
-  footerLogoSrc: 'https://via.placeholder.com/100x30', // Reemplaza con la ruta correcta
+  logoSrc: 'https://via.placeholder.com/150x50',
+  smallLogoSrc: 'https://via.placeholder.com/50',
+  footerLogoSrc: 'https://via.placeholder.com/100x30',
   links: [
     { text: 'General', icon: ['fas', 'home'], href: '#', isSelected: true },
     { text: 'Mi Perfil', icon: ['fas', 'user'], href: '#', isSelected: false },

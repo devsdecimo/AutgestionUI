@@ -6,7 +6,15 @@ import App from './App.vue';
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes: [
+    ...routes,
+    {
+      path: '/no-layout',
+      component: {
+        template: '<div>No Layout</div>'
+      }
+    }
+  ]
 })
 
 describe('App.vue', () => {
@@ -18,17 +26,25 @@ describe('App.vue', () => {
 
   it('renders a div when no layout is defined in route meta', async () => {
     await router.isReady();
-    router.push('/');
+    await router.push('/no-layout');
 
-    const divLayout = wrapper.get('div');
+    const divLayout = wrapper.find('div');
     expect(divLayout.isVisible()).toBe(true);
   })
 
-  it('renders the custom layout when layout is defined in route meta', async () => {
+  it('renders the main layout when layout is defined in route meta', async () => {
     await router.isReady();
-    router.push('/custom');
+    await router.push('/');
 
     const mainLayout = wrapper.get('[data-test=main-layout]');
     expect(mainLayout.isVisible()).toBe(true);
+  })
+
+  it('renders the auth layout when layout is defined in route meta', async () => {
+    await router.isReady();
+    await router.push('/login');
+
+    const authLayout = wrapper.get('[data-test=auth-layout]');
+    expect(authLayout.isVisible()).toBe(true);
   })
 })

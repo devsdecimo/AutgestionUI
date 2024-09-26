@@ -8,8 +8,7 @@
         <!-- Icono dependiendo del tipo -->
         <span v-if="iconType === 'html'" v-html="icon" class="icon-container"></span>
         <img v-else-if="iconType === 'image'" :src="icon" alt="Icon" class="icon-container" />
-        <i v-else-if="iconType === 'fontawesome'" :class="icon" class="icon-container"></i>
-
+        <FontAwesomeIcon v-else-if="iconType === 'fontawesome'" :icon="icon" class="icon-container"/>
         <!-- Muestra el label de la opción seleccionada o el placeholder -->
         <span class="ml-2 text-blue-600 font-semibold">
           {{ selectedLabel || placeholder }}
@@ -42,9 +41,13 @@
 
 <script lang="ts">
 import { defineComponent, ref, watch, onMounted } from 'vue';
+import { FontAwesomeIcon } from '../fontawesome/fontawesome';
 
 export default defineComponent({
   name: 'Dropdown',
+  components:{
+    FontAwesomeIcon,
+  },
   props: {
     options: {
       type: Array as () => { label: string; value: string | number }[],

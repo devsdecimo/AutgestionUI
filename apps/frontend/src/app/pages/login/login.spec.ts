@@ -1,9 +1,22 @@
 import { mount } from '@vue/test-utils';
+import { createRouter, createWebHistory } from 'vue-router'
+
+import { routes } from '../../routes/router';
 import Login from './login.vue';
 
+const router = createRouter({
+  history: createWebHistory(),
+  routes
+})
+
 describe('Login', () => {
+  const wrapper = mount(Login, {
+    global: {
+      plugins: [router]
+    }
+  });
+
   it('renders properly', () => {
-    const wrapper = mount(Login, {});
-    expect(wrapper.text()).toContain('Welcome to Login');
+    expect(wrapper.text()).toContain('Inicio de sesión');
   });
 });

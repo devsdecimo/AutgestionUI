@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "frontend:serve": "nx run frontend:serve",
+    "frontend:test": "nx run frontend:test",
     "ui:storybook": "nx run ui:storybook"
   },
   "private": true,

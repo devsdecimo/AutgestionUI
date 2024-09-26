@@ -1,9 +1,22 @@
 import { mount } from '@vue/test-utils';
+import { createRouter, createWebHistory } from 'vue-router'
+
+import { routes } from '../../routes/router';
 import Home from './home.vue';
 
-describe('Home', () => {
+const router = createRouter({
+  history: createWebHistory(),
+  routes
+})
+
+describe('Login', () => {
+  const wrapper = mount(Home, {
+    global: {
+      plugins: [router]
+    }
+  });
+
   it('renders properly', () => {
-    const wrapper = mount(Home, {});
-    expect(wrapper.text()).toContain('Welcome to Home');
+    expect(wrapper.text()).toContain('Ir a login');
   });
 });

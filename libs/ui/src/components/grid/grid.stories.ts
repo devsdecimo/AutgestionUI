@@ -13,13 +13,11 @@ export default {
     },
     columnsMd: {
       control: { type: 'number', min: 1, max: 12 },
-      description:
-        'Defines the number of columns in the grid for medium screens. Default is 8.',
+      description: 'Defines the number of columns in the grid for medium screens. Default is 8.',
     },
     columnsSm: {
       control: { type: 'number', min: 1, max: 12 },
-      description:
-        'Defines the number of columns in the grid for small screens. Default is 4.',
+      description: 'Defines the number of columns in the grid for small screens. Default is 4.',
     },
     gap: {
       control: { type: 'text' },
@@ -27,37 +25,37 @@ export default {
     },
     breakpointMd: {
       control: { type: 'text' },
-      description:
-        "Defines the breakpoint for medium screens. Default is '768px'.",
+      description: "Defines the breakpoint for medium screens. Default is '1024px'.",
     },
     breakpointSm: {
       control: { type: 'text' },
-      description:
-        "Defines the breakpoint for small screens. Default is '480px'.",
+      description: "Defines the breakpoint for small screens. Default is '768px'.",
     },
   },
   parameters: {
     docs: {
       description: {
         component: `
-\`Grid\` es un contenedor de diseño flexible que organiza sus elementos hijos en un sistema de cuadrícula con un número configurable de columnas y un espacio variable entre los elementos.
+**Grid** es un contenedor de diseño flexible que organiza sus elementos hijos en un sistema de cuadrícula con un número configurable de columnas y un espacio variable entre los elementos.
 
 ### Props:
-- **columns**: Define el número de columnas en la cuadrícula. Rango es \`1\` a \`12\`. Valor por defecto es \`12\`.
-- **columns_md**: Define el número de columnas en la cuadrícula para pantallas medianas. Rango es \`1\` a \`12\`. Valor por defecto es \`8\`.
-- **columns_sm**: Define el número de columnas en la cuadrícula para pantallas pequeñas. Rango es \`1\` a \`12\`. Valor por defecto es \`4\`.
-- **gap**: Define el espacio entre los elementos de la cuadrícula en unidades \`rem\`. Rango es \`0\` a \`5\`. Valor por defecto es \`0\`.
+- **columns**: Define el número de columnas en la cuadrícula. Rango: \`1\` a \`12\`. Valor predeterminado: \`12\`.
+- **columnsMd**: Número de columnas para pantallas medianas. Rango: \`1\` a \`12\`. Valor predeterminado: \`8\`.
+- **columnsSm**: Número de columnas para pantallas pequeñas. Rango: \`1\` a \`12\`. Valor predeterminado: \`4\`.
+- **gap**: Espacio entre elementos de la cuadrícula. Ejemplo: \`1rem\`, \`8px\`.
+- **breakpointMd**: Define el punto de ruptura para pantallas medianas. Predeterminado: \`1024px\`.
+- **breakpointSm**: Define el punto de ruptura para pantallas pequeñas. Predeterminado: \`768px\`.
 
-### Ejemplo de uso:
+### Ejemplo básico de uso:
 \`\`\`html
-<Grid :gap="1rem" :columns="12">
+<Grid :gap="'1rem'" :columns="12">
   <GridItem colSpan="1">
     <div class="box">Item 1</div>
   </GridItem>
-  <GridItem colSpan="1">
+  <GridItem colSpan="2">
     <div class="box">Item 2</div>
   </GridItem>
-  <GridItem colSpan="1">
+  <GridItem colSpan="3">
     <div class="box">Item 3</div>
   </GridItem>
 </Grid>
@@ -69,130 +67,33 @@ export default {
 } as Meta;
 
 // Template base
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template: StoryFn = (args: any) => ({
+const Template: StoryFn = (args) => ({
   components: { Grid, GridItem },
   setup() {
     return { args };
   },
   template: `
-    <Grid v-bind="args" >
-      <GridItem colSpan="1">
-        <div class="box" style="background: #cce7ff">Span 1</div>
+    <Grid v-bind="args">
+      <!-- Span de 1 a 12, con diferentes colores para cada tamaño -->
+       <GridItem v-for="i in 12" :key="'span-' + 1" :colSpan="1">
+        <div class="box" :style="{ background: getColor(1) }">Span {{ 1 }}</div>
       </GridItem>
-      <GridItem colSpan="1">
-        <div class="box" style="background: #b3d8ff">Span 1</div>
-      </GridItem>
-      <GridItem colSpan="1">
-        <div class="box" style="background: #99c9ff">Span 1</div>
-      </GridItem>
-      <GridItem colSpan="1">
-        <div class="box" style="background: #80baff">Span 1</div>
-      </GridItem>
-      <GridItem colSpan="1">
-        <div class="box" style="background: #66aaff">Span 1</div>
-      </GridItem>
-      <GridItem colSpan="1">
-        <div class="box" style="background: #4d9bff">Span 1</div>
-      </GridItem>
-      <GridItem colSpan="1">
-        <div class="box" style="background: #338cff">Span 1</div>
-      </GridItem>
-      <GridItem colSpan="1">
-        <div class="box" style="background: #197dff">Span 1</div>
-      </GridItem>
-      <GridItem colSpan="1">
-        <div class="box" style="background: #006eff">Span 1</div>
-      </GridItem>
-      <GridItem colSpan="1">
-        <div class="box" style="background: #005fcc">Span 1</div>
-      </GridItem>
-      <GridItem colSpan="1">
-        <div class="box" style="background: #004f99">Span 1</div>
-      </GridItem>
-      <GridItem colSpan="1">
-        <div class="box" style="background: #003f66">Span 1</div>
-      </GridItem>
-
-      <GridItem colSpan="2">
-        <div class="box" style="background: #ffcccc">Span 2</div>
-      </GridItem>
-      <GridItem colSpan="2">
-        <div class="box" style="background: #ff9999">Span 2</div>
-      </GridItem>
-      <GridItem colSpan="2">
-        <div class="box" style="background: #ff6666">Span 2</div>
-      </GridItem>
-      <GridItem colSpan="2">
-        <div class="box" style="background: #ff3333">Span 2</div>
-      </GridItem>
-      <GridItem colSpan="2">
-        <div class="box" style="background: #ff1a1a">Span 2</div>
-      </GridItem>
-      <GridItem colSpan="2">
-        <div class="box" style="background: #e60000">Span 2</div>
-      </GridItem>
-
-      <GridItem colSpan="3">
-        <div class="box" style="background: #ccffcc">Span 3</div>
-      </GridItem>
-      <GridItem colSpan="3">
-        <div class="box" style="background: #99e699">Span 3</div>
-      </GridItem>
-      <GridItem colSpan="3">
-        <div class="box" style="background: #66cc66">Span 3</div>
-      </GridItem>
-      <GridItem colSpan="3">
-        <div class="box" style="background: #33b333">Span 3</div>
-      </GridItem>
-
-      <GridItem colSpan="4">
-        <div class="box" style="background: #fff2b3">Span 4</div>
-      </GridItem>
-      <GridItem colSpan="4">
-        <div class="box" style="background: #ffdb4d">Span 4</div>
-      </GridItem>
-      <GridItem colSpan="4">
-        <div class="box" style="background: #ffc107">Span 4</div>
-      </GridItem>
-
-      <GridItem colSpan="5">
-        <div class="box" style="background: #d1b3ff">Span 5</div>
-      </GridItem>
-      <GridItem colSpan="5">
-        <div class="box" style="background: #a64dff">Span 5</div>
-      </GridItem>
-
-      <GridItem colSpan="6">
-        <div class="box" style="background: #ffd9b3">Span 6</div>
-      </GridItem>
-      <GridItem colSpan="6">
-        <div class="box" style="background: #ff8533">Span 6</div>
-      </GridItem>
-
-      <GridItem colSpan="7">
-        <div class="box" style="background: #ff99cc">Span 7</div>
-      </GridItem>
-      <GridItem colSpan="8">
-        <div class="box" style="background: #66ffff">Span 8</div>
-      </GridItem>
-      <GridItem colSpan="9">
-        <div class="box" style="background: #cc9966">Span 9</div>
-      </GridItem>
-      <GridItem colSpan="10">
-        <div class="box" style="background: #ccff33">Span 10</div>
-      </GridItem>
-      <GridItem colSpan="11">
-        <div class="box" style="background: #40e0d0">Span 11</div>
-      </GridItem>
-      <GridItem colSpan="12">
-        <div class="box" style="background: #b3b300">Span 12</div>
+      <GridItem v-for="i in 12" :key="'span-' + i" :colSpan="i">
+        <div class="box" :style="{ background: getColor(i) }">Span {{ i }}</div>
       </GridItem>
     </Grid>
   `,
+  methods: {
+    getColor(index: number) {
+      const colors = [
+        '#cce7ff', '#b3d8ff', '#99c9ff', '#80baff', '#66aaff', '#4d9bff', '#338cff', '#197dff', '#006eff', '#005fcc', '#004f99', '#003f66'
+      ];
+      return colors[index - 1] || '#000';
+    },
+  },
 });
 
-// Default Story
+// Historia por defecto que muestra todos los tamaños de `colSpan` de 1 a 12
 export const Default = Template.bind({});
 Default.args = {
   columns: 12,
@@ -203,27 +104,108 @@ Default.args = {
   breakpointMd: '1024px',
 };
 
-// Grid con offsets
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const WithOffsets = (args: any) => ({
+// Historia con uso de offsets en los elementos
+export const WithOffsets: StoryFn = (args) => ({
   components: { Grid, GridItem },
   setup() {
     return { args };
   },
   template: `
     <Grid v-bind="args">
-       <GridItem colSpan="1" offsetLeft="1">
-        <div class="box" style="background: #cce7ff">Span 1 +<br>Offset 1</div>
+      <GridItem colSpan="2" offsetLeft="2">
+        <div class="box" style="background: #ffcccc">Span 2 + Offset 2</div>
       </GridItem>
-      <GridItem colSpan="3" offsetLeft="2">
-        <div class="box" style="background: #b3d8ff">Span3 + Offset 2</div>
+      <GridItem colSpan="3" offsetLeft="3">
+        <div class="box" style="background: #ff9999">Span 3 + Offset 3</div>
       </GridItem>
       <GridItem colSpan="4" offsetLeft="4">
-        <div class="box" style="background: #99c9ff">Span 4 + Offset 4</div>
-      </GridItem>
-      <GridItem colSpan="5" offsetLeft="7">
-        <div class="box" style="background: #80baff">Span 5 + Offset7</div>
+        <div class="box" style="background: #ff6666">Span 4 + Offset 4</div>
       </GridItem>
     </Grid>
   `,
 });
+
+// Historia con un grid adaptativo para diferentes tamaños de pantalla
+export const ResponsiveGrid: StoryFn = (args) => ({
+  components: { Grid, GridItem },
+  setup() {
+    return { args };
+  },
+  template: `
+    <Grid v-bind="args">
+      <!-- Items para 12 columnas -->
+      <GridItem colSpan="4">
+        <div class="box" style="background: #ffeb99">Span 4 (12 col)</div>
+      </GridItem>
+      <GridItem colSpan="4">
+        <div class="box" style="background: #ffe066">Span 4 (12 col)</div>
+      </GridItem>
+      <GridItem colSpan="4">
+        <div class="box" style="background: #ffd633">Span 4 (12 col)</div>
+      </GridItem>
+      <!-- Items para 8 columnas (medium screen) -->
+      <GridItem colSpan="2">
+        <div class="box" style="background: #cce7ff">Span 2 (8 col)</div>
+      </GridItem>
+      <GridItem colSpan="2">
+        <div class="box" style="background: #b3d8ff">Span 2 (8 col)</div>
+      </GridItem>
+      <GridItem colSpan="2">
+        <div class="box" style="background: #99c9ff">Span 2 (8 col)</div>
+      </GridItem>
+      <GridItem colSpan="2">
+        <div class="box" style="background: #80baff">Span 2 (8 col)</div>
+      </GridItem>
+      <!-- Items para 4 columnas (small screen) -->
+      <GridItem colSpan="1">
+        <div class="box" style="background: #66aaff">Span 1 (4 col)</div>
+      </GridItem>
+      <GridItem colSpan="1">
+        <div class="box" style="background: #4d9bff">Span 1 (4 col)</div>
+      </GridItem>
+      <GridItem colSpan="1">
+        <div class="box" style="background: #338cff">Span 1 (4 col)</div>
+      </GridItem>
+      <GridItem colSpan="1">
+        <div class="box" style="background: #197dff">Span 1 (4 col)</div>
+      </GridItem>
+    </Grid>
+  `,
+});
+ResponsiveGrid.args = {
+  columns: 12,
+  columnsMd: 8,
+  columnsSm: 4,
+  gap: '1rem',
+  breakpointSm: '768px',
+  breakpointMd: '1024px',
+};
+
+// Historia con un gap grande para observar la separación entre elementos
+export const LargeGap: StoryFn = (args) => ({
+  components: { Grid, GridItem },
+  setup() {
+    return { args };
+  },
+  template: `
+    <Grid v-bind="args">
+      <GridItem colSpan="2">
+        <div class="box" style="background: #ccffcc">Span 2</div>
+      </GridItem>
+      <GridItem colSpan="4">
+        <div class="box" style="background: #99e699">Span 4</div>
+      </GridItem>
+      <GridItem colSpan="6">
+        <div class="box" style="background: #66cc66">Span 6</div>
+      </GridItem>
+    </Grid>
+  `,
+});
+LargeGap.args = {
+  columns: 12,
+  columnsMd: 8,
+  columnsSm: 4,
+  gap: '2rem',
+  breakpointSm: '768px',
+  breakpointMd: '1024px',
+};

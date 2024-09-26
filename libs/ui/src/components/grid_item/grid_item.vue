@@ -5,14 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import {
-  defineProps,
-  computed,
-  inject,
-  ref,
-  onMounted,
-  onUnmounted,
-} from 'vue';
+import { defineProps, computed, inject, ref, onMounted, onUnmounted } from 'vue';
 
 interface Columns {
   columns: number;
@@ -51,6 +44,16 @@ const props = defineProps({
     default: 1,
     validator: (value: number) => Number(value) > 0 && Number(value) <= 12,
   },
+  colSpanMd: {
+    type: [Number, String],
+    default: 2, // Valor por defecto para dispositivos medianos
+    validator: (value: number) => Number(value) > 0 && Number(value) <= 12,
+  },
+  colSpanSm: {
+    type: [Number, String],
+    default: 4, // Valor por defecto para dispositivos pequeños
+    validator: (value: number) => Number(value) > 0 && Number(value) <= 12,
+  },
   offsetLeft: {
     type: [Number, String],
     default: 0,
@@ -83,43 +86,42 @@ const gridItemClass = computed(() => ({
   'grid-item': true,
 }));
 
+// Función para obtener los valores de gap y su unidad.
+const getGapValues = (value: string) => {
+  const match = value.match(/^(\d+(\.\d+)?)([a-zA-Z%]+)$/);
+
+  if (match) {
+    return {
+      value: parseFloat(match[1]), // Valor numérico del gap.
+      unit: match[3], // Unidad del gap (px, rem, etc).
+    };
+  }
+  return null;
+};
+
 // Computed para los estilos del grid item adaptados a los breakpoints.
 const itemStyles = computed(() => {
   let currentColumns = columns;
+  let colSpan = Number(props.colSpan);
 
-  // Ajustar el número de columnas según el ancho de la ventana.
+  // Ajustar el número de columnas y colSpan según el ancho de la ventana.
   if (windowWidth.value <= parseInt(breakpointSm)) {
     currentColumns = columnsSm;
+    colSpan = Number(props.colSpanSm) > currentColumns ? currentColumns : Number(props.colSpanSm);
   } else if (windowWidth.value <= parseInt(breakpointMd)) {
     currentColumns = columnsMd;
+    colSpan = Number(props.colSpanMd) > currentColumns ? currentColumns : Number(props.colSpanMd);
   }
 
-  const colSpan =
-    Number(props.colSpan) > currentColumns
-      ? currentColumns
-      : Number(props.colSpan);
   const offsetLeft = Number(props.offsetLeft);
 
   if (offsetLeft + colSpan > currentColumns) {
     return {
       gridColumn: `span ${colSpan}`,
       order: Number(props.order).toString(),
-      marginTop: '1rem',
       marginLeft: `0%`,
     };
   }
-
-  const getGapValues = (value: string) => {
-    const match = value.match(/^(\d+(\.\d+)?)([a-zA-Z%]+)$/);
-
-    if (match) {
-      return {
-        value: parseFloat(match[1]),
-        unit: match[3],
-      };
-    }
-    return null;
-  };
 
   const gapValues = getGapValues(gap);
 
@@ -127,27 +129,18 @@ const itemStyles = computed(() => {
 
   let gapOnOffset = '0';
   let gapValue = 0;
-  let gapUnit = 'px'
-  if (gapValues !=null) {
+  let gapUnit = 'px';
+  if (gapValues != null) {
     gapValue = gapValues?.value;
     gapUnit = gapValues?.unit;
   }
   gapOnOffset = offsetLeft > 0 ? `${gapValue / Math.abs(totalSpan - offsetLeft)}${gapUnit}` : '0';
-  
 
   const marginLeft =
     windowWidth.value > parseInt(breakpointSm)
       ? `calc(${(offsetLeft * 100) / totalSpan}% + ${gapOnOffset})`
       : '0%';
 
-      console.log(
-        {
-    gridColumn: `span ${totalSpan}`,
-    marginLeft,
-    order: Number(props.order).toString(),
-  }
-      );
-      
   return {
     gridColumn: `span ${totalSpan}`,
     marginLeft,

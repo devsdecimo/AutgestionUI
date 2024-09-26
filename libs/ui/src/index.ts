@@ -1,3 +1,6 @@
+import '@fortawesome/fontawesome-free/css/all.min.css';
+export { default as Dropdown } from './components/dropdown/dropdown.vue';
+export { default as TextWithIcon } from './components/text_with_icon/text_with_icon.vue';
 // Layouts
 export { default as MainLayout } from './layouts/main/main.vue';
 export { default as AuthLayout } from './layouts/auth/auth.vue';

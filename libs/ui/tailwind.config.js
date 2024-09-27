@@ -20,7 +20,7 @@ const config = {
         success: '#06C270',
         light: '#FAFAFC',
         light_gray: '#C7C9D9',
-        gray: '#8F90A6',
+        base_gray: '#8F90A6',
         dark_gray: '#6B7588',
         dark: '#3A3A3C',
       }

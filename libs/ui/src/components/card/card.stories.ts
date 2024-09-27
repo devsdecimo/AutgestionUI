@@ -13,7 +13,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: `Este componente sirve para crear una card con un listado de datos, cada uno de los cuales tiene un titulo y un contenido.`,
+        component: `Este componente sirve para crear una card con contenido custom. Tiene slots para header (que puede funcionar como carousel o no), footer, content y right icon, cada slot tiene un prop booleano que lo activa o desactiva.`,
       },
     },
   },

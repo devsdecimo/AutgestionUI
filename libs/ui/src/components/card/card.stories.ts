@@ -2,6 +2,7 @@ import Card from './card.vue';
 import { Meta, StoryFn } from '@storybook/vue3';
 import { FontAwesomeIcon } from '../fontawesome/fontawesome';
 
+
 export default {
   title: 'Components/Card',
   component: Card,

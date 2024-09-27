@@ -8,12 +8,12 @@ const meta: Meta = {
     },
     type: {
       control: 'select',
-      options: ['default', 'primary', 'success', 'warning', 'danger']
+      options: ['default', 'main', 'success', 'warning', 'danger']
     },
   },
   args: {
     label: 'Button',
-    type: 'primary'
+    type: 'main'
   },
 };
 

@@ -9,3 +9,4 @@ export { default as Grid } from './components/grid/grid.vue';
 export { default as StyledButton } from './components/styled_button/styled_button.vue';
 export { default as Dropdown } from './components/dropdown/dropdown.vue';
 export { default as TextWithIcon } from './components/text_with_icon/text_with_icon.vue';
+export { default as SideMenu } from './components/side_menu/side_menu.vue';

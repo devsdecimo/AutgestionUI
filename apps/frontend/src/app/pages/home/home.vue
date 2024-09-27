@@ -6,8 +6,8 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 <template>
   <div class="flex justify-center space-x-2">
     <button>Default</button>
-    <button class="btn--primary">
-      Primary
+    <button class="btn--main">
+      Main
     </button>
     <button class="btn--success">
       Success
@@ -15,7 +15,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
     <button class="btn--warning">
       Warning
     </button>
-    <button class="btn--danger">
+    <button class="btn--error">
       Danger
     </button>
   </div>

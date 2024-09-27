@@ -8,7 +8,7 @@ const meta: Meta = {
     },
     type: {
       control: 'select',
-      options: ['default', 'main', 'success', 'warning', 'danger']
+      options: ['default', 'main', 'success', 'warning', 'error']
     },
   },
   args: {

@@ -14,7 +14,7 @@ export default {
   argTypes: {
     skin: {
       control: { type: 'select' },
-      options: ['primary', 'secondary', 'inactive'],
+      options: ['main', 'secondary', 'inactive'],
     },
     disabled: { control: { type: 'boolean' } },
   },
@@ -30,7 +30,7 @@ const Template: StoryFn = (args) => ({
 
 export const Primary = Template.bind({});
 Primary.args = {
-  skin: 'primary',
+  skin: 'main',
   disabled: false,
   default: 'Botón Primario',
 };

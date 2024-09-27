@@ -7,7 +7,7 @@
         'w-64': !isCollapsed, 
         'absolute': isResponsive, 
         'top-0 left-0': isResponsive, 
-        'hidden sm:flex': isMobileCollapsed 
+        'hidden sm:flex': isMobileCollapsed && isResponsive 
       } 
     ]"
   >
@@ -74,7 +74,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch } from 'vue';
+import { defineComponent, ref, watch, onMounted, onUnmounted } from 'vue';
 import { FontAwesomeIcon } from '../fontawesome/fontawesome';
 
 export default defineComponent({
@@ -115,7 +115,7 @@ export default defineComponent({
   },
   setup(props) {
     const isCollapsed = ref(props.initialCollapsed);
-    const isMobileCollapsed = ref(false);
+    const isMobileCollapsed = ref(window.innerWidth < 640); // Comienza colapsado en mobile
 
     // Método para cambiar el estado de colapso del menú
     const toggleMenu = () => {
@@ -133,8 +133,14 @@ export default defineComponent({
     });
 
     // Listener para cambios en el tamaño de la ventana
-    window.addEventListener('resize', updateMobileView);
-    updateMobileView(); // Llamar al cargar el componente
+    onMounted(() => {
+      window.addEventListener('resize', updateMobileView);
+      updateMobileView(); // Llamar al cargar el componente
+    });
+
+    onUnmounted(() => {
+      window.removeEventListener('resize', updateMobileView);
+    });
 
     return {
       isCollapsed,
@@ -146,5 +152,4 @@ export default defineComponent({
 </script>
 
 <style scoped>
-/* Se eliminan los estilos tradicionales para utilizar exclusivamente Tailwind */
 </style>

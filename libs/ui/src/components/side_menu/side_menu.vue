@@ -19,7 +19,7 @@
       
       <!-- Botón de abrir/cerrar el menú -->
       <button
-        class="absolute right-4 bg-transparent text-blue-500 p-0 hover:text-blue-600 focus:outline-none transform transition-transform duration-300"
+        class="absolute right-4 bg-transparent text-main p-0 hover:text-primary focus:outline-none transform transition-transform duration-300"
         @click="toggleMenu"
       >
         <FontAwesomeIcon :icon="isCollapsed ? ['fas', 'chevron-right'] : ['fas', 'times']" />
@@ -32,20 +32,19 @@
         v-for="(link, index) in links"
         :key="index"
         :class="[ 
-          'group flex items-center px-4 py-3 transition-colors duration-200 cursor-pointer relative',
-          { 'text-blue-500 font-semibold': link.isSelected, 'hover:bg-gray-100': !link.isSelected }
+          'group flex items-center px-4 py-3 transition-colors duration-200 cursor-pointer relative hover:bg-light',
         ]"
       >
         <span
           v-if="link.isSelected"
-          class="absolute left-0 h-full w-1 bg-blue-500 rounded-tr rounded-br"
+          class="absolute left-0 h-full w-1 bg-main rounded-tr rounded-br"
         ></span>
         <a
           :href="link.href"
-          class="flex items-center w-full space-x-4"
+          :class="['flex items-center w-full space-x-4', {'justify-center': isCollapsed}]"
         >
-          <FontAwesomeIcon :icon="link.icon" class="text-gray-500 group-hover:text-blue-600 transition-colors duration-200" />
-          <span v-if="!isCollapsed" class="text-sm text-gray-700 group-hover:text-blue-600 transition-colors duration-200">{{ link.text }}</span>
+          <FontAwesomeIcon :icon="link.icon" class="text-base_gray group-hover:text-main transition-colors duration-200" />
+          <span v-if="!isCollapsed" class="text-sm text-base_gray group-hover:text-main transition-colors duration-200">{{ link.text }}</span>
         </a>
       </li>
     </ul>
@@ -54,9 +53,9 @@
     <div class="p-4 flex flex-col items-center">
       <a
         href="#"
-        class="flex items-center text-sm text-gray-700 hover:text-red-600 transition-colors duration-200 mb-4"
+        class="flex items-center text-sm text-dark_gray hover:text-error transition-colors duration-200 mb-4"
       >
-        <FontAwesomeIcon :icon="['fas', 'sign-out-alt']" class="text-gray-500 mr-2" />
+        <FontAwesomeIcon :icon="['fas', 'sign-out-alt']" class="text-base_gray mr-2" />
         <span v-if="!isCollapsed">Cerrar Sesión</span>
       </a>
       <img v-if="!isCollapsed" :src="footerLogoSrc" alt="Footer Logo" class="h-6" /> <!-- Logo en el pie del menú -->
@@ -66,7 +65,7 @@
   <!-- Botón flotante para abrir el menú en dispositivos móviles -->
   <button
     v-if="isMobileCollapsed"
-    class="fixed top-4 left-4 bg-transparent text-blue-500 p-0 hover:text-blue-600 focus:outline-none sm:hidden z-50"
+    class="fixed top-4 left-4 bg-transparent text-main p-0 hover:text-primary focus:outline-none sm:hidden z-50"
     @click="toggleMenu"
   >
     <FontAwesomeIcon :icon="['fas', 'bars']" class="text-2xl" />

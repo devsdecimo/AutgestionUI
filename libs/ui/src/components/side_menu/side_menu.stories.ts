@@ -100,22 +100,3 @@ Collapsed.args = {
     { text: 'Tiempo', icon: ['fas', 'clock'], href: '#', isSelected: false },
   ],
 };
-
-export const Mobile = Template.bind({});
-Mobile.args = {
-  initialCollapsed: true,
-  isResponsive: true,
-  logoSrc: 'https://via.placeholder.com/150x50',
-  smallLogoSrc: 'https://via.placeholder.com/50',
-  footerLogoSrc: 'https://via.placeholder.com/100x30',
-  links: [
-    { text: 'General', icon: ['fas', 'home'], href: '#', isSelected: true },
-    { text: 'Mi Perfil', icon: ['fas', 'user'], href: '#', isSelected: false },
-    { text: 'Acciones', icon: ['fas', 'clipboard'], href: '#', isSelected: false },
-    { text: 'Vacaciones', icon: ['fas', 'plane'], href: '#', isSelected: false },
-    { text: 'Permisos', icon: ['fas', 'calendar-check'], href: '#', isSelected: false },
-    { text: 'Salarios', icon: ['fas', 'money-bill'], href: '#', isSelected: false },
-    { text: 'Gestiones', icon: ['fas', 'tasks'], href: '#', isSelected: false },
-    { text: 'Tiempo', icon: ['fas', 'clock'], href: '#', isSelected: false },
-  ],
-};

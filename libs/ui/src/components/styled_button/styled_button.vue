@@ -17,8 +17,8 @@ export default defineComponent({
   props: {
     skin: {
       type: String,
-      default: 'primary',  
-      validator: (value: string) => ['primary', 'secondary', 'inactive'].includes(value),
+      default: 'main',  
+      validator: (value: string) => ['main', 'secondary', 'inactive'].includes(value),
     },
     disabled: {
       type: Boolean,
@@ -29,7 +29,7 @@ export default defineComponent({
   setup(props, { emit }) {
     const buttonClass = computed(() => {
       switch (props.skin) {
-        case 'primary':
+        case 'main':
           return 'bg-blue-500 text-white hover:bg-blue-500';
         case 'secondary':
           return 'bg-gray-300 text-gray-700 hover:bg-gray-400';

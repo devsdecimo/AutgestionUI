@@ -13,10 +13,16 @@ const config = {
   theme: {
     extend: {
       colors: {
-        primary: blue['500'],
-        success: green['500'],
-        warning: yellow['500'],
-        danger: red['500'],
+        main: '#3377FF',
+        error: '#FF3B3B',
+        warning: '#F2C94C',
+        info: '#0063F7',
+        success: '#06C270',
+        light: '#FAFAFC',
+        light_gray: '#C7C9D9',
+        gray: '#8F90A6',
+        dark_gray: '#6B7588',
+        dark: '#3A3A3C',
       }
     },
   },

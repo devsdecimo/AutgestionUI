@@ -1,11 +1,6 @@
 import Card from './card.vue';
 import { Meta, StoryFn } from '@storybook/vue3';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-import { library } from '@fortawesome/fontawesome-svg-core'; // Asegúrate de importar la librería
-
-// Agrega los íconos a la librería global de FontAwesome
-library.add(fas);
+import { FontAwesomeIcon } from '../fontawesome/fontawesome';
 
 export default {
   title: 'Components/Card',
@@ -41,19 +36,25 @@ const Template: StoryFn = (args) => ({
   template: `
     <Card v-bind="args">
       <template #header>
-        <h3>Este es el header</h3>
+      <div class="flex justify-center flex-col">
+        <FontAwesomeIcon :icon="'fas fa-house'" class="text-white"></FontAwesomeIcon>
+        <h3 class="text-center">Persona</h3>
+      </div>
+
       </template>
       <template #principal-content>
+        <p class="font-semibold">Encabezado</p>
         <p>Contenido principal de la card.</p>
+        <p class="font-semibold">Encabezado</p>
         <p>Contenido principal de la card.</p>
-        <p>Contenido principal de la card.</p>
+        <p class="font-semibold">Encabezado</p>
         <p>Contenido principal de la card.</p>
       </template>
       <template #footer>
         <p>Este es el footer</p>
       </template>
       <template #right-icon>
-        <FontAwesomeIcon :icon="['fas', 'house']" class="text-white"></FontAwesomeIcon>
+        <FontAwesomeIcon :icon="'fas fa-house'" class="text-white"></FontAwesomeIcon>
       </template>
     </Card>
   `,

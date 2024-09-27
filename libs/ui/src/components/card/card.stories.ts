@@ -1,5 +1,11 @@
 import Card from './card.vue';
 import { Meta, StoryFn } from '@storybook/vue3';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core'; // Asegúrate de importar la librería
+
+// Agrega los íconos a la librería global de FontAwesome
+library.add(fas);
 
 export default {
   title: 'Components/Card',
@@ -12,82 +18,76 @@ export default {
     },
   },
   argTypes: {
-    skin: {
-      control: { type: 'select' },
-      options: ['primary', 'withHeader', 'withRightIcon', 'inactive'],
+    withHeader: {
+      control:'boolean',
     },
-    icon: { control: 'text' },
-    iconType: { control: { type: 'select'}, options: ['html', 'image', 'fontawesome'] } ,
-    title: { control: 'text'},
-
+    withFooter: {
+      control:'boolean',
+    },
+    withRightIcon: {
+      control:'boolean',
+    },
+    isDropdown: {
+      control:'boolean',
+    },
   },
 } as Meta;
 
 const Template: StoryFn = (args) => ({
-  components: { Card },
+  components: { Card, FontAwesomeIcon },
   setup() {
     return { args };
   },
-  template: '<Card v-bind="args"></Card>',
+  template: `
+    <Card v-bind="args">
+      <template #header>
+        <h3>Este es el header</h3>
+      </template>
+      <template #principal-content>
+        <p>Contenido principal de la card.</p>
+        <p>Contenido principal de la card.</p>
+        <p>Contenido principal de la card.</p>
+        <p>Contenido principal de la card.</p>
+      </template>
+      <template #footer>
+        <p>Este es el footer</p>
+      </template>
+      <template #right-icon>
+        <FontAwesomeIcon :icon="['fas', 'house']" class="text-white"></FontAwesomeIcon>
+      </template>
+    </Card>
+  `,
 });
 
 export const Primary = Template.bind({});
-Primary.args = {
-  skin: 'primary',
+Primary.args = {};
+
+export const WithHeader = Template.bind({});
+WithHeader.args = {
+  withHeader: true,
 };
 
-export const WithHeaderFontAwesome = Template.bind({});
-WithHeaderFontAwesome.args = {
-  skin: 'withHeader',
+export const Dropdown = Template.bind({});
+Dropdown.args = {
+  isDropdown: true,
+  withHeader: true
 };
 
-export const WithHeaderHTML = Template.bind({});
-WithHeaderHTML.args = {
-  skin: 'withHeader',
-  iconType: 'html',
-  icon: `
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler icon-tabler-map-pin m-auto" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-      <circle cx="12" cy="11" r="3" />
-      <path d="M12 2a7 7 0 0 0 7 7c0 4 -7 13 -7 13s-7 -9 -7 -13a7 7 0 0 0 7 -7" />
-    </svg>
-  `,
-
+export const WithFooter = Template.bind({});
+WithFooter.args = {
+  withFooter: true,
 };
 
-export const WithHeaderImage = Template.bind({});
-WithHeaderImage.args = {
-  skin: 'withHeader',
-  iconType: 'image',
-  icon: 'https://via.placeholder.com/24', // Ruta de imagen
+export const WithRightIcon = Template.bind({});
+WithRightIcon.args = {
+  withRightIcon: true,
 };
 
-export const WithRightIconFontAwesome = Template.bind({});
-WithRightIconFontAwesome.args = {
-  skin: 'withRightIcon',
+
+export const WithHeaderAndFooter = Template.bind({});
+WithHeaderAndFooter.args = {
+  withHeader: true,
+  withFooter:true
 };
 
-export const WithRightIconHTML = Template.bind({});
-WithRightIconHTML.args = {
-  skin: 'withRightIcon',
-  iconType: 'html',
-  icon: `
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler icon-tabler-map-pin m-auto" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-      <circle cx="12" cy="11" r="3" />
-      <path d="M12 2a7 7 0 0 0 7 7c0 4 -7 13 -7 13s-7 -9 -7 -13a7 7 0 0 0 7 -7" />
-    </svg>
-  `,
-};
 
-export const WithRightIconImage = Template.bind({});
-WithRightIconImage.args = {
-  skin: 'withRightIcon',
-  iconType: 'image',
-  icon: 'https://via.placeholder.com/24', // Ruta de imagen
-};
-
-export const Inactive = Template.bind({});
-Inactive.args = {
-  skin: 'inactive',
-};

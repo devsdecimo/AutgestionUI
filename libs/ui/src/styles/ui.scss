@@ -4,8 +4,9 @@
 
 // Components
 @import "components/button";
-@import "components/icon-pill";
 @import "components/card";
+@import "components/select";
+@import "components/icon-pill";
 
 @layer base {
   html, body, #root {

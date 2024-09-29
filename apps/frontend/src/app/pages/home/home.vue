@@ -1,5 +1,41 @@
 <script setup lang="ts">
+// Types
+import type { DropdownOption } from '@ventura/ui';
+
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { Dropdown } from '@ventura/ui';
+
+const dropdownOptions: DropdownOption[] = [{
+  label: 'Option 1',
+  value: 1,
+}, {
+  label: 'Option 2',
+  value: 2
+}, {
+  label: 'Option 3',
+  value: 3
+}, {
+  label: 'Option 4',
+  value: 4
+}, {
+  label: 'Option 5',
+  value: 5
+}, {
+  label: 'Option 6',
+  value: 6
+}, {
+  label: 'Option 7',
+  value: 7
+}, {
+  label: 'Option 8',
+  value: 8
+}, {
+  label: 'Option 9',
+  value: 9
+}, {
+  label: 'Option 10',
+  value: 10
+}]
 </script>
 
 <template>
@@ -222,6 +258,80 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="col-start-1 col-span-3 space-y-4">
+      <select
+        id="normal"
+        name="normal"
+        class="select"
+      >
+        <option value="1">
+          Lorem
+        </option>
+        <option value="3">
+          Ipsum
+        </option>
+      </select>
+
+      <select
+        id="styled"
+        name="styled"
+        class="select--main"
+      >
+        <option value="1">
+          Lorem
+        </option>
+        <option value="3">
+          Ipsum
+        </option>
+      </select>
+
+      <div class="select--with-icon">
+        <FontAwesomeIcon :icon="['fas', 'fa-dollar-sign']" />
+        <select
+          id="styled"
+          name="styled"
+          class="select"
+        >
+          <option value="1">
+            Lorem
+          </option>
+          <option value="3">
+            Ipsum
+          </option>
+        </select>
+      </div>
+
+      <div class="select--with-icon">
+        <FontAwesomeIcon :icon="['fas', 'fa-dollar-sign']" />
+        <select
+          id="styled"
+          name="styled"
+          class="select--main"
+        >
+          <option value="1">
+            Lorem
+          </option>
+          <option value="3">
+            Ipsum
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-span-3 space-y-4">
+      <Dropdown
+        :options="dropdownOptions"
+        :value="dropdownOptions[3]"
+        @on-option-selected="(option) => { console.log(option) }"
+      />
+
+      <Dropdown
+        :options="dropdownOptions"
+        :icon="['fas', 'fa-dollar-sign']"
+        @on-option-selected="(option) => { console.log(option) }"
+      />
     </div>
   </div>
 

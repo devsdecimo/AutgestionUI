@@ -5,9 +5,10 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 // Types
 import type { SideMenuProps } from '../../types/side-menu';
 
-const props = defineProps<SideMenuProps>()
+const props = defineProps<SideMenuProps>();
 
 const isCollapsed = ref(props.isMobile);
+
 const toggleMenu = () => isCollapsed.value = !isCollapsed.value;
 
 defineExpose({

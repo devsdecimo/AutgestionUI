@@ -41,12 +41,12 @@
 
 <script lang="ts">
 import { defineComponent, ref, watch, onMounted } from 'vue';
-import { FontAwesomeIcon } from '../fontawesome/fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 export default defineComponent({
   name: 'Dropdown',
-  components:{
-    FontAwesomeIcon,
+  components: {
+    FontAwesomeIcon
   },
   props: {
     options: {
@@ -67,11 +67,11 @@ export default defineComponent({
     },
     icon: {
       type: String,
-      required: true, 
+      required: true,
     },
     iconType: {
       type: String,
-      default: 'html', 
+      default: 'html',
       validator: (value: string) => ['html', 'image', 'fontawesome'].includes(value),
     },
   },

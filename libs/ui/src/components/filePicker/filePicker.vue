@@ -107,7 +107,6 @@ let isFirstClick = true;
 
 // Abrir el modal y manejar la subida
 const triggerFileInput = () => {
-  console.log('click');
   if (isFirstClick) {
     isFirstClick = false;
   } else {
@@ -117,10 +116,8 @@ const triggerFileInput = () => {
 
 // Manejar el archivo seleccionado
 const handleFileChange = (event: Event) => {
-  console.log('se disparo evento handle file change');
   const target = event.target as HTMLInputElement;
   file.value = target.files?.[0] || null; // Manejar archivos
-  console.log(file.value)
   if (file.value) {
     showModal.value = true;
   }

@@ -11,14 +11,14 @@ const emit = defineEmits(['onOptionSelected']);
 
 const dropdown = ref(null);
 const isOpen = ref(false);
-const selected = ref<DropdownOption>(props.value || props.options[0]);
+const selected = ref<DropdownOption | null>(props.value || null);
 
 const toggleDropdown = () => isOpen.value = !isOpen.value;
 
 onClickOutside(dropdown, () => isOpen.value = false);
 
-const selectOption = (option: DropdownOption) => {
-  selected.value = option;
+const selectOption = (option?: DropdownOption) => {
+  selected.value = option || null;
   isOpen.value = false;
   emit('onOptionSelected', option);
 }
@@ -41,7 +41,7 @@ const selectOption = (option: DropdownOption) => {
       class="select--main"
       @click="toggleDropdown"
     >
-      {{ selected.label }}
+      {{ selected?.label || 'Seleccione una opción...' }}
     </div>
 
     <div
@@ -50,10 +50,16 @@ const selectOption = (option: DropdownOption) => {
     >
       <ul class="dropdown__menu">
         <li
+          class="dropdown__menu-item text-dark-3"
+          @click="selectOption()"
+        >
+          N/A
+        </li>
+        <li
           v-for="(option, index) in options"
           :key="index"
           class="dropdown__menu-item"
-          :class="{ active: option.value === selected.value }"
+          :class="{ active: option.value === selected?.value }"
           @click="selectOption(option)"
         >
           {{ option.label }}

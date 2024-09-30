@@ -12,6 +12,10 @@
 
       &--#{$variant} {
         @apply card bg-#{$variant} text-white #{!important};
+
+        .card__footer {
+          @apply border-light/20;
+        }
       }
     }
 

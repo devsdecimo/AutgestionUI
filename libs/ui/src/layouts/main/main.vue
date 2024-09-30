@@ -32,7 +32,7 @@ const mobileSideMenu = useTemplateRef<typeof SideMenu>('mobile-side-menu')
       <header>
         <TopBar
           :is-mobile-menu-visible="mobileSideMenu?.isCollapsed"
-          @click="mobileSideMenu?.toggleMenu()"
+          @on-toggle-click="mobileSideMenu?.toggleMenu()"
         />
         <div class="side-menu__mobile-container">
           <SideMenu

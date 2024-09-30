@@ -34,7 +34,7 @@ const selectOption = (option?: DropdownOption) => {
   >
     <FontAwesomeIcon
       v-if="!!icon"
-      :icon="['fas', 'fa-dollar-sign']"
+      :icon="icon"
     />
 
     <div

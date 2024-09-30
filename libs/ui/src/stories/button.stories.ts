@@ -8,7 +8,7 @@ const meta: Meta = {
     },
     type: {
       control: 'select',
-      options: ['default', 'main', 'success', 'warning', 'error']
+      options: ['default', 'main', 'info', 'success', 'warning', 'error']
     },
   },
   args: {
@@ -21,7 +21,7 @@ export default meta;
 
 type Story = StoryObj;
 
-export const Button: Story = {
+export const Variants: Story = {
   render: (args) => ({
     setup() {
       return { args };
@@ -30,5 +30,17 @@ export const Button: Story = {
       getButtonClass() { return `btn--${args.type}` }
     },
     template: `<button :class="getButtonClass">{{ args.label }}</button>`,
+  })
+};
+
+export const Disabled: Story = {
+  render: (args) => ({
+    setup() {
+      return { args };
+    },
+    computed: {
+      getButtonClass() { return `btn--${args.type}` }
+    },
+    template: `<button :class="getButtonClass" disabled>{{ args.label }}</button>`,
   })
 };

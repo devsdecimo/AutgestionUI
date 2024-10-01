@@ -1,149 +1,92 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+import { onClickOutside } from '@vueuse/core';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+// Types
+import type { DropdownProps, DropdownOption } from '../../types/dropdown';
+
+const props = defineProps<DropdownProps>();
+const emit = defineEmits(['onOptionSelected']);
+
+const dropdown = ref(null);
+const isOpen = ref(false);
+const selected = ref<DropdownOption | null>(props.value || null);
+
+const toggleDropdown = () => isOpen.value = !isOpen.value;
+
+onClickOutside(dropdown, () => isOpen.value = false);
+
+const selectOption = (option?: DropdownOption) => {
+  selected.value = option || null;
+  isOpen.value = false;
+  emit('onOptionSelected', option);
+}
+</script>
+
 <template>
-  <div class="dropdown-container relative">
+  <div
+    ref="dropdown"
+    class="dropdown"
+    :class="{
+      'select--with-icon': !!icon
+    }"
+  >
+    <FontAwesomeIcon
+      v-if="!!icon"
+      :icon="icon"
+    />
+
     <div
-      class="dropdown-button flex items-center p-4 bg-white rounded-full shadow-md cursor-pointer justify-between"
+      class="select--main"
       @click="toggleDropdown"
     >
-      <div class="flex items-center">
-        <!-- Icono dependiendo del tipo -->
-        <span v-if="iconType === 'html'" v-html="icon" class="icon-container"></span>
-        <img v-else-if="iconType === 'image'" :src="icon" alt="Icon" class="icon-container" />
-        <FontAwesomeIcon v-else-if="iconType === 'fontawesome'" :icon="icon" class="icon-container"/>
-        <!-- Muestra el label de la opción seleccionada o el placeholder -->
-        <span class="ml-2 text-blue-600 font-semibold">
-          {{ selectedLabel || placeholder }}
-        </span>
-      </div>
-
-      <!-- Flecha desplegable -->
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-        <polyline points="6 9 12 15 18 9" />
-      </svg>
+      {{ selected?.label || 'Seleccione una opción...' }}
     </div>
 
-    <!-- Lista de opciones -->
-    <div v-if="isOpen" class="dropdown-menu absolute mt-2 w-full bg-white shadow-md rounded-lg z-10">
-      <ul class="py-2">
+    <div
+      v-if="isOpen"
+      class="dropdown__menu-holder"
+    >
+      <ul class="dropdown__menu">
+        <li
+          class="dropdown__menu-item text-dark-3"
+          @click="selectOption()"
+        >
+          N/A
+        </li>
         <li
           v-for="(option, index) in options"
           :key="index"
+          class="dropdown__menu-item"
+          :class="{ active: option.value === selected?.value }"
           @click="selectOption(option)"
-          class="px-4 py-2 cursor-pointer hover:bg-gray-100"
-          :class="{'bg-gray-200 font-bold': option.value === modelValue}">
-          <!-- Aplicar clases cuando la opción está seleccionada -->
-          {{ option.label }} <!-- Muestra solo el label -->
+        >
+          {{ option.label }}
         </li>
       </ul>
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, watch, onMounted } from 'vue';
-import { FontAwesomeIcon } from '../fontawesome/fontawesome';
+<style lang="postcss" scoped>
+.dropdown {
+  @apply relative;
 
-export default defineComponent({
-  name: 'Dropdown',
-  components:{
-    FontAwesomeIcon,
-  },
-  props: {
-    options: {
-      type: Array as () => { label: string; value: string | number }[],
-      required: true,
-    },
-    modelValue: {
-      type: [String, Number],
-      default: '',
-    },
-    placeholder: {
-      type: String,
-      default: 'Selecciona una opción', // Placeholder por defecto
-    },
-    defaultValue: {
-      type: [String, Number],
-      default: null, // Valor predeterminado
-    },
-    icon: {
-      type: String,
-      required: true, 
-    },
-    iconType: {
-      type: String,
-      default: 'html', 
-      validator: (value: string) => ['html', 'image', 'fontawesome'].includes(value),
-    },
-  },
-  emits: ['update:modelValue'],
-  setup(props, { emit }) {
-    const isOpen = ref(false);
-    const selectedLabel = ref(''); // Almacenaremos el label de la opción seleccionada
+  &__menu-holder {
+    @apply absolute z-10 mt-2 w-full overflow-hidden card card--shadow;
+  }
 
-    const toggleDropdown = () => {
-      isOpen.value = !isOpen.value;
-    };
+  &__menu {
+    @apply overflow-x-auto py-2 max-h-[200px];
 
-    // Manejar la selección de una opción
-    const selectOption = (option: { label: string; value: string | number }) => {
-      selectedLabel.value = option.label;
-      isOpen.value = false;
-      emit('update:modelValue', option.value); // Emitimos el value de la opción seleccionada
-    };
+    &-item {
+      @apply px-4 py-2 cursor-pointer hover:bg-light-2 text-sm;
 
-    // Actualizar el label cuando cambia el modelValue
-    watch(
-      () => props.modelValue,
-      (newValue) => {
-        const selected = props.options.find((option) => option.value === newValue);
-        if (selected) {
-          selectedLabel.value = selected.label; // Asignamos el label correspondiente al value
-        } else {
-          selectedLabel.value = ''; // Si no hay una opción seleccionada, mostrar placeholder
-        }
-      },
-      { immediate: true }
-    );
-
-    // Si se proporciona un defaultValue, establecerlo como seleccionado al montar el componente
-    onMounted(() => {
-      if (props.defaultValue !== null) {
-        const defaultOption = props.options.find((option) => option.value === props.defaultValue);
-        if (defaultOption) {
-          selectOption(defaultOption);
-        }
-      }
-    });
-
-    return {
-      isOpen,
-      selectedLabel,
-      toggleDropdown,
-      selectOption,
-    };
-  },
-});
-</script>
-
-<style scoped>
-.dropdown-button {
-  min-width: 250px;
-}
-
-.dropdown-menu {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.icon-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-}
-
-.icon {
-  color: #6b7280;
+      &.active {
+        @apply bg-light-2;
+      };
+    }
+  }
 }
 </style>

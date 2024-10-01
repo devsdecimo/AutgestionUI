@@ -2,17 +2,7 @@
 </script>
 
 <template>
-  <div class="text-center">
-    <p class="mb-5">
-      Inicio de sesión
-    </p>
-    <RouterLink
-      to="/"
-      class="text-blue-500"
-    >
-      Ir a home
-    </RouterLink>
-  </div>
+  <h1>Login</h1>
 </template>
 
 <style scoped></style>

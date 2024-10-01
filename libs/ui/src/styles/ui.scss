@@ -4,9 +4,12 @@
 
 // Components
 @import "components/button";
+@import "components/card";
+@import "components/select";
+@import "components/icon-pill";
 
 @layer base {
   html, body, #root {
-    @apply h-full min-h-full
+    @apply h-full min-h-full;
   }
 }

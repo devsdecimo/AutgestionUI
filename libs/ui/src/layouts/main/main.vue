@@ -1,27 +1,77 @@
 <script setup lang="ts">
+import { useTemplateRef } from 'vue';
+
+// Components
+import SideMenu from '../../components/side-menu/side-menu.vue';
+import TopBar from '../../components/top-bar/top-bar.vue';
+
+// Types
+import type { SideMenuLinks } from '../../types/side-menu';
+
+const sideMenuLinks: SideMenuLinks[] = [
+  { text: 'General', icon: ['fas', 'home'], route: '/' },
+  { text: 'Mi Perfil', icon: ['fas', 'user'], route: '/profile' },
+  { text: 'Acciones', icon: ['fas', 'clipboard'], route: '/actions' },
+  { text: 'Vacaciones', icon: ['fas', 'plane'], route: '/vacations' },
+  { text: 'Permisos', icon: ['fas', 'calendar-check'], route: '/permissions'},
+  { text: 'Salarios', icon: ['fas', 'money-bill'], route: '/salaries'},
+  { text: 'Gestiones', icon: ['fas', 'tasks'], route: '/requests'},
+  { text: 'Tiempo', icon: ['fas', 'clock'], route: '/time' },
+];
+
+const mobileSideMenu = useTemplateRef<typeof SideMenu>('mobile-side-menu')
 </script>
 
 <template>
-  <div
-    class="min-h-full flex flex-col"
-    data-test="main-layout"
-  >
-    <nav class="border-b border-gray-200 bg-white">
-      <div class="mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex h-16 justify-between">
-          <div class="flex">
-            <div class="flex flex-shrink-0 items-center">
-              <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600">
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
+  <div class="layout">
+    <aside>
+      <SideMenu :links="sideMenuLinks" />
+    </aside>
 
-    <main class="p-10 bg-gray-100 flex-1">
-      <slot />
+    <main>
+      <header>
+        <TopBar
+          :is-mobile-menu-visible="mobileSideMenu?.isCollapsed"
+          @on-toggle-click="mobileSideMenu?.toggleMenu()"
+        />
+        <div class="side-menu__mobile-container">
+          <SideMenu
+            ref="mobile-side-menu"
+            :is-mobile="true"
+            :links="sideMenuLinks"
+          />
+        </div>
+      </header>
+
+      <section>
+        <slot />
+      </section>
     </main>
   </div>
 </template>
 
-<style scoped></style>
+<style lang="postcss" scoped>
+.layout {
+  @apply flex h-full overflow-hidden;
+
+  aside {
+    @apply hidden sm:block border-r border-light;
+  }
+
+  header {
+    @apply relative;
+
+    .side-menu__mobile-container {
+      @apply sm:hidden h-screen absolute top-[80px] z-10;
+    }
+  }
+
+  main {
+    @apply h-full grow flex flex-col;
+
+    section {
+      @apply flex-1 overflow-y-auto bg-light-4 p-10;
+    }
+  }
+}
+</style>

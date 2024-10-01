@@ -1,16 +1,48 @@
 @layer components {
+  $variants: 'main', 'info', 'success', 'warning', 'error';
 
-  $variants: 'main', 'success', 'warning', 'error';
+  .btn {
+    @apply py-[14px] px-[32px] bg-light-2 text-dark rounded-full transition-all duration-200 ease-in-out;
 
-  button {
-    @apply px-6 py-3 bg-gray-500 text-white rounded-full font-semibold focus:outline-none transition-colors duration-300;
+    &:hover {
+      @apply rounded-lg opacity-50;
+    }
 
-    &.btn {
+    &:focus {
+      @apply rounded-lg outline outline-main/40 outline-2 outline-offset-1;
+    }
 
-      @each $variants in $variants {
+    &:active {
+      @apply opacity-100 brightness-[80%];
+    }
 
-        &--#{$variants} {
-          @apply bg-#{$variants};
+    &[disabled] {
+      @apply opacity-50 text-opacity-20 rounded-lg #{!important};
+    }
+
+    &.btn--small {
+      @apply py-[12px] px-[24px] text-sm;
+    }
+
+    &.btn--large {
+      @apply py-[16px] px-[48px] text-lg;
+    }
+
+    &.btn--outline {
+      @apply bg-transparent border-dark border;
+    }
+
+    @each $variant in $variants {
+
+      &--#{$variant} {
+        @apply btn bg-#{$variant} text-white #{!important};
+
+        &:focus {
+          @apply outline-#{$variant}/40;
+        }
+
+        &.btn--outline {
+          @apply bg-transparent border-#{$variant} text-#{$variant} border #{!important};
         }
       }
     }

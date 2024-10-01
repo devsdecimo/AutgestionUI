@@ -14,6 +14,3 @@ export { default as DropdownCard } from './components/cards/dropdown-card/dropdo
 // Types
 export * from './types/side-menu';
 export * from './types/dropdown';
-export * from './types/cards/dropdown-card';
-export * from './types/cards/job-card';
-export * from './types/cards/payment-card';

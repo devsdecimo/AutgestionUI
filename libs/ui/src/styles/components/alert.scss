@@ -1,0 +1,43 @@
+@layer components {
+  $variants: 'main', 'error', 'success','warning';
+
+  .alert {
+    @apply fixed bottom-0 right-0 bg-main p-6 w-96 border rounded-md;
+
+    h4{
+      @apply text-white font-semibold;
+    }
+    p{
+      @apply text-white;
+    }
+    &__close{
+      @apply text-white absolute top-3 right-3 cursor-pointer;
+    }
+    .icon{
+      @apply text-white h-10 w-10;
+    }
+    &__container{
+      @apply flex items-center gap-3;
+    }
+
+    @each $variant in $variants {
+
+      &--#{$variant} {
+        @apply alert bg-#{$variant} border-#{$variant} #{!important};
+
+        &.alert--outline {
+          @apply alert bg-white #{!important};
+          h4, svg, p{
+            @apply text-dark #{!important};
+          }
+          .icon{
+            @apply text-#{$variant} #{!important};
+          }
+        }
+
+
+      }
+
+    }
+  }
+}

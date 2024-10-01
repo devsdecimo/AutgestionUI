@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Card from './card.vue';
+import Card from './dropdown-card.vue';
 
 describe('Card', () => {
   it('renders properly', () => {

@@ -49,7 +49,10 @@ const config = {
           '3': '#F6F6F6',
           '4': '#FAFAFC',
         },
-      }
+      },
+      borderRadius: {
+        'xxl': '50px',
+      },
     },
   },
   plugins: [],

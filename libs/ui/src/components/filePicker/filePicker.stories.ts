@@ -15,10 +15,3 @@ export const Primary = {
   args: {},
 };
 
-export const Heading: Story = {
-  args: {},
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    await expect(canvas.getByText(/Welcome to filePicker!/gi)).toBeTruthy();
-  },
-};

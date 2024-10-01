@@ -29,7 +29,6 @@ import { ref, onMounted, onUnmounted } from 'vue';
 import type { DropdownCardProps } from '../../../types/cards/dropdown-card';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-// Definir las props y sus valores por defecto con withDefaults
 const props = withDefaults(defineProps<DropdownCardProps>(), {
   title: 'Persona',
   icon: ['fas', 'user'],

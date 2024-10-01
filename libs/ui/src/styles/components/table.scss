@@ -1,0 +1,68 @@
+@layer components {
+  table {
+    @apply w-full shadow-xl bg-white rounded-2xl border-collapse overflow-hidden;
+
+    th,
+    td {
+      @apply text-dark border-dark-2;
+    }
+
+    th {
+      @apply text-dark-2;
+    }
+
+    tr {
+      @apply hover:bg-light relative pt-6 after:content-[''];
+
+      &:last-of-type {
+        @apply border-none;
+      }
+
+      &::after {
+        @apply flex bg-light w-[96%] h-px absolute bottom-0 left-1/2  -translate-x-1/2;
+      }
+    }
+
+    @media (min-width: 640px) {
+      thead {
+        @apply table-header-group;
+      }
+
+      tbody {
+        @apply table-row-group;
+      }
+
+      th,
+      td {
+        @apply p-4 text-left whitespace-nowrap px-6;
+      }
+    }
+
+    @media (max-width: 639px) {
+      table,
+      thead,
+      tbody,
+      th,
+      td,
+      tr {
+        @apply block;
+      }
+
+      thead {
+        @apply hidden;
+      }
+
+      td {
+        @apply flex justify-between p-4 py-6 relative text-left before:content-[attr(data-label)];
+        &::before {
+          @apply absolute top-0 text-gray-400;
+        }
+
+        &:last-child {
+          @apply border-b-0;
+        }
+
+      }
+    }
+  }
+}

@@ -7,4 +7,5 @@ export type SideMenuLinks = {
 export type SideMenuProps = {
   links: SideMenuLinks[];
   isMobile?: boolean;
+  logoSrc: string;
 }

@@ -67,7 +67,7 @@ describe('FilePicker Component', () => {
     await wrapper.vm.$nextTick();
   
     // Simulamos el clic en el botón de subir
-    await wrapper.find('[data-test="upload-button"]').trigger('click');
+    await wrapper.find('#upload-btn').trigger('click');
   
     // Verificamos que el archivo aún no se haya eliminado antes de que el progreso sea 100%
     expect(wrapper.vm.file).not.toBeNull();

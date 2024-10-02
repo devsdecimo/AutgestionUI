@@ -64,7 +64,7 @@
             <button
               @click="confirmUpload"
               class="btn--info"
-              data-test="upload-button"
+              id="upload-btn"
             >
               Subir
             </button>

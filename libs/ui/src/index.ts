@@ -11,10 +11,11 @@ export { default as PaymentCard } from './components/cards/payment-card/payment-
 export { default as JobCard } from './components/cards/job-card/job-card.vue';
 export { default as FilePicker } from './components/filePicker/filePicker.vue';
 export { default as InputPassword } from './components/inputPassword/inputPassword.vue';
-
+export { default as Alert } from './components/alert/alert.vue'
 // Types
 export * from './types/side-menu';
 export * from './types/dropdown';
+export * from './types/alert';
 export * from './types/cards/job-card';
 export * from './types/cards/payment-card';
 export * from './types/cards/dropdown-card';

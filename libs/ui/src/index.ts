@@ -10,6 +10,7 @@ export { default as DropdownCard } from './components/cards/dropdown-card/dropdo
 export { default as PaymentCard } from './components/cards/payment-card/payment-card.vue';
 export { default as JobCard } from './components/cards/job-card/job-card.vue';
 export { default as FilePicker } from './components/filePicker/filePicker.vue';
+export { default as InputPassword } from './components/inputPassword/inputPassword.vue';
 
 // Types
 export * from './types/side-menu';

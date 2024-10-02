@@ -31,7 +31,7 @@ defineExpose({
     >
       <img
         v-if="!isCollapsed"
-        src="../../images/logo-ventura.svg"
+        :src="logoSrc"
         class="h-[30px]"
         alt="Ventura | Nómina 365"
       >

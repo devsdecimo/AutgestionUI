@@ -335,6 +335,13 @@ const dropdownOptions: DropdownOption[] = [{
     </div>
   </div>
 
+  <div class="grid grid-cols-12 gap-4 py-4">
+      <input type="text" class="col-span-2">
+      <input type="password" class="col-span-2">
+      <input type="date" class="col-span-2">
+      <input type="number" class="col-span-2">
+  </div>
+
   <div class="mt-8 grid grid-cols-4 md:grid-cols-6 xl:grid-cols-12 gap-4">
     <div class="bg-gray-200 p-4" />
     <div class="bg-gray-200 p-4" />

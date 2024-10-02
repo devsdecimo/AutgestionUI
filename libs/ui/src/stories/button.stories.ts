@@ -27,7 +27,7 @@ export const Variants: Story = {
       return { args };
     },
     computed: {
-      getButtonClass() { return `btn--${args.type}` }
+      getButtonClass() { return `btn btn--${args.type}` }
     },
     template: `<button :class="getButtonClass">{{ args.label }}</button>`,
   })
@@ -39,7 +39,7 @@ export const Disabled: Story = {
       return { args };
     },
     computed: {
-      getButtonClass() { return `btn--${args.type}` }
+      getButtonClass() { return `btn btn--${args.type}` }
     },
     template: `<button :class="getButtonClass" disabled>{{ args.label }}</button>`,
   })

@@ -25,7 +25,10 @@ const mobileSideMenu = useTemplateRef<typeof SideMenu>('mobile-side-menu')
 <template>
   <div class="layout">
     <aside>
-      <SideMenu :links="sideMenuLinks" />
+      <SideMenu 
+        :links="sideMenuLinks"
+        logo-src="src/images/logo-ventura.svg"
+      />
     </aside>
 
     <main>

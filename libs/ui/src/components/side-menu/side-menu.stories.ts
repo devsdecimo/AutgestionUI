@@ -12,17 +12,7 @@ export default {
     logoSrc: {
       control: 'text',
       description: 'Ruta de la imagen del logo superior.',
-      defaultValue: 'https://via.placeholder.com/150x50', // Imagen de ejemplo para el logo superior
-    },
-    smallLogoSrc: {
-      control: 'text',
-      description: 'Ruta de la imagen del logo en el menú colapsado.',
-      defaultValue: 'https://via.placeholder.com/50', // Imagen de ejemplo para el logo pequeño
-    },
-    footerLogoSrc: {
-      control: 'text',
-      description: 'Ruta de la imagen del logo inferior.',
-      defaultValue: 'https://via.placeholder.com/100x30', // Imagen de ejemplo para el logo inferior
+      defaultValue: '/src/images/logo-ventura.svg', // Imagen de ejemplo para el logo superior
     },
   },
   parameters: {
@@ -53,9 +43,7 @@ const Template: StoryFn<typeof SideMenu> = (args) => ({
 
 export const Default = Template.bind({});
 Default.args = {
-  logoSrc: 'https://via.placeholder.com/150x50',
-  smallLogoSrc: 'https://via.placeholder.com/50',
-  footerLogoSrc: 'https://via.placeholder.com/100x30',
+  logoSrc: '/src/images/logo-ventura.svg',
   links: [
     { text: 'General', icon: ['fas', 'home'], route: '#', isActive: true },
     { text: 'Mi Perfil', icon: ['fas', 'user'], route: '#', isActive: false },
@@ -70,9 +58,7 @@ Default.args = {
 
 export const Collapsed = Template.bind({});
 Collapsed.args = {
-  logoSrc: 'https://via.placeholder.com/150x50',
-  smallLogoSrc: 'https://via.placeholder.com/50',
-  footerLogoSrc: 'https://via.placeholder.com/100x30',
+  logoSrc: '/src/images/logo-ventura.svg',
   links: [
     { text: 'General', icon: ['fas', 'home'], route: '#', isActive: true },
     { text: 'Mi Perfil', icon: ['fas', 'user'], route: '#', isActive: false },

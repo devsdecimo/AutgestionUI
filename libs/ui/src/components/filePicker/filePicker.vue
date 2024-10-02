@@ -74,15 +74,8 @@
       </div>
     </div>
     <!-- Modal de confirmación -->
-    <div v-if="showConfirmationMessage" class="alert--success">
-      <div class="alert__container">
-        <FontAwesomeIcon :icon="['far', 'circle-check']" class="icon" ></FontAwesomeIcon>
-        <div>
-          <h4>Archivo Subido</h4>
-          <p>Archivo Correctamente Subido</p>
-        </div>
-      </div>
-      <FontAwesomeIcon @click="showConfirmationMessage=false" :icon="['fas', 'xmark']" class="alert__close"></FontAwesomeIcon>
+    <div class="fixed bottom-0 right-0">
+      <Alert v-if="showConfirmationMessage" :setShowMessage="setShowConfirmationMessage" type="success" title="Archivo Subido" content="Archivo Correctamente Subido"></Alert>
     </div>
   </div>
 </template>
@@ -90,6 +83,7 @@
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { Alert } from '@ventura/ui';
 
 // Definir los tipos de las referencias
 const fileInput = ref<HTMLInputElement | null>(null);
@@ -167,6 +161,8 @@ const deleteFile = () => {
   progress.value = 0;
   isFirstClick = true;
 };
+//Funcion para setear el ref showConfirmationMessage desde el Alert
+const setShowConfirmationMessage = (newValue) => showConfirmationMessage.value = newValue;
 
 </script>
 

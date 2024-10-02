@@ -3,4 +3,5 @@ export type AlertProps = {
   content?: string;
   type?: string;
   isOutline?: boolean;
+  setShowMessage?: (newValue: boolean) => void;
 }

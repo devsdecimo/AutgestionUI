@@ -2,28 +2,7 @@
   $variants: 'main', 'error', 'success','warning', 'info';
 
   .alert {
-    @apply fixed bottom-0 right-0 bg-main p-6 w-96 border rounded-md;
-
-    @each $variant in $variants {
-
-      &--#{$variant} {
-        @apply alert bg-#{$variant} border-#{$variant} #{!important};
-
-        &.alert--outline {
-          @apply alert bg-white #{!important};
-          h4, svg, p{
-            @apply text-dark #{!important};
-          }
-          .icon{
-            @apply text-#{$variant} #{!important};
-          }
-        }
-
-
-      }
-
-    }
-
+    @apply bg-main p-6 w-96 border rounded-md relative;
     h4{
       @apply text-white font-semibold text-lg
     }
@@ -39,7 +18,24 @@
     &__container{
       @apply flex items-center gap-4;
     }
+    @each $variant in $variants {
+
+      &--#{$variant} {
+        @apply alert bg-#{$variant} border-#{$variant};
+
+        &.alert--outline {
+          @apply alert bg-white;
+          h4, svg, p{
+            @apply text-dark;
+          }
+          .icon{
+            @apply text-#{$variant};
+          }
+        }
 
 
+      }
+
+    }
   }
 }

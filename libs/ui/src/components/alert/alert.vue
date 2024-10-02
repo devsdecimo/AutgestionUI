@@ -1,42 +1,51 @@
 <script setup lang="ts">
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 import type { AlertProps } from '../../types/alert';
-import { computed } from 'vue';
 
 const props = withDefaults(defineProps<AlertProps>(), {
   title: 'Toast title',
   content: 'Toast message here',
   type: 'success',
-  isOutline: false
+  isOutline: false,
 });
-const alertClass = computed(() => props.isOutline?'alert--'+props.type+' alert--outline':'alert--'+props.type);
-console.log(alertClass.value)
-const icon = computed(() => {
-  switch(props.type){
-    case 'success':
-      return ['fas', 'circle-check'];
-    case 'error':
-      return ['fas', 'ban'];
-    case 'warning':
-      return ['fas', 'circle-exclamation'];
-    default:
-      return ['fas', 'circle-info'];
 
-  }
-})
+const alertTypeConfig = {
+  success: {
+    cssClass : props.isOutline? 'alert--success alert--outline':'alert--success' ,
+    icon: ['fas', 'circle-check']
+  },
+  error: {
+    cssClass : props.isOutline? 'alert--error alert--outline':'alert--error' ,
+    icon: ['fas', 'ban']
+  },
+  warning: {
+    cssClass : props.isOutline? 'alert--warning alert--outline':'alert--warning' ,
+    icon: ['fas', 'circle-exclamation']
+  },
+  info: {
+    cssClass : props.isOutline? 'alert--info alert--outline':'alert--info' ,
+    icon: ['fas', 'circle-info']
+  },
+}
+
+// Función para modificar el valor en el padre que lo oculta
+const hide = () => {
+  if(props.setShowMessage)
+  props.setShowMessage(false);
+};
 
 </script>
 
 <template>
-  <div :class="'alert '+alertClass">
+  <div :class="alertTypeConfig[type].cssClass">
     <div class="alert__container">
-      <FontAwesomeIcon :icon="icon" class="icon" ></FontAwesomeIcon>
+      <FontAwesomeIcon :icon="alertTypeConfig[type].icon" class="icon" ></FontAwesomeIcon>
       <div>
         <h4>{{ title }}</h4>
         <p>{{content}}</p>
       </div>
     </div>
-    <FontAwesomeIcon :icon="['fas', 'xmark']" class="alert__close"></FontAwesomeIcon>
+    <FontAwesomeIcon @click="hide" :icon="['fas', 'xmark']" class="alert__close"></FontAwesomeIcon>
   </div>
 </template>
 

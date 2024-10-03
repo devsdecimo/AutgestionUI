@@ -1,13 +1,34 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+const { locale } = useI18n();
+import { ActionsDropdown } from '@ventura/ui';
+
+const languageActions = [
+  {
+    label: 'Español',
+    clickHandler: () => {
+      locale.value = 'es';
+      localStorage.setItem('user-locale', 'es');
+    }
+  },
+  {
+    label: 'English',
+    clickHandler: () => {
+      locale.value = 'en';
+      localStorage.setItem('user-locale', 'en');
+    }
+  }
+];
 // defineProps<{}>()
 </script>
 
 <template>
   <div
-    class="bg-gray-100 flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8"
+    class="bg-gray-100 flex min-h-full flex-col justify-center items-center py-12 sm:px-6 lg:px-8"
     data-test="auth-layout"
   >
-    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[946px]">
+  <ActionsDropdown :actions="languageActions" :dropdownLabel="$t('misc.language')"/>
+    <div class="mt-10 sm:mx-auto w-11/12 sm:max-w-[730px]">
       <div class="card p-14 flex justify-center items-center">
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
           <img

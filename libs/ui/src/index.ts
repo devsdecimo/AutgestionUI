@@ -1,3 +1,4 @@
+export { default as ActionsDropdown } from './components/actions-dropdown/actions-dropdown.vue';
 // Layouts
 export { default as MainLayout } from './layouts/main/main.vue';
 export { default as AuthLayout } from './layouts/auth/auth.vue';

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { InputPassword } from '@ventura/ui';
+// import '../../../images/logo-developers.svg'
 // import { useI18n } from 'vue-i18n';
 
 // const { locale } = useI18n();
@@ -29,16 +30,10 @@ import { InputPassword } from '@ventura/ui';
 
       <!-- Contraseña -->
       <div class="relative">
-        <label 
-          for="pass" 
-          class="block text-dark font-medium mb-2"
-        >
+        <label for="pass" class="block text-dark font-medium mb-2">
           {{ $t('login.password') }}
         </label>
-        <InputPassword 
-          name="pass" 
-          :placeholder="$t('login.insertUsername')"
-        />
+        <InputPassword name="pass" :placeholder="$t('login.insertUsername')" />
       </div>
 
       <!-- Nota de seguridad -->
@@ -53,41 +48,23 @@ import { InputPassword } from '@ventura/ui';
           type="checkbox"
           name="confidentialityTerms"
           class="mt-1"
-        >
-        <label 
-          for="confidentialityTerms" 
-          class="text-sm text-dark"
-        >
+        />
+        <label for="confidentialityTerms" class="text-sm text-dark">
           {{ $t('login.acceptConfidentialityTerms') }}
         </label>
       </div>
 
       <!-- Botón de enviar -->
-      <div class="mt-6 flex justify-center">
-        <button
-          type="submit"
-          class="btn btn--main"
-          >
+      <div class="mt-6 flex items-center flex-col gap-2">
+        <button type="submit" class="btn btn--main">
           {{ $t('login.submit') }}
         </button>
-      </div>
-
       <!-- Olvidó su contraseña -->
-      <div class="text-center mt-4">
-        <a 
-          href="#" 
-          class="text-main hover:underline text-sm"
-        >
+        <a href="#" class="text-dark underline text-sm">
           {{ $t('login.forgotPassword') }}
         </a>
       </div>
     </form>
-    <ActionsDropdown />
-
-    <!-- Footer gestionado por otro componente -->
-    <div class="text-center mt-8">
-      <!-- Aquí iría el footer si es gestionado por otro componente -->
-    </div>
   </div>
 </template>
 

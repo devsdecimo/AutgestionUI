@@ -7,9 +7,17 @@ const props = withDefaults(defineProps<PaymentCardProps>(), {
   name: 'Transferencia',
   bank: 'Banco de Costa Rica',
   currency: 'Colones',
-  icon: ['fas', 'colon-sign'],
   account: 'CR02015202001159781714'
 });
+
+const currencyIconConfig = {
+  'Colones': {
+    icon : ['fas', 'colon-sign'] ,
+  },
+  'Dólares': {
+    icon : ['fas', 'dollar-sign'] ,
+  },
+}
 </script>
 
 <template>
@@ -33,7 +41,7 @@ const props = withDefaults(defineProps<PaymentCardProps>(), {
           </div>
         </div>
         <div class="icon-pill--main">
-          <FontAwesomeIcon :icon="icon" />
+          <FontAwesomeIcon :icon="currencyIconConfig[currency].icon" />
         </div>
       </div>
     </div>

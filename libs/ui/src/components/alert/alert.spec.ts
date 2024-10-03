@@ -51,6 +51,22 @@ describe('AlertComponent', () => {
     expect(wrapper.classes()).toContain('alert--warning');
   });
 
+  it('should render alert type success when incorrect class is passed', () => {
+    const wrapper = mount(AlertComponent, {
+      props: {
+        type: 'test',
+      },
+      global: {
+        stubs: {
+          FontAwesomeIcon: true, // Simula el componente FontAwesomeIcon
+        },
+      },
+    });
+
+    // Verificar que la clase de advertencia se aplica correctamente
+    expect(wrapper.classes()).toContain('alert--success');
+  });
+
   it('should render alert type info with the corresponding class', () => {
     const wrapper = mount(AlertComponent, {
       props: {

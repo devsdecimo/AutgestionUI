@@ -16,16 +16,36 @@ export default {
     name: {
       control:'text',
     },
-    schedule: {
+    applicationNumber: {
+      control:'number',
+    },
+    id: {
+      control:'text',
+    },
+    actionType: {
+      control:'text',
+    },
+    registrationDate: {
+      control:'text',
+    },
+    startDate: {
+      control:'text',
+    },
+    endDate: {
+      control:'text',
+    },
+    reason: {
       control:'text',
     },
     state: {
       control:'text',
     },
-    color: {
-      control: 'select', options: ['main', 'dark-2']
-    }
-
+    doc: {
+      control:'text',
+    },
+    time: {
+      control:'text',
+    },
   },
 } as Meta;
 
@@ -40,13 +60,8 @@ const Template: StoryFn = (args) => ({
 });
 
 export const Main = Template.bind({});
-Main.args = {
-  color: 'main'
-};
-export const Dark = Template.bind({});
-Dark.args = {
-  color: 'dark-2'
-};
+Main.args = {};
+
 
 
 

@@ -73,12 +73,5 @@ const salaryCompositionCardTypeConfig = {
   &__content{
     @apply grid grid-cols-1 md:grid-cols-10 lg:grid-cols-9 gap-4;
   }
-  /*
-  &__cards-container{
-    @apply grid grid-cols-1 sm:grid-cols-2 gap-4;
-  }
-  &__subcard-content{
-    @apply card__content flex flex-col items-center justify-center text-xs space-y-2 text-sm;
-  }*/
 }
 </style>

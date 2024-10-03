@@ -81,16 +81,5 @@ const props = withDefaults(defineProps<PermitCardProps>(), {
   span{
     @apply font-semibold text-sm;
   }
-  /*
-  @apply  col-span-3 card card--shadow;
-  &__content{
-    @apply card__content space-y-4;
-  }
-  &__cards-container{
-    @apply grid grid-cols-1 sm:grid-cols-2 gap-4;
-  }
-  &__subcard-content{
-    @apply card__content flex flex-col items-center justify-center text-xs space-y-2 text-sm;
-  }*/
 }
 </style>

@@ -73,7 +73,7 @@ const mobileSideMenu = useTemplateRef<typeof SideMenu>('mobile-side-menu')
     @apply h-full grow flex flex-col;
 
     section {
-      @apply flex-1 overflow-y-auto bg-light-4 p-10;
+      @apply flex-1 overflow-y-auto bg-light-4;
     }
   }
 }

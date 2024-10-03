@@ -12,7 +12,11 @@ export { default as PaymentCard } from './components/cards/payment-card/payment-
 export { default as JobCard } from './components/cards/job-card/job-card.vue';
 export { default as FilePicker } from './components/filePicker/filePicker.vue';
 export { default as InputPassword } from './components/inputPassword/inputPassword.vue';
-export { default as Alert } from './components/alert/alert.vue'
+export { default as Alert } from './components/alert/alert.vue';
+export { default as SalaryCard } from './components/cards/salary-card/salary-card.vue';
+export { default as PermitCard } from './components/cards/permit-card/permit-card.vue';
+export { default as SalaryCompositionCard } from './components/cards/salary-composition-card/salary-composition-card.vue';
+
 // Types
 export * from './types/side-menu';
 export * from './types/dropdown';

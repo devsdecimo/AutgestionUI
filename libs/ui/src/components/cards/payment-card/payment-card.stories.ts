@@ -44,13 +44,11 @@ const Template: StoryFn = (args) => ({
 
 export const Colons = Template.bind({});
 Colons.args = {
-  icon: ['fas', 'colon-sign'],
   currency: 'Colones'
 };
 
 export const Dollars = Template.bind({});
 Dollars.args = {
-  icon: ['fas', 'dollar-sign'],
   currency: 'Dólares'
 };
 

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import {computed} from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import type { JobCardProps } from '../../../types/cards/job-card';
 
@@ -10,15 +9,25 @@ const props = withDefaults(defineProps<JobCardProps>(), {
   schedule: 'CH, L-J, 7:30 - 4:30  V, 7:30 - 4:00',
   color: 'dark-2'
 });
-const iconClass = computed(()=>'icon-pill--'+props.color);
-const subcardClass = computed(()=>'card--'+props.color);
+
+const jobCardTypeConfig = {
+  'main': {
+    subcardClass : 'card--main' ,
+    iconClass: 'icon-pill--main'
+  },
+  'dark-2': {
+    subcardClass : 'card--dark-2' ,
+    iconClass: 'icon-pill--dark-2'
+  },
+}
+
 </script>
 
 <template>
   <div class="job-card">
     <div class="job-card__content">
       <div class="flex items-center space-x-4">
-        <div :class="iconClass">
+        <div :class="jobCardTypeConfig[color].iconClass">
           <FontAwesomeIcon :icon="['fas', 'fa-user']" />
         </div>
         <div class="text-sm">
@@ -29,14 +38,14 @@ const subcardClass = computed(()=>'card--'+props.color);
 
 
       <div class="job-card__cards-container">
-        <div :class="subcardClass">
+        <div :class="jobCardTypeConfig[color].subcardClass">
           <div class="job-card__subcard-content">
             <span class="block">Estado de Contrato</span>
             <span class="block font-bold">{{state}}</span>
           </div>
         </div>
 
-        <div :class="subcardClass">
+        <div :class="jobCardTypeConfig[color].subcardClass">
           <div class="job-card__subcard-content">
             <span class="block">Horario Establecido</span>
             <span class="block font-bold">{{schedule}}</span>
@@ -49,7 +58,7 @@ const subcardClass = computed(()=>'card--'+props.color);
 
 <style scoped lang="postcss">
 .job-card{
-  @apply  col-span-3 card card--shadow;
+  @apply card card--shadow;
   &__content{
     @apply card__content space-y-4;
   }

@@ -1,7 +1,7 @@
 const recordEN = {
-    btn1: 'Record',
-    btn2: 'Identifications',
-    btn3: 'References',
+    recordButton: 'Record',
+    identificationButton: 'Identifications',
+    referencesButton: 'References',
     maintitle: 'Record\'s information',
     recordNumber: 'Record Number',
     employeeCode: 'Employee Code',

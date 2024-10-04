@@ -2,13 +2,13 @@
   <!-- container botones -->
   <div class="flex gap-10 overflow-auto max-w-[100vw] px-10 py-5">
     <button class="btn--main btn--small">
-        {{ $t('record.btn1') }}
+        {{ $t('record.recordButton') }}
     </button>
     <button class="btn--main btn--small btn--outline">
-        {{ $t('record.btn2') }}
+        {{ $t('record.identificationButton') }}
     </button>
     <button class="btn--main btn--small btn--outline">
-        {{ $t('record.btn3') }}
+        {{ $t('record.referencesButton') }}
     </button>
     
 </div>

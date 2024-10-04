@@ -18,6 +18,14 @@ const routes = [
     meta: {
       layout: AuthLayout
     }
+  },
+  {
+    path: '/profile',
+    component: () => import('../pages/profile/profile.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Perfil'
+    }
   }
 ]
 

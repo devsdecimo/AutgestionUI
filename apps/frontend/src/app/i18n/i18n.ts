@@ -4,6 +4,8 @@ import { createI18n } from 'vue-i18n';
 //import lang dicts
 import loginEN from './login/en';
 import loginES from './login/es';
+import profileEN from './profile/en';
+import profileES from './profile/es';
 
 const messages = {
   en: {
@@ -13,6 +15,9 @@ const messages = {
     misc: {
       language: 'Language'
     },
+    profile: {
+      ...profileEN,
+    },
   },
   es: {
     login: {
@@ -21,14 +26,17 @@ const messages = {
     misc: {
       language: 'Idioma'
     },
+    profile: {
+      ...profileES,
+    },
   },
 };
 
 
 // Función para obtener el idioma predeterminado
 const getDefaultLocale = (): string => {
-  const browserLocale = navigator.language; 
-  
+  const browserLocale = navigator.language;
+
   if (browserLocale.startsWith('es')) {
   return 'es';
   } else {
@@ -39,8 +47,8 @@ const getDefaultLocale = (): string => {
 // Crear la instancia de i18n
 const i18n = createI18n({
   locale: localStorage.getItem('user-locale') || getDefaultLocale(),
-  fallbackLocale: 'en', 
-  messages, 
+  fallbackLocale: 'en',
+  messages,
 });
 
 export default i18n;

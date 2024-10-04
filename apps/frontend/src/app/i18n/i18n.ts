@@ -4,11 +4,16 @@ import { createI18n } from 'vue-i18n';
 //import lang dicts
 import loginEN from './login/en';
 import loginES from './login/es';
+import contractEN from './contract/en';
+import contractES from './contract/es';
 
 const messages = {
   en: {
     login: {
       ...loginEN,
+    },
+    contract:{
+      ...contractEN
     },
     misc: {
       language: 'Language'
@@ -17,6 +22,9 @@ const messages = {
   es: {
     login: {
      ...loginES,
+    },
+    contract:{
+      ...contractES
     },
     misc: {
       language: 'Idioma'

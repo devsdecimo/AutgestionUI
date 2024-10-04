@@ -18,6 +18,14 @@ const routes = [
     meta: {
       layout: AuthLayout
     }
+  },
+  {
+    path: '/contract',
+    component: () => import('../pages/contract/contract.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Contrato'
+    }
   }
 ]
 

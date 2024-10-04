@@ -2,6 +2,7 @@ import { createWebHistory, createRouter } from 'vue-router';
 
 // Layouts
 import { MainLayout, AuthLayout } from '@ventura/ui';
+import { useTitle } from '@vueuse/core';
 
 const routes = [
   {
@@ -26,7 +27,15 @@ const routes = [
         layout: MainLayout,
         title: 'Identificaciones Adicionales'
       }
+    },
+  {
+    path: '/record',
+    component: () => import('../pages/record/record.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Expediente'
     }
+  },
 ]
 
 const router = createRouter({

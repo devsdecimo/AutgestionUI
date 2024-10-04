@@ -17,8 +17,16 @@ const routes = [
     component: () => import('../pages/login/login.vue'),
     meta: {
       layout: AuthLayout
+    },
+  },
+    {
+      path: '/additional-identifications',
+      component: () => import('../pages/additional-identifications/additional-identifications.vue'),
+      meta: {
+        layout: MainLayout,
+        title: 'Identificaciones Adicionales'
+      }
     }
-  }
 ]
 
 const router = createRouter({

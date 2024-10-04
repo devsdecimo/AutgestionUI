@@ -74,7 +74,7 @@ const selectOption = (option?: DropdownOption) => {
   @apply relative;
 
   &__menu-holder {
-    @apply absolute z-10 mt-2 w-full overflow-hidden card card--shadow;
+    @apply absolute z-10 mt-2 w-full overflow-hidden card;
   }
 
   &__menu {

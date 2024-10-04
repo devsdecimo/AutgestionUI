@@ -51,7 +51,7 @@ const currencyIconConfig = {
 
 <style scoped lang="postcss">
 .salary-card{
-  @apply card card--shadow;
+  @apply card card;
   &__download-btn{
     @apply btn--main flex items-center justify-center;
     @media screen and (min-width:640px) {

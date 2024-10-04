@@ -63,7 +63,7 @@ const salaryCompositionCardTypeConfig = {
 <style scoped lang="postcss">
 
 .salary-composition-card{
-  @apply card--shadow p-4;
+  @apply card p-4;
   h4{
     @apply font-thin text-sm;
   }

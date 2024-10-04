@@ -18,6 +18,14 @@ const routes = [
     meta: {
       layout: AuthLayout
     }
+  },
+  {
+    path: '/test',
+    component: () => import('../pages/test/test.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Testing Components'
+    }
   }
 ]
 

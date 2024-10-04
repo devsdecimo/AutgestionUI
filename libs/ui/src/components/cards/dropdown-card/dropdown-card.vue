@@ -1,7 +1,7 @@
 <template>
   <div class="accordion dropdown-card">
     <div
-      class="card--shadow accordion-section overflow-hidden"
+      class="card accordion-section overflow-hidden"
     >
       <div
         class="dropdown-card__header accordion-header"

@@ -25,7 +25,7 @@ const data = {
 
 <template>
   <div class="main-container">
-    <div class="md:card--shadow md:p-10">
+    <div class="md:card md:p-10">
       <div class="main-container__header">
         <h2>{{ $t('home.title') }}</h2>
       </div>

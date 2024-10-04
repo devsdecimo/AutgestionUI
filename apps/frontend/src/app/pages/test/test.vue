@@ -40,7 +40,7 @@ const dropdownOptions: DropdownOption[] = [{
 
 <template>
   <div class="grid grid-cols-12 gap-4">
-    <div class="col-span-2 card--shadow">
+    <div class="col-span-2 card">
       <div class="card__content">
         <h3 class="text-xs space-y-1">
           <span class="block text-dark-4">Entidad</span>
@@ -49,7 +49,7 @@ const dropdownOptions: DropdownOption[] = [{
       </div>
     </div>
 
-    <div class="col-span-2 card--shadow">
+    <div class="col-span-2 card">
       <div class="card__content">
         <h3 class="text-xs space-y-1">
           <span class="block text-dark-4">Fecha de Ingreso</span>
@@ -58,7 +58,7 @@ const dropdownOptions: DropdownOption[] = [{
       </div>
     </div>
 
-    <div class="col-span-2 card--shadow">
+    <div class="col-span-2 card">
       <div class="card__content">
         <h3 class="text-xs space-y-1">
           <span class="block">Porcentaje</span>
@@ -79,7 +79,7 @@ const dropdownOptions: DropdownOption[] = [{
       </div>
     </div>
 
-    <div class="col-span-2 card--main card--shadow">
+    <div class="col-span-2 card--main card">
       <div class="card__content">
         <h3 class="text-xs space-y-1">
           <span class="block text-dark-4">Lorem Ipsum</span>
@@ -88,7 +88,7 @@ const dropdownOptions: DropdownOption[] = [{
       </div>
     </div>
 
-    <div class="col-span-2 card--success card--shadow">
+    <div class="col-span-2 card--success card">
       <div class="card__content">
         <h3 class="text-xs space-y-1">
           <span class="block text-dark-4">Lorem Ipsum</span>
@@ -97,7 +97,7 @@ const dropdownOptions: DropdownOption[] = [{
       </div>
     </div>
 
-    <div class="col-span-2 card--dark-2 card--shadow">
+    <div class="col-span-2 card--dark-2 card">
       <div class="card__content">
         <h3 class="text-xs space-y-1">
           <span class="block text-dark-4">Lorem Ipsum</span>
@@ -106,7 +106,7 @@ const dropdownOptions: DropdownOption[] = [{
       </div>
     </div>
 
-    <div class="col-span-3 card card--shadow">
+    <div class="col-span-3 card card">
       <div class="card__content space-y-4">
         <div class="flex items-center space-x-4">
           <div class="icon-pill--main">
@@ -137,7 +137,7 @@ const dropdownOptions: DropdownOption[] = [{
       </div>
     </div>
 
-    <div class="col-span-3 card card--shadow">
+    <div class="col-span-3 card card">
       <div class="card__content space-y-4">
         <div class="flex items-center space-x-4">
           <div class="icon-pill">
@@ -168,7 +168,7 @@ const dropdownOptions: DropdownOption[] = [{
       </div>
     </div>
 
-    <div class="col-span-3 card card--shadow">
+    <div class="col-span-3 card card">
       <div class="card__content space-y-4">
         <div class="flex items-start space-x-4">
           <div class="text-xs grow space-y-2">
@@ -198,7 +198,7 @@ const dropdownOptions: DropdownOption[] = [{
       </div>
     </div>
 
-    <div class="col-span-3 card card--shadow">
+    <div class="col-span-3 card card">
       <div class="card__content space-y-4">
         <div class="flex items-start space-x-4">
           <div class="text-xs grow space-y-2">
@@ -228,7 +228,7 @@ const dropdownOptions: DropdownOption[] = [{
       </div>
     </div>
 
-    <div class="col-span-7 card card--shadow">
+    <div class="col-span-7 card card">
       <div class="card__content flex items-center space-x-4">
         <div class="icon-pill--main">
           <FontAwesomeIcon :icon="['fas', 'fa-dollar-sign']" />

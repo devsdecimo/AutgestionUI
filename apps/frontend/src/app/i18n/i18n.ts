@@ -6,6 +6,8 @@ import loginEN from './login/en';
 import loginES from './login/es';
 import homeEN from './home/en';
 import homeES from './home/es';
+import recordEN from './record/en';
+import recordES from './record/es';
 
 const messages = {
   en: {
@@ -18,6 +20,9 @@ const messages = {
     home: {
       ...homeEN,
     },
+    record: {
+      ...recordEN,
+    },
   },
   es: {
     login: {
@@ -28,6 +33,9 @@ const messages = {
     },
     home: {
       ...homeES,
+    },
+    record: {
+      ...recordES,
     },
   },
 };

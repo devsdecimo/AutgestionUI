@@ -1,11 +1,34 @@
 <script setup lang="ts">
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { useI18n } from 'vue-i18n';
+const { locale } = useI18n();
+import { ActionsDropdown } from '@ventura/ui';
 
 defineProps({
   isMobileMenuVisible: Boolean
 });
 
 const emit = defineEmits(['onToggleClick']);
+
+
+
+
+const languageActions = [
+  {
+    label: 'Español',
+    clickHandler: () => {
+      locale.value = 'es';
+      localStorage.setItem('user-locale', 'es');
+    }
+  },
+  {
+    label: 'English',
+    clickHandler: () => {
+      locale.value = 'en';
+      localStorage.setItem('user-locale', 'en');
+    }
+  }
+];
 </script>
 
 <template>
@@ -24,10 +47,11 @@ const emit = defineEmits(['onToggleClick']);
       >
     </div>
 
-    <div class="top-bar__desktop">
-      <h1>
+    <div class="top-bar__desktop ">
+      <h1 class="inline-flex">
         {{ $route.meta.title }}
       </h1>
+      <ActionsDropdown :actions="languageActions" :dropdownLabel="$t('misc.language')"/>
     </div>
   </div>
 </template>
@@ -49,7 +73,7 @@ const emit = defineEmits(['onToggleClick']);
   }
 
   &__desktop {
-    @apply hidden sm:block w-full;
+    @apply hidden sm:flex w-full justify-between;
 
     h1 {
       @apply text-main text-2xl font-bold;

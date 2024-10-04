@@ -21,13 +21,21 @@ const routes = [
     }
   },
   {
+    path: '/test',
+    component: () => import('../pages/test/test.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Testing Components'
+    }
+  },
+  {
     path: '/record',
     component: () => import('../pages/record/record.vue'),
     meta: {
       layout: MainLayout,
       title: 'Expediente'
     }
-  }
+  },
 ]
 
 const router = createRouter({

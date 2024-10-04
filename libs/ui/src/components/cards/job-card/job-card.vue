@@ -58,7 +58,7 @@ const jobCardTypeConfig = {
 
 <style scoped lang="postcss">
 .job-card{
-  @apply card card--shadow;
+  @apply card card;
   &__content{
     @apply card__content space-y-4;
   }

@@ -6,6 +6,8 @@ import loginEN from './login/en';
 import loginES from './login/es';
 import homeEN from './home/en';
 import homeES from './home/es';
+import contractEN from './contract/en';
+import contractES from './contract/es';
 import recordEN from './record/en';
 import recordES from './record/es';
 
@@ -14,28 +16,34 @@ const messages = {
     login: {
       ...loginEN,
     },
-    misc: {
-      language: 'Language'
-    },
     home: {
       ...homeEN,
     },
+    contract:{
+      ...contractEN
+    },
     record: {
       ...recordEN,
+    },
+    misc: {
+      language: 'Language'
     },
   },
   es: {
     login: {
      ...loginES,
     },
-    misc: {
-      language: 'Idioma'
-    },
     home: {
       ...homeES,
     },
+    contract:{
+      ...contractES
+    },
     record: {
       ...recordES,
+    },
+    misc: {
+      language: 'Idioma'
     },
   },
 };

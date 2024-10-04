@@ -21,6 +21,14 @@ const routes = [
     }
   },
   {
+    path: '/contract',
+    component: () => import('../pages/contract/contract.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Contrato'
+    }
+  },
+  {
     path: '/test',
     component: () => import('../pages/test/test.vue'),
     meta: {

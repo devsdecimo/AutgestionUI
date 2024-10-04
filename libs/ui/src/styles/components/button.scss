@@ -5,11 +5,11 @@
     @apply py-[14px] px-[32px] bg-light-2 text-dark rounded-full transition-all duration-200 ease-in-out;
 
     &:hover {
-      @apply rounded-lg opacity-50;
+      @apply opacity-50;
     }
 
     &:focus {
-      @apply rounded-lg outline-2 outline-offset-1;
+      @apply outline-2 outline-offset-1;
     }
 
     &:active {
@@ -17,7 +17,7 @@
     }
 
     &[disabled] {
-      @apply opacity-50 text-opacity-20 rounded-lg #{!important};
+      @apply opacity-50 text-opacity-20 ;
     }
 
     &.btn--small {

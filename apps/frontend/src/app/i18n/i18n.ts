@@ -3,12 +3,15 @@ import { createI18n } from 'vue-i18n';
 
 //import lang dicts
 import loginEN from './login/en';
-import loginES from './login/es';
 import homeEN from './home/en';
-import homeES from './home/es';
 import contractEN from './contract/en';
-import contractES from './contract/es';
+import asociationEN from './asociation/en';
 import recordEN from './record/en';
+
+import loginES from './login/es';
+import homeES from './home/es';
+import contractES from './contract/es';
+import asociationES from './asociation/es';
 import recordES from './record/es';
 
 const messages = {
@@ -21,6 +24,9 @@ const messages = {
     },
     contract:{
       ...contractEN
+    },
+    asociation:{
+      ...asociationEN
     },
     record: {
       ...recordEN,
@@ -38,6 +44,9 @@ const messages = {
     },
     contract:{
       ...contractES
+    },
+    asociation:{
+      ...asociationES
     },
     record: {
       ...recordES,

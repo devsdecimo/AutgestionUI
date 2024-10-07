@@ -44,6 +44,14 @@ const routes = [
       title: 'Expediente'
     }
   },
+  {
+    path: '/asociation',
+    component: () => import('../pages/asociation/asociation.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Asociación'
+    }
+  },
 ]
 
 const router = createRouter({

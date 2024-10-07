@@ -1,18 +1,21 @@
 <template>
   <!-- container botones -->
   <div class="flex gap-10 overflow-auto max-w-[100vw] px-10 py-5">
-    <button class="btn--main btn--small">
+    <a class="btn--main btn--small">
       {{ $t('contract.contractBtn') }}
-    </button>
-    <button class="btn--main btn--small btn--outline whitespace-nowrap">
+    </a>
+    <a 
+      class="btn--main btn--small btn--outline whitespace-nowrap"
+      href="/asociation"
+    >
       {{ $t('contract.asociationBtn') }}
-    </button>
-    <button class="btn--main btn--small btn--outline whitespace-nowrap">
+    </a>
+    <a class="btn--main btn--small btn--outline whitespace-nowrap">
       {{ $t('contract.orgLocationBtn') }}
-    </button>
-    <button class="btn--main btn--small btn--outline whitespace-nowrap">
+    </a>
+    <a class="btn--main btn--small btn--outline whitespace-nowrap">
       {{ $t('contract.payMethodBtn') }}
-    </button>
+    </a>
   </div>
   <div class="flex flex-col items-start content-center gap-10 px-6 md:mt-4 mb-12">
     <div>

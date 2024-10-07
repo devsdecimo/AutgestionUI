@@ -10,6 +10,8 @@ import contractEN from './contract/en';
 import contractES from './contract/es';
 import recordEN from './record/en';
 import recordES from './record/es';
+import personalReferencesEN from './personal-references/en';
+import personalReferencesES from './personal-references/es';
 
 const messages = {
   en: {
@@ -24,6 +26,9 @@ const messages = {
     },
     record: {
       ...recordEN,
+    },
+    personalReferences: {
+      ...personalReferencesEN,
     },
     misc: {
       language: 'Language'
@@ -41,6 +46,9 @@ const messages = {
     },
     record: {
       ...recordES,
+    },
+    personalReferences: {
+      ...personalReferencesES,
     },
     misc: {
       language: 'Idioma'

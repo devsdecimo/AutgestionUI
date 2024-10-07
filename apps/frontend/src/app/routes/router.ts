@@ -44,6 +44,14 @@ const routes = [
       title: 'Expediente'
     }
   },
+  {
+    path: '/personal-references',
+    component: () => import('../pages/personal-references/personal-references.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Referencias Personales'
+    }
+  }
 ]
 
 const router = createRouter({

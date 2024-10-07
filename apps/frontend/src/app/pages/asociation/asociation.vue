@@ -1,8 +1,8 @@
 <template>
   <!-- container botones -->
   <div class="flex gap-10 overflow-auto max-w-[100vw] px-10 py-5">
-    <a 
-      class="btn--main btn--small btn--outline whitespace-nowrap" 
+    <a
+      class="btn--main btn--small btn--outline whitespace-nowrap"
       href="/contract"
     >
       {{ $t('contract.contractBtn') }}
@@ -17,46 +17,53 @@
       {{ $t('contract.payMethodBtn') }}
     </a>
   </div>
-  <div
-    class="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-12 content-center gap-10 px-6 md:mt-4 mb-12"
-  >
-    <div class="col-span-3 p-5 card items-center md:items-start">
-      <div class="flex flex-col">
-        <span class="text-dark-2">{{ $t('asociation.entityLabel') }}</span>
-        <p class="text-dark font-bold">{{ asociationData.entity }}</p>
-      </div>
+  <div class="p-4 md:p-10">
+    <div class="col-span-12 p-2">
+      <h1 class="font-bold text-base leading-5">
+        {{ $t('asociation.title') }}
+      </h1>
     </div>
-    <div class="col-span-3 p-5 card items-center md:items-start">
-      <div class="flex flex-col">
-        <span class="text-dark-2">{{ $t('asociation.percentageLabel') }}</span>
-        <p class="text-dark font-bold">{{ asociationData.percentage }}</p>
-        <br>
-        <p>
-          <span
-            :class="
-              asociationData.percentagePhase == 'up'
-                ? 'text-success'
-                : 'text-error'
-            "
-          >
-            <FontAwesomeIcon
-              :icon="[
-                'fas',
+    <div class="grid grid-cols-3 md:grid-cols-12 gap-8 py-10">
+      <div class="col-span-3 p-5 card items-start">
+        <div class="flex flex-col">
+          <span class="text-dark-2">{{ $t('asociation.entityLabel') }}</span>
+          <p class="text-dark font-bold">{{ asociationData.entity }}</p>
+        </div>
+      </div>
+      <div class="col-span-3 p-5 card items-start">
+        <div class="flex flex-col">
+          <span class="text-dark-2">{{
+            $t('asociation.percentageLabel')
+          }}</span>
+          <p class="text-dark font-bold">{{ asociationData.percentage }}</p>
+          <br>
+          <p>
+            <span
+              :class="
                 asociationData.percentagePhase == 'up'
-                  ? 'fa-arrow-trend-up'
-                  : 'fa-arrow-trend-down',
-              ]"
-            />
-            {{ asociationData.percentagePhaseNumber }}
-          </span>
-          {{ asociationData.percentagePhaseLabel }}
-        </p>
+                  ? 'text-success'
+                  : 'text-error'
+              "
+            >
+              <FontAwesomeIcon
+                :icon="[
+                  'fas',
+                  asociationData.percentagePhase == 'up'
+                    ? 'fa-arrow-trend-up'
+                    : 'fa-arrow-trend-down',
+                ]"
+              />
+              {{ asociationData.percentagePhaseNumber }}
+            </span>
+            {{ asociationData.percentagePhaseLabel }}
+          </p>
+        </div>
       </div>
-    </div>
-    <div class="col-span-3 p-5 card items-center md:items-start">
-      <div class="flex flex-col">
-        <span class="text-dark-2">{{ $t('asociation.entryDateLabel') }}</span>
-        <p class="text-dark font-bold">{{ asociationData.entryDate }}</p>
+      <div class="col-span-3 p-5 card items-start">
+        <div class="flex flex-col">
+          <span class="text-dark-2">{{ $t('asociation.entryDateLabel') }}</span>
+          <p class="text-dark font-bold">{{ asociationData.entryDate }}</p>
+        </div>
       </div>
     </div>
   </div>

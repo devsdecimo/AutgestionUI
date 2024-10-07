@@ -1,7 +1,8 @@
 const asociationEN = {
-    entityLabel: 'Entity',
-    percentageLabel: 'Percentage',
-    entryDateLabel: 'Entry Date',
-  };
-  
-  export default asociationEN;
+  title: 'Employee Association',
+  entityLabel: 'Entity',
+  percentageLabel: 'Percentage',
+  entryDateLabel: 'Entry Date',
+};
+
+export default asociationEN;

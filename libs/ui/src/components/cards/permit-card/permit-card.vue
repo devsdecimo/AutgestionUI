@@ -4,17 +4,30 @@ import type { PermitCardProps } from '../../../types/cards/permit-card';
 
 // Definir las props y sus valores por defecto con withDefaults
 const props = withDefaults(defineProps<PermitCardProps>(), {
-  name: 'Jorge Trejos Castro',
-  applicationNumber: 3728,
-  id: 111111263,
-  actionType: 'Solicitado',
-  registrationDate: '29/07/2024',
-  startDate: '29/07/2024',
-  endDate: '2/08/2024',
+  name: 'Lorem Ipsum',
+  applicationNumber: 10000,
+  id: 10000,
+  actionType: 'Lorem',
+  registrationDate: '01/01/2001',
+  startDate: '01/01/2001',
+  endDate: '01/01/2001',
   reason: 'Lorem Ipsum',
-  state: 'Pendiente',
+  state: 'Lorem',
   doc: 'Doc Lorem Ipsum',
-  time: '00:00'
+  time: '00:00',
+  labels: {
+    name: 'Label Nombre Completo',
+    applicationNumber: 'Label No. Solicitud',
+    id: 'Label Identificacion',
+    actionType: 'Label Tipo de Accion',
+    registrationDate: 'Label Fecha Registro',
+    startDate: 'Label Fecha Inicio',
+    endDate: 'Label Fecha Final',
+    reason: 'Label Justificacion',
+    state: 'Label Estado',
+    doc: 'Label Documento',
+    time: 'Label Tiempo',
+  }
 });
 
 </script>
@@ -24,47 +37,47 @@ const props = withDefaults(defineProps<PermitCardProps>(), {
     <div class="card__content">
       <div class="grid grid-cols-1 md:grid-cols-10 gap-4">
         <div class="col-span-1 md:col-span-10">
-          <h4>Nombre Completo</h4>
+          <h4>{{labels.name}}</h4>
           <span>{{name}}</span>
         </div>
         <div class="col-span-1 md:col-span-3">
-          <h4>No. Solicitud</h4>
+          <h4>{{labels.applicationNumber}}</h4>
           <span>{{applicationNumber}}</span>
         </div>
         <div class="col-span-1 md:col-span-3">
-          <h4>Identificación</h4>
+          <h4>{{labels.id}}</h4>
           <span>{{id}}</span>
         </div>
         <div class="col-span-1 md:col-span-4">
-          <h4>Tipo de Acción</h4>
+          <h4>{{labels.actionType}}</h4>
           <span>{{actionType}}</span>
         </div>
         <div class="col-span-1 md:col-span-3">
-          <h4>Registro</h4>
+          <h4>{{labels.registrationDate}}</h4>
           <span>{{registrationDate}}</span>
         </div>
         <div class="col-span-1 md:col-span-3">
-          <h4>Inicio</h4>
+          <h4>{{labels.startDate}}</h4>
           <span>{{startDate}}</span>
         </div>
         <div class="col-span-1 md:col-span-4">
-          <h4>Final</h4>
+          <h4>{{labels.endDate}}</h4>
           <span>{{endDate}}</span>
         </div>
         <div class="col-span-1 md:col-span-3">
-          <h4>Justificación</h4>
+          <h4>{{labels.reason}}</h4>
           <span>{{reason}}</span>
         </div>
         <div class="col-span-1 md:col-span-3">
-          <h4>Estado</h4>
+          <h4>{{labels.state}}</h4>
           <span>{{state}}</span>
         </div>
         <div class="col-span-1 md:col-span-4">
-          <h4>Documento de Soportee</h4>
+          <h4>{{labels.doc}}</h4>
           <span>{{doc}}</span>
         </div>
         <div class="col-span-1 md:col-span-3">
-          <h4>Tiempo</h4>
+          <h4>{{labels.time}}</h4>
           <span>{{time}}</span>
         </div>
       </div>

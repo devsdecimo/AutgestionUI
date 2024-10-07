@@ -1,3 +1,17 @@
+export type PermitCardLabels = {
+  name?: string;
+  applicationNumber?: string;
+  id?: string;
+  actionType?: string;
+  registrationDate?: string;
+  startDate?: string;
+  endDate?: string;
+  reason?: string;
+  state?: string;
+  doc?: string;
+  time?: string;
+}
+
 export type PermitCardProps = {
   name?: string;
   applicationNumber?: number;
@@ -9,5 +23,6 @@ export type PermitCardProps = {
   reason?: string;
   state?: string;
   doc?: string;
-  time?: string
+  time?: string;
+  labels?: PermitCardLabels;
 }

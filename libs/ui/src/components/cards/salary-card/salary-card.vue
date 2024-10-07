@@ -6,9 +6,14 @@ import type { SalaryCardProps } from '../../../types/cards/salary-card';
 const props = withDefaults(defineProps<SalaryCardProps>(), {
   salaryId: 10,
   currency: 'Colones',
-  startDate: '16/02/2024',
-  endDate:'29/02/2024',
-  docLink: '/ruta-a-mi-doc'
+  startDate: '01/01/2001',
+  endDate:'01/01/2001',
+  docLink: '/ruta-a-mi-doc',
+  labels: {
+    period: 'Label Periodo',
+    download: 'Label Descargar',
+    seeMore: 'Label Ver Mas'
+  }
 });
 
 const currencyIconConfig = {
@@ -31,7 +36,7 @@ const currencyIconConfig = {
         </div>
         <div class="text-sm text-center sm:text-left col-span-2 sm:col-span-4">
           <div>
-            <span class="font-thin text-dark-2">Periodo</span>
+            <span class="font-thin text-dark-2">{{labels.period}}</span>
           </div>
           <div class="flex flex-col sm:flex-row sm:gap-2">
           <span class="font-semibold text-dark-1">{{startDate}}</span>
@@ -42,8 +47,8 @@ const currencyIconConfig = {
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-5 gap-4 sm:gap-0 mt-10 sm:mt-0">
         <a :href="docLink" class="salary-card__download-btn">
-          <FontAwesomeIcon :icon="['fas', 'download']" class="mr-2"></FontAwesomeIcon>Descargar</a>
-        <a :href="'/salarios/'+salaryId" class="salary-card__open-btn">Ver Más</a>
+          <FontAwesomeIcon :icon="['fas', 'download']" class="mr-2"></FontAwesomeIcon>{{labels.download}}</a>
+        <a :href="'/salarios/'+salaryId" class="salary-card__open-btn">{{labels.seeMore}}</a>
       </div>
     </div>
   </div>

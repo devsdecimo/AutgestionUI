@@ -10,7 +10,7 @@
       @click="triggerFileInput"
       :class="isDragging ? 'bg-gray-200' : ''"
     >
-      <p class="text-dark-2">Arrastre o Presione esta caja para subir un archivo.</p>
+      <p class="text-dark-2">{{boxLabel}}</p>
       <input
         ref="fileInput"
         type="file"
@@ -32,12 +32,12 @@
     <!-- Modal de progreso y confirmación -->
     <div v-if="showModal" class="file-picker__modal-container">
       <div class="file-picker__modal">
-        <h2 class="file-picker__modal-title">Subir Archivo</h2>
+        <h2 class="file-picker__modal-title">{{uploadFileLabel}}</h2>
         <div class="file-picker__modal-preview-container">
           <!-- Vista previa del archivo -->
           <div v-if="file" class="file-picker__preview-container">
             <FontAwesomeIcon :icon="['fas', 'file-export']" class="file-picker__file-icon" ></FontAwesomeIcon>
-            <p class="file-picker__file-name">Archivo: {{ file.name }}</p>
+            <p class="file-picker__file-name">{{fileLabel}}: {{ file.name }}</p>
           </div>
 
           <!-- Barra de progreso -->
@@ -52,21 +52,21 @@
 
         </div>
         <div class="file-picker__modal-footer">
-          <p class="file-picker__modal-footer-info">{{ uploadedFiles }} de 1 archivo subido</p>
+          <p class="file-picker__modal-footer-info">{{ uploadedFiles }} {{stateLabel}}</p>
           <!-- Botones -->
           <div class="file-picker__modal-buttons-container">
             <button
               @click="cancelUpload"
               class="btn--info btn--outline"
             >
-              Cancelar
+              {{cancelBtnLabel}}
             </button>
             <button
               @click="confirmUpload"
               class="btn--info"
               id="upload-btn"
             >
-              Subir
+              {{saveBtnLabel}}
             </button>
           </div>
         </div>
@@ -75,7 +75,7 @@
     </div>
     <!-- Modal de confirmación -->
     <div class="fixed bottom-0 right-0">
-      <Alert v-if="showConfirmationMessage" :setShowMessage="setShowConfirmationMessage" type="success" title="Archivo Subido" content="Archivo Correctamente Subido"></Alert>
+      <Alert v-if="showConfirmationMessage" :setShowMessage="setShowConfirmationMessage" type="success" :title="alertSuccessTitle" :content="alertSuccessText"></Alert>
     </div>
   </div>
 </template>
@@ -84,6 +84,20 @@
 import { ref, computed } from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { Alert } from '@ventura/ui';
+import type { FilePickerProps } from '../../types/filePicker';
+
+// Definir las props y sus valores por defecto con withDefaults
+const props = withDefaults(defineProps<FilePickerProps>(), {
+  boxLabel:'Arrastre o Presione esta caja para subir un archivo.',
+  uploadFileLabel: 'Subir Archivo',
+  fileLabel: 'Archivo',
+  stateLabel: 'de 1 archivo subido',
+  cancelBtnLabel:'Cancelar',
+  saveBtnLabel: 'Subir',
+  alertSuccessTitle: 'Archivo Subido',
+  alertSuccessText: 'Archivo Correctamente Subido',
+
+});
 
 // Definir los tipos de las referencias
 const fileInput = ref<HTMLInputElement | null>(null);
@@ -191,13 +205,13 @@ const setShowConfirmationMessage = (newValue) => showConfirmationMessage.value =
     @apply fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center;
   }
   &__modal{
-    @apply bg-white p-6 rounded-[25px] shadow-lg w-3/5;
+    @apply bg-white p-6 rounded-[25px] shadow-lg w-4/5 sm:w-3/5;
   }
   &__modal-title{
     @apply text-lg font-bold mb-2 text-center text-dark;
   }
   &__modal-preview-container{
-    @apply flex items-center gap-3 border-y border-dark-4 p-3;
+    @apply flex flex-col sm:flex-row items-center gap-5 sm:gap-3 border-y border-dark-4 p-3;
   }
   &__file-name{
     @apply text-dark-3;
@@ -212,13 +226,13 @@ const setShowConfirmationMessage = (newValue) => showConfirmationMessage.value =
     @apply absolute w-full h-full text-center text-white top-0 left-0;
   }
   &__modal-footer{
-    @apply flex justify-between pt-4;
+    @apply flex flex-col sm:flex-row justify-between pt-4;
   }
   &__modal-footer-info{
     @apply text-dark-3;
   }
   &__modal-buttons-container{
-    @apply flex justify-between gap-3 items-end;
+    @apply flex flex-col-reverse sm:flex-row justify-between gap-3 items-center sm:items-end mt-6 sm:mt-0;
   }
   }
 

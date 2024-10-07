@@ -2,6 +2,7 @@ import { createWebHistory, createRouter } from 'vue-router';
 
 // Layouts
 import { MainLayout, AuthLayout } from '@ventura/ui';
+import { useTitle } from '@vueuse/core';
 
 const routes = [
   {
@@ -26,7 +27,31 @@ const routes = [
       layout: MainLayout,
       title: 'Perfil'
     }
-  }
+  },
+  {
+    path: '/contract',
+    component: () => import('../pages/contract/contract.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Contrato'
+    }
+  },
+  {
+    path: '/test',
+    component: () => import('../pages/test/test.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Testing Components'
+    }
+  },
+  {
+    path: '/record',
+    component: () => import('../pages/record/record.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Expediente'
+    }
+  },
 ]
 
 const router = createRouter({

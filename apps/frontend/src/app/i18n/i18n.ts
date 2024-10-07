@@ -6,11 +6,26 @@ import loginEN from './login/en';
 import loginES from './login/es';
 import profileEN from './profile/en';
 import profileES from './profile/es';
+import homeEN from './home/en';
+import homeES from './home/es';
+import contractEN from './contract/en';
+import contractES from './contract/es';
+import recordEN from './record/en';
+import recordES from './record/es';
 
 const messages = {
   en: {
     login: {
       ...loginEN,
+    },
+    home: {
+      ...homeEN,
+    },
+    contract:{
+      ...contractEN
+    },
+    record: {
+      ...recordEN,
     },
     misc: {
       language: 'Language'
@@ -22,6 +37,15 @@ const messages = {
   es: {
     login: {
      ...loginES,
+    },
+    home: {
+      ...homeES,
+    },
+    contract:{
+      ...contractES
+    },
+    record: {
+      ...recordES,
     },
     misc: {
       language: 'Idioma'

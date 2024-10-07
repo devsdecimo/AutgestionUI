@@ -1,7 +1,7 @@
 <template>
   <div class="accordion dropdown-card">
     <div
-      class="card--shadow accordion-section overflow-hidden"
+      class="card accordion-section overflow-hidden"
     >
       <div
         class="dropdown-card__header accordion-header"
@@ -17,7 +17,7 @@
           <h4>{{ section.title }}</h4>
           <span>{{ section.content }}</span>
         </div>
-        <a :href="link" class="btn--info inline-block mt-4 font-semibold">Ver Detalles</a>
+        <a :href="link" class="btn--info inline-block mt-4 font-semibold">{{buttonText}}</a>
       </div>
     </div>
   </div>
@@ -38,6 +38,7 @@ const props = withDefaults(defineProps<DropdownCardProps>(), {
     { title: 'Horario', content: 'Tiempo Completo' },
   ],
   link: '/persona',
+  buttonText: 'Ver Detalles'
 });
 
 // Variables y lógica

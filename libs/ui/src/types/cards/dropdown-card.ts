@@ -8,4 +8,5 @@ export type DropdownCardProps = {
   icon?: [string, string];
   title?: string;
   link?: string;
+  buttonText?: string;
 }

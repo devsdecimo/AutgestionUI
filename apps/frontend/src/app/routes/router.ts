@@ -29,6 +29,14 @@ const routes = [
     }
   },
   {
+    path: '/payment',
+    component: () => import('../pages/payment/payment.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Pago'
+    }
+  },
+  {
     path: '/test',
     component: () => import('../pages/test/test.vue'),
     meta: {

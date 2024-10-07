@@ -56,7 +56,7 @@ const currencyIconConfig = {
 
 .payment-card{
 
-  @apply  col-span-3 card card;
+  @apply card card;
   &__content{
     @apply card__content space-y-4;
   }

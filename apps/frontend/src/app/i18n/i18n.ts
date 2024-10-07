@@ -10,6 +10,8 @@ import contractEN from './contract/en';
 import contractES from './contract/es';
 import recordEN from './record/en';
 import recordES from './record/es';
+import paymentEN from './payment/en';
+import paymentES from './payment/es';
 
 const messages = {
   en: {
@@ -21,6 +23,9 @@ const messages = {
     },
     contract:{
       ...contractEN
+    },
+    payment:{
+      ...paymentEN
     },
     record: {
       ...recordEN,
@@ -38,6 +43,9 @@ const messages = {
     },
     contract:{
       ...contractES
+    },
+    payment:{
+      ...paymentES
     },
     record: {
       ...recordES,

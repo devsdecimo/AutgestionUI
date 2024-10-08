@@ -25,13 +25,8 @@ import permissionsES from './permissions/es';
 import vacationDetailEN from './vacation/detail/en';
 import vacationDetailES from './vacation/detail/es';
 
-const createMessages = (langEN: object, langES: object) => ({
-  en: langEN,
-  es: langES,
-});
-
-const messages = createMessages(
-  {
+const messages = {
+  en: {
     login: loginEN,
     home: homeEN,
     contract: contractEN,
@@ -45,7 +40,7 @@ const messages = createMessages(
     profile: profileEN,
     misc: { language: 'Language' },
   },
-  {
+  es: {
     login: loginES,
     home: homeES,
     contract: contractES,
@@ -58,8 +53,8 @@ const messages = createMessages(
     vacationDetail: vacationDetailES,
     profile: profileES,
     misc: { language: 'Idioma' },
-  }
-);
+  },
+};
 
 // Función para obtener el idioma predeterminado
 const getDefaultLocale = (): string => {

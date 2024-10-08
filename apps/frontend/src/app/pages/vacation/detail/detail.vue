@@ -28,7 +28,6 @@ const requestData = {
   endDate: '2024-01-20',
   state: 'approved',
   days: 5,
-  reason: 'Visita al doctor',
 }
 
 function formatDate(dateString) {
@@ -109,8 +108,8 @@ function formatDate(dateString) {
                 <input type="text" :value="requestData.days" readonly>
               </div>
               <div class="flex flex-col">
-                <label>{{$t('vacationDetail.labels.reason')}}</label>
-                <input type="text" :value="requestData.reason" readonly>
+                <label>{{$t('vacationDetail.labels.state')}}</label>
+                <input type="text" :value="$t('vacationRequest.stateOptions.'+requestData.state)" readonly>
               </div>
             </div>
             </div>

@@ -61,6 +61,14 @@ const routes = [
     }
   },
   {
+    path: '/vacations/request/create',
+    component: () => import('../pages/vacation/create/create.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Vacaciones'
+    }
+  },
+  {
     path: '/vacations/request/:id',
     component: () => import('../pages/vacation/detail/detail.vue'),
     meta: {

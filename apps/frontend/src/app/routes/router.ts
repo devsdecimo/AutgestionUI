@@ -61,6 +61,14 @@ const routes = [
     },
   },
   {
+    path: '/personal-references',
+    component: () => import('../pages/personal-references/personal-references.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Referencias Personales'
+    }
+  },
+  {
     path: '/permissions',
     component: () => import('../pages/permissions/permissions.vue'),
     meta: {

@@ -14,6 +14,8 @@ import contractEN from './contract/en';
 import contractES from './contract/es';
 import recordEN from './record/en';
 import recordES from './record/es';
+import personalReferencesEN from './personal-references/en';
+import personalReferencesES from './personal-references/es';
 import permissionsEN from './permissions/en';
 import permissionsES from './permissions/es';
 
@@ -33,6 +35,9 @@ const messages = {
     },
     record: {
       ...recordEN,
+    },
+    personalReferences: {
+      ...personalReferencesEN,
     },
     permissions: {
       ...permissionsEN,
@@ -60,6 +65,9 @@ const messages = {
     record: {
       ...recordES,
     },
+    personalReferences: {
+      ...personalReferencesES,
+  },
     permissions: {
       ...permissionsES,
     },

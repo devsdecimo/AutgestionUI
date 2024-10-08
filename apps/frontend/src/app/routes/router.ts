@@ -29,6 +29,22 @@ const routes = [
       }
     },
   {
+    path: '/contract',
+    component: () => import('../pages/contract/contract.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Contrato'
+    }
+  },
+  {
+    path: '/test',
+    component: () => import('../pages/test/test.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Testing Components'
+    }
+  },
+  {
     path: '/record',
     component: () => import('../pages/record/record.vue'),
     meta: {

@@ -1,22 +1,63 @@
-# Ventura
+Este proyecto utiliza **Vue 3**, **React**, y **NX** para gestionar el frontend. Incluye soporte para **Storybook** y herramientas de desarrollo como **ESLint**, **Prettier**, y **Tailwind CSS**.
 
-## Install Nx Console
+Requisitos Previos
+------------------
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+-   **Node.js** (versión recomendada: >= 18)
+-   **npm** (instalado con Node.js)
+-   **NX CLI** (opcional pero recomendado)
 
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+Para instalar NX CLI de manera global (opcional):
 
-## Useful links
+`npm install -g nx`
 
-Learn more:
+Instalación
+-----------
 
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/vue-standalone-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+Para instalar todas las dependencias del proyecto, ejecuta el siguiente comando:
 
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+`npm install`
+
+Esto instalará todas las dependencias incluidas en `package.json`, tanto las de producción como las de desarrollo.
+
+Scripts disponibles
+-------------------
+
+A continuación, se listan algunos de los scripts más importantes que puedes utilizar en este proyecto.
+
+### 1\. Servir el Frontend
+
+Para levantar el servidor de desarrollo del frontend, ejecuta:
+
+`npm run frontend:serve`
+
+Este comando inicia el servidor de desarrollo del frontend utilizando **NX**. El servidor estará disponible localmente, y podrás hacer cambios en tiempo real.
+
+### 2\. Ejecutar pruebas del Frontend
+
+Para ejecutar las pruebas del frontend:
+
+`npm run frontend:test`
+
+Este comando ejecuta las pruebas configuradas para el frontend.
+
+### 3\. Iniciar Storybook
+
+Para levantar Storybook y ver tus componentes de UI en un entorno aislado, ejecuta:
+
+`npm run ui:storybook`
+
+Este comando iniciará **Storybook**, y podrás visualizar la interfaz de usuario en un navegador.
+
+
+Notas adicionales
+-----------------
+
+Este proyecto utiliza varias bibliotecas de terceros como:
+
+-   **FontAwesome** para los íconos.
+-   **Tailwind CSS** para estilos.
+-   **Vite** para el *bundling* de la aplicación.
+-   **Vitest** para pruebas unitarias.
+
+Revisa los archivos de configuración como `nx.json`, `vite.config.js`, y `tailwind.config.js` para más información sobre la configuración de la infraestructura del proyecto.

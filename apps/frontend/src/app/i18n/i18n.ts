@@ -6,6 +6,10 @@ import loginEN from './login/en';
 import loginES from './login/es';
 import addtionalIdentificationsEN from './additional-identifications/en';
 import addtionalIdentificationsES from './additional-identifications/es';
+import homeEN from './home/en';
+import homeES from './home/es';
+import contractEN from './contract/en';
+import contractES from './contract/es';
 import recordEN from './record/en';
 import recordES from './record/es';
 
@@ -14,37 +18,49 @@ const messages = {
     login: {
       ...loginEN,
     },
-    misc: {
-      language: 'Language'
+    home: {
+      ...homeEN,
+    },
+    contract:{
+      ...contractEN
     },
     additionalIndentifications: {
       ...addtionalIdentificationsEN
     },
     record: {
       ...recordEN,
-    }
+    },
+    misc: {
+      language: 'Language'
+    },
   },
   es: {
     login: {
      ...loginES,
     },
-    misc: {
-      language: 'Idioma'
+    home: {
+      ...homeES,
+    },
+    contract:{
+      ...contractES
     },
     additionalIndentifications: {
       ...addtionalIdentificationsES
     },
     record: {
       ...recordES,
-    }
+    },
+    misc: {
+      language: 'Idioma'
+    },
   },
 };
 
 
 // Función para obtener el idioma predeterminado
 const getDefaultLocale = (): string => {
-  const browserLocale = navigator.language; 
-  
+  const browserLocale = navigator.language;
+
   if (browserLocale.startsWith('es')) {
   return 'es';
   } else {
@@ -55,8 +71,8 @@ const getDefaultLocale = (): string => {
 // Crear la instancia de i18n
 const i18n = createI18n({
   locale: localStorage.getItem('user-locale') || getDefaultLocale(),
-  fallbackLocale: 'en', 
-  messages, 
+  fallbackLocale: 'en',
+  messages,
 });
 
 export default i18n;

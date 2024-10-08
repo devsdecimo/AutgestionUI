@@ -74,7 +74,7 @@ const props = withDefaults(defineProps<PermitCardProps>(), {
 
 <style scoped lang="postcss">
 .permit-card{
-  @apply card--shadow;
+  @apply card;
   h4{
     @apply font-thin text-sm;
   }

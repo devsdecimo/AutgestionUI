@@ -69,11 +69,35 @@ const routes = [
     }
   },
   {
+    path: '/vacations',
+    component: () => import('../pages/vacation/vacation.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Vacaciones'
+    }
+  },
+  {
+    path: '/vacations/request',
+    component: () => import('../pages/vacation/request/request.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Vacaciones'
+    }
+  },
+  {
     path: '/permissions',
     component: () => import('../pages/permissions/permissions.vue'),
     meta: {
       layout: MainLayout,
       title: 'Permisos'
+    }
+  },
+  {
+    path: '/vacations/request/:id',
+    component: () => import('../pages/vacation/detail/detail.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Vacaciones'
     }
   }
 ]

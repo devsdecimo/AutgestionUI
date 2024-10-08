@@ -14,81 +14,61 @@ import contractEN from './contract/en';
 import contractES from './contract/es';
 import recordEN from './record/en';
 import recordES from './record/es';
+import vacationEN from './vacation/en';
+import vacationES from './vacation/es';
+import vacationRequestEN from './vacation/request/en';
+import vacationRequestES from './vacation/request/es';
 import personalReferencesEN from './personal-references/en';
 import personalReferencesES from './personal-references/es';
 import permissionsEN from './permissions/en';
 import permissionsES from './permissions/es';
+import vacationDetailEN from './vacation/detail/en';
+import vacationDetailES from './vacation/detail/es';
 
-const messages = {
-  en: {
-    login: {
-      ...loginEN,
-    },
-    home: {
-      ...homeEN,
-    },
-    contract:{
-      ...contractEN
-    },
-    additionalIndentifications: {
-      ...addtionalIdentificationsEN
-    },
-    record: {
-      ...recordEN,
-    },
-    personalReferences: {
-      ...personalReferencesEN,
-    },
-    permissions: {
-      ...permissionsEN,
-    },
-    misc: {
-      language: 'Language'
-    },
-    profile: {
-      ...profileEN,
-    },
-  },
-  es: {
-    login: {
-     ...loginES,
-    },
-    home: {
-      ...homeES,
-    },
-    contract:{
-      ...contractES
-    },
-    additionalIndentifications: {
-      ...addtionalIdentificationsES
-    },
-    record: {
-      ...recordES,
-    },
-    personalReferences: {
-      ...personalReferencesES,
-  },
-    permissions: {
-      ...permissionsES,
-    },
-    misc: {
-      language: 'Idioma'
-    },
-    profile: {
-      ...profileES,
-    },
-  },
-};
+const createMessages = (langEN: object, langES: object) => ({
+  en: langEN,
+  es: langES,
+});
 
+const messages = createMessages(
+  {
+    login: loginEN,
+    home: homeEN,
+    contract: contractEN,
+    additionalIndentifications: addtionalIdentificationsEN,
+    record: recordEN,
+    vacation: vacationEN,
+    vacationRequest: vacationRequestEN,
+    personalReferences: personalReferencesEN,
+    permissions: permissionsEN,
+    vacationDetail: vacationDetailEN,
+    profile: profileEN,
+    misc: { language: 'Language' },
+  },
+  {
+    login: loginES,
+    home: homeES,
+    contract: contractES,
+    additionalIndentifications: addtionalIdentificationsES,
+    record: recordES,
+    vacation: vacationES,
+    vacationRequest: vacationRequestES,
+    personalReferences: personalReferencesES,
+    permissions: permissionsES,
+    vacationDetail: vacationDetailES,
+    profile: profileES,
+    misc: { language: 'Idioma' },
+  }
+);
 
 // Función para obtener el idioma predeterminado
 const getDefaultLocale = (): string => {
   const browserLocale = navigator.language;
 
   if (browserLocale.startsWith('es')) {
-  return 'es';
+    return 'es';
   } else {
-  return 'en';
+    return 'en';
   }
 };
 

@@ -4,6 +4,8 @@ import { createI18n } from 'vue-i18n';
 //import lang dicts
 import loginEN from './login/en';
 import loginES from './login/es';
+import profileEN from './profile/en';
+import profileES from './profile/es';
 import addtionalIdentificationsEN from './additional-identifications/en';
 import addtionalIdentificationsES from './additional-identifications/es';
 import homeEN from './home/en';
@@ -33,6 +35,9 @@ const messages = {
     misc: {
       language: 'Language'
     },
+    profile: {
+      ...profileEN,
+    },
   },
   es: {
     login: {
@@ -52,6 +57,9 @@ const messages = {
     },
     misc: {
       language: 'Idioma'
+    },
+    profile: {
+      ...profileES,
     },
   },
 };

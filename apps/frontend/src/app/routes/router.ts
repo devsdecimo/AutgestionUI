@@ -29,6 +29,14 @@ const routes = [
       }
     },
   {
+    path: '/profile',
+    component: () => import('../pages/profile/profile.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Perfil'
+    }
+  },
+  {
     path: '/contract',
     component: () => import('../pages/contract/contract.vue'),
     meta: {

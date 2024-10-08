@@ -44,6 +44,14 @@ const routes = [
       title: 'Expediente'
     }
   },
+  {
+    path: '/vacation',
+    component: () => import('../pages/vacation/vacation.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Vacaciones'
+    }
+  },
 ]
 
 const router = createRouter({

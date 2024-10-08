@@ -25,84 +25,41 @@ import permissionsES from './permissions/es';
 import vacationDetailEN from './vacation/detail/en';
 import vacationDetailES from './vacation/detail/es';
 
-const messages = {
-  en: {
-    login: {
-      ...loginEN,
-    },
-    home: {
-      ...homeEN,
-    },
-    contract: {
-      ...contractEN,
-    },
-    additionalIndentifications: {
-      ...addtionalIdentificationsEN,
-    },
-    record: {
-      ...recordEN,
-    },
-    vacation: {
-      ...vacationEN,
-    },
-    vacationRequest: {
-      ...vacationRequestEN,
-    },
-    personalReferences: {
-      ...personalReferencesEN,
-    },
-    permissions: {
-      ...permissionsEN,
-    },
-    vacationDetail: {
-      ...vacationDetailEN,
-    },
-    misc: {
-      language: 'Language',
-    },
-    profile: {
-      ...profileEN,
-    },
+const createMessages = (langEN: object, langES: object) => ({
+  en: langEN,
+  es: langES,
+});
+
+const messages = createMessages(
+  {
+    login: loginEN,
+    home: homeEN,
+    contract: contractEN,
+    additionalIndentifications: addtionalIdentificationsEN,
+    record: recordEN,
+    vacation: vacationEN,
+    vacationRequest: vacationRequestEN,
+    personalReferences: personalReferencesEN,
+    permissions: permissionsEN,
+    vacationDetail: vacationDetailEN,
+    profile: profileEN,
+    misc: { language: 'Language' },
   },
-  es: {
-    login: {
-      ...loginES,
-    },
-    home: {
-      ...homeES,
-    },
-    contract: {
-      ...contractES,
-    },
-    additionalIndentifications: {
-      ...addtionalIdentificationsES,
-    },
-    record: {
-      ...recordES,
-    },
-    vacation: {
-      ...vacationES,
-    },
-    vacationRequest: {
-      ...vacationRequestES,
-    },
-    personalReferences: {
-      ...personalReferencesES,
-    },
-    permissions: {
-      ...permissionsES,
-    },
-    vacationDetail: {
-      ...vacationDetailES,
-    },
-    misc: {
-      language: 'Idioma',
-    },
-    profile: {
-      ...profileES,
-    },
-  },
-};
+  {
+    login: loginES,
+    home: homeES,
+    contract: contractES,
+    additionalIndentifications: addtionalIdentificationsES,
+    record: recordES,
+    vacation: vacationES,
+    vacationRequest: vacationRequestES,
+    personalReferences: personalReferencesES,
+    permissions: permissionsES,
+    vacationDetail: vacationDetailES,
+    profile: profileES,
+    misc: { language: 'Idioma' },
+  }
+);
 
 // Función para obtener el idioma predeterminado
 const getDefaultLocale = (): string => {

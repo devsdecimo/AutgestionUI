@@ -3,69 +3,71 @@ import { createI18n } from 'vue-i18n';
 
 //import lang dicts
 import loginEN from './login/en';
-import homeEN from './home/en';
-import contractEN from './contract/en';
-import asociationEN from './asociation/en';
-import recordEN from './record/en';
-
 import loginES from './login/es';
+import profileEN from './profile/en';
+import profileES from './profile/es';
+import addtionalIdentificationsEN from './additional-identifications/en';
+import addtionalIdentificationsES from './additional-identifications/es';
+import homeEN from './home/en';
 import homeES from './home/es';
+import contractEN from './contract/en';
 import contractES from './contract/es';
-import asociationES from './asociation/es';
+import recordEN from './record/en';
 import recordES from './record/es';
+import vacationEN from './vacation/en';
+import vacationES from './vacation/es';
+import vacationRequestEN from './vacation/request/en';
+import vacationRequestES from './vacation/request/es';
+import personalReferencesEN from './personal-references/en';
+import personalReferencesES from './personal-references/es';
+import permissionsEN from './permissions/en';
+import permissionsES from './permissions/es';
+import vacationDetailEN from './vacation/detail/en';
+import vacationDetailES from './vacation/detail/es';
+import asociationEN from './asociation/en';
+import asociationES from './asociation/es';
 
 const messages = {
   en: {
-    login: {
-      ...loginEN,
-    },
-    home: {
-      ...homeEN,
-    },
-    contract:{
-      ...contractEN
-    },
-    asociation:{
-      ...asociationEN
-    },
-    record: {
-      ...recordEN,
-    },
-    misc: {
-      language: 'Language'
-    },
+    login: loginEN,
+    home: homeEN,
+    contract: contractEN,
+    additionalIndentifications: addtionalIdentificationsEN,
+    record: recordEN,
+    vacation: vacationEN,
+    vacationRequest: vacationRequestEN,
+    personalReferences: personalReferencesEN,
+    permissions: permissionsEN,
+    vacationDetail: vacationDetailEN,
+    profile: profileEN,
+    asociation: asociationEN,
+    misc: { language: 'Language' },
   },
   es: {
-    login: {
-     ...loginES,
-    },
-    home: {
-      ...homeES,
-    },
-    contract:{
-      ...contractES
-    },
-    asociation:{
-      ...asociationES
-    },
-    record: {
-      ...recordES,
-    },
-    misc: {
-      language: 'Idioma'
-    },
+    login: loginES,
+    home: homeES,
+    contract: contractES,
+    additionalIndentifications: addtionalIdentificationsES,
+    record: recordES,
+    vacation: vacationES,
+    vacationRequest: vacationRequestES,
+    personalReferences: personalReferencesES,
+    permissions: permissionsES,
+    vacationDetail: vacationDetailES,
+    profile: profileES,
+    asociation: asociationES,
+    misc: { language: 'Idioma' },
   },
 };
-
 
 // Función para obtener el idioma predeterminado
 const getDefaultLocale = (): string => {
   const browserLocale = navigator.language;
 
   if (browserLocale.startsWith('es')) {
-  return 'es';
+    return 'es';
   } else {
-  return 'en';
+    return 'en';
   }
 };
 

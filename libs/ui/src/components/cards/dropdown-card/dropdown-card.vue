@@ -30,14 +30,14 @@ import type { DropdownCardProps } from '../../../types/cards/dropdown-card';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 const props = withDefaults(defineProps<DropdownCardProps>(), {
-  title: 'Persona',
+  title: 'Title',
   icon: ['fas', 'user'],
   sections: [
-    { title: 'Puesto', content: 'Charlene Reed ' },
-    { title: 'Salario Base', content: '897,580.74' },
-    { title: 'Horario', content: 'Tiempo Completo' },
+    { title: 'Title1', content: 'Lorem Ipsum 1' },
+    { title: 'Title2', content: 'Lorem Ipsum 2' },
+    { title: 'Title3', content: 'Lorem Ipsum 3' },
   ],
-  link: '/persona',
+  link: '/custom-link',
   buttonText: 'Ver Detalles'
 });
 

@@ -4,10 +4,16 @@ import type { PaymentCardProps } from '../../../types/cards/payment-card';
 
 // Definir las props y sus valores por defecto con withDefaults
 const props = withDefaults(defineProps<PaymentCardProps>(), {
-  name: 'Transferencia',
-  bank: 'Banco de Costa Rica',
+  name: 'Lorem Ipsum',
+  bank: 'Lorem Ipsum',
   currency: 'Colones',
-  account: 'CR02015202001159781714'
+  account: 'Lorem Ipsum',
+  labels: {
+    name: 'Label Forma de Pago',
+    bank: 'Label Banco',
+    currency: 'Label Moneda',
+    account: 'Label Cuenta',
+  }
 });
 
 const currencyIconConfig = {
@@ -26,16 +32,16 @@ const currencyIconConfig = {
       <div class="flex items-start space-x-4">
         <div class="text-sm grow space-y-2">
           <div>
-            <span class="payment-card__title">Forma de Pago</span>
+            <span class="payment-card__title">{{labels.name}}</span>
             <span class="payment-card__info">{{name}}</span>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <span class="payment-card__title">Banco</span>
+              <span class="payment-card__title">{{labels.bank}}</span>
               <span class="payment-card__info">{{bank}}</span>
             </div>
             <div>
-              <span class="payment-card__title">Moneda</span>
+              <span class="payment-card__title">{{labels.currency}}</span>
               <span class="payment-card__info">{{currency}}</span>
             </div>
           </div>
@@ -46,7 +52,7 @@ const currencyIconConfig = {
       </div>
     </div>
     <div class="card__footer text-sm">
-      <span class="payment-card__title">Cuenta</span>
+      <span class="payment-card__title">{{labels.account}}</span>
       <span class="payment-card__info">{{account}}</span>
     </div>
   </div>

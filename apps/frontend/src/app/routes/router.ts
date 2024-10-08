@@ -52,6 +52,14 @@ const routes = [
       title: 'Vacaciones'
     }
   },
+  {
+    path: '/vacation/request',
+    component: () => import('../pages/vacation/request/request.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Vacaciones'
+    }
+  },
 ]
 
 const router = createRouter({

@@ -12,6 +12,8 @@ import recordEN from './record/en';
 import recordES from './record/es';
 import vacationEN from './vacation/en';
 import vacationES from './vacation/es';
+import vacationRequestEN from './vacation/request/en';
+import vacationRequestES from './vacation/request/es';
 
 const messages = {
   en: {
@@ -29,6 +31,9 @@ const messages = {
     },
     vacation: {
       ...vacationEN,
+    },
+    vacationRequest: {
+      ...vacationRequestEN,
     },
     misc: {
       language: 'Language'
@@ -49,6 +54,9 @@ const messages = {
     },
     vacation: {
       ...vacationES,
+    },
+    vacationRequest: {
+      ...vacationRequestES,
     },
     misc: {
       language: 'Idioma'

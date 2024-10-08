@@ -60,7 +60,7 @@ const data = {
   </div>
   <div class="main-container">
     <section>
-      <h2 class="font-bold text-base leading-5">{{$t('vacation.subtitles.information')}}</h2>
+      <h2>{{$t('vacation.subtitles.information')}}</h2>
       <div class="information-card">
         <div class="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-2">
           <div>

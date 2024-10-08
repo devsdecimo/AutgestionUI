@@ -19,7 +19,7 @@ const messages = {
     },
     additionalIndentifications: {
       ...addtionalIdentificationsEN
-    }
+    },
     record: {
       ...recordEN,
     }

@@ -58,8 +58,16 @@ const routes = [
     meta: {
       layout: MainLayout,
       title: 'Expediente'
-    }
+    },
   },
+  {
+    path: '/permissions',
+    component: () => import('../pages/permissions/permissions.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Permisos'
+    }
+  }
 ]
 
 const router = createRouter({

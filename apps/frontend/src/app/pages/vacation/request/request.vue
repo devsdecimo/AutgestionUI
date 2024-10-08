@@ -139,14 +139,14 @@ const handleSubmit = () => {
               </select>
             </div>
             <div class="lg:col-start-2 xl:col-start-4 grid grid-cols-2">
-              <button type="submit" class="btn--main  btn--small col-start-2">{{$t('vacationRequest.btnLabels.search')}}</button>
+              <button type="submit" class="btn--main  btn--small col-start-2 font-semibold">{{$t('vacationRequest.btnLabels.search')}}</button>
             </div>
             </div>
         </form>
       </div>
     </section>
     <section class="pt-10">
-      <a href="/vacations/request/create" class="btn--main mb-8 inline-block">{{$t('vacationRequest.btnLabels.createRequest')}}</a>
+      <a href="/vacations/request/create" class="btn--main mb-8 inline-block font-semibold">{{$t('vacationRequest.btnLabels.createRequest')}}</a>
       <div v-if="searchData" class="pb-8">
         <!-- Version Desktop -->
         <table class="hidden lg:table">
@@ -221,18 +221,16 @@ const handleSubmit = () => {
 h2{
   @apply font-bold text-base leading-5 pb-8 text-dark;
 }
-h3, label{
-  @apply text-dark-2;
+label{
+  @apply text-dark-2 mb-3;
 }
 h3{
-  @apply mb-6;
+  @apply mb-6 text-dark-2;
 }
 span{
   @apply text-dark font-bold;
 }
-select {
-  @apply text-base;
+input, select{
+  @apply border-dark-4 text-base text-dark-2 font-normal;
 }
-
-
 </style>

@@ -45,7 +45,7 @@ const routes = [
     }
   },
   {
-    path: '/vacation',
+    path: '/vacations',
     component: () => import('../pages/vacation/vacation.vue'),
     meta: {
       layout: MainLayout,
@@ -53,7 +53,7 @@ const routes = [
     }
   },
   {
-    path: '/vacation/request',
+    path: '/vacations/request',
     component: () => import('../pages/vacation/request/request.vue'),
     meta: {
       layout: MainLayout,

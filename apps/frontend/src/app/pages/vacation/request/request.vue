@@ -99,15 +99,15 @@ const handleSubmit = () => {
 <template>
   <!-- container botones -->
   <div class="button-container">
-    <button class="btn--main btn--small whitespace-nowrap">
+    <a href="/vacations/request" class="btn--main btn--small whitespace-nowrap">
       {{ $t('vacation.submenuLabels.vacationRequest') }}
-    </button>
-    <button class="btn--main btn--small btn--outline whitespace-nowrap">
+    </a>
+    <a href="/vacations/year-report" class="btn--main btn--small btn--outline whitespace-nowrap">
       {{ $t('vacation.submenuLabels.yearReport') }}
-    </button>
-    <button class="btn--main btn--small btn--outline whitespace-nowrap">
+    </a>
+    <a href="/vacations/resolutions" class="btn--main btn--small btn--outline whitespace-nowrap">
       {{ $t('vacation.submenuLabels.resolution') }}
-    </button>
+    </a>
   </div>
   <div class="main-container">
     <section>
@@ -168,7 +168,7 @@ const handleSubmit = () => {
             <td>{{$t('vacationRequest.stateOptions.'+row.state)}}</td>
             <td>{{row.days}}</td>
             <td>
-              <a :href="'/vacation/request/'+row.requestNumber" class="btn--main btn--small inline-block">
+              <a :href="'/vacations/request/'+row.requestNumber" class="btn--main btn--small inline-block">
               {{$t('vacationRequest.btnLabels.seeMore')}}
             </a>
             </td>
@@ -199,7 +199,7 @@ const handleSubmit = () => {
               <span>{{row.days}}</span>
             </div>
             <div>
-              <a :href="'/vacation/request/'+row.requestNumber" class="btn--main btn--small inline-block">
+              <a :href="'/vacations/request/'+row.requestNumber" class="btn--main btn--small inline-block">
                 {{$t('vacationRequest.btnLabels.seeMore')}}
               </a>
             </div>

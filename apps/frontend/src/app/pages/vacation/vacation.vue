@@ -48,15 +48,15 @@ const data = {
 <template>
   <!-- container botones -->
   <div class="button-container">
-    <button class="btn--main btn--small btn--outline whitespace-nowrap">
+    <a href="/vacations/request" class="btn--main btn--small btn--outline whitespace-nowrap">
       {{ $t('vacation.submenuLabels.vacationRequest') }}
-    </button>
-    <button class="btn--main btn--small btn--outline whitespace-nowrap">
+    </a>
+    <a href="/vacations/year-report" class="btn--main btn--small btn--outline whitespace-nowrap">
       {{ $t('vacation.submenuLabels.yearReport') }}
-    </button>
-    <button class="btn--main btn--small btn--outline whitespace-nowrap">
+    </a>
+    <a href="/vacations/resolutions" class="btn--main btn--small btn--outline whitespace-nowrap">
       {{ $t('vacation.submenuLabels.resolution') }}
-    </button>
+    </a>
   </div>
   <div class="main-container">
     <section>

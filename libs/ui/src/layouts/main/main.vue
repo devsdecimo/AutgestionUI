@@ -11,7 +11,7 @@ import type { SideMenuLinks } from '../../types/side-menu';
 const sideMenuLinks: SideMenuLinks[] = [
   { text: 'General', icon: ['fas', 'home'], route: '/' },
   { text: 'Mi Perfil', icon: ['fas', 'user'], route: '/profile' },
-  { text: 'Acciones', icon: ['fas', 'clipboard'], route: '/actions' },
+  { text: 'Acciones', icon: ['fas', 'clipboard'], route: '/contract' },
   { text: 'Vacaciones', icon: ['fas', 'plane'], route: '/vacations' },
   { text: 'Permisos', icon: ['fas', 'calendar-check'], route: '/permissions'},
   { text: 'Salarios', icon: ['fas', 'money-bill'], route: '/salaries'},

@@ -1,3 +1,11 @@
+export type SalaryCompisitionCardLabels = {
+  concept?: string;
+  currency?: string;
+  percent?: string;
+  unit?: string;
+  value?: number;
+}
+
 export type SalaryCompositionCardProps = {
   type?: string;
   icon?: [string, string];
@@ -5,5 +13,6 @@ export type SalaryCompositionCardProps = {
   currency?: string;
   percent?: number;
   unit?: string;
-  value?: number
+  value?: number;
+  labels?: SalaryCompisitionCardLabels;
 }

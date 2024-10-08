@@ -41,10 +41,26 @@ const Template: StoryFn = (args) => ({
 
 export const Main = Template.bind({});
 Main.args = {
-  color: 'main'
+  color: 'main',
+  name: 'Jefe de Sistemas Informáticos',
+  state: 'Activo',
+  schedule: 'CH, L-J, 7:30 - 4:30  V, 7:30 - 4:00',
+  labels:{
+    name: 'Puesto',
+    state: 'Estado de Contrato',
+    schedule: 'Horario Establecido',
+  }
 };
 export const Dark = Template.bind({});
 Dark.args = {
+  name: 'Jefe de Sistemas Informáticos',
+  state: 'Activo',
+  schedule: 'CH, L-J, 7:30 - 4:30  V, 7:30 - 4:00',
+  labels:{
+    name: 'Puesto',
+    state: 'Estado de Contrato',
+    schedule: 'Horario Establecido',
+  },
   color: 'dark-2'
 };
 

@@ -60,7 +60,32 @@ const Template: StoryFn = (args) => ({
 });
 
 export const Main = Template.bind({});
-Main.args = {};
+Main.args = {
+  name: 'Jorge Trejos Castro',
+  applicationNumber: 3728,
+  id: 111111263,
+  actionType: 'Solicitado',
+  registrationDate: '29/07/2024',
+  startDate: '29/07/2024',
+  endDate: '2/08/2024',
+  reason: 'Lorem Ipsum',
+  state: 'Pendiente',
+  doc: 'Doc Lorem Ipsum',
+  time: '00:00',
+  labels: {
+    name: 'Nombre Completo',
+    applicationNumber: 'No. Solicitud',
+    id: 'Identificación',
+    actionType: 'Tipo de Acción',
+    registrationDate: 'Registro',
+    startDate: 'Inicio',
+    endDate: 'Final',
+    reason: 'Justificación',
+    state: 'Estado',
+    doc: 'Documento de Soporte',
+    time: 'Tiempo',
+  }
+};
 
 
 

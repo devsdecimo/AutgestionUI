@@ -4,6 +4,10 @@ import { createI18n } from 'vue-i18n';
 //import lang dicts
 import loginEN from './login/en';
 import loginES from './login/es';
+import profileEN from './profile/en';
+import profileES from './profile/es';
+import addtionalIdentificationsEN from './additional-identifications/en';
+import addtionalIdentificationsES from './additional-identifications/es';
 import homeEN from './home/en';
 import homeES from './home/es';
 import contractEN from './contract/en';
@@ -12,6 +16,8 @@ import recordEN from './record/en';
 import recordES from './record/es';
 import personalReferencesEN from './personal-references/en';
 import personalReferencesES from './personal-references/es';
+import permissionsEN from './permissions/en';
+import permissionsES from './permissions/es';
 
 const messages = {
   en: {
@@ -24,14 +30,23 @@ const messages = {
     contract:{
       ...contractEN
     },
+    additionalIndentifications: {
+      ...addtionalIdentificationsEN
+    },
     record: {
       ...recordEN,
     },
     personalReferences: {
       ...personalReferencesEN,
     },
+    permissions: {
+      ...permissionsEN,
+    },
     misc: {
       language: 'Language'
+    },
+    profile: {
+      ...profileEN,
     },
   },
   es: {
@@ -44,14 +59,23 @@ const messages = {
     contract:{
       ...contractES
     },
+    additionalIndentifications: {
+      ...addtionalIdentificationsES
+    },
     record: {
       ...recordES,
     },
     personalReferences: {
       ...personalReferencesES,
+  },
+    permissions: {
+      ...permissionsES,
     },
     misc: {
       language: 'Idioma'
+    },
+    profile: {
+      ...profileES,
     },
   },
 };

@@ -24,6 +24,8 @@ import permissionsEN from './permissions/en';
 import permissionsES from './permissions/es';
 import vacationDetailEN from './vacation/detail/en';
 import vacationDetailES from './vacation/detail/es';
+import salariesEN from './salaries/en';
+import salariesES from './salaries/es';
 
 const messages = {
   en: {
@@ -38,6 +40,7 @@ const messages = {
     permissions: permissionsEN,
     vacationDetail: vacationDetailEN,
     profile: profileEN,
+    salaries: salariesEN,
     misc: { language: 'Language' },
   },
   es: {
@@ -52,6 +55,7 @@ const messages = {
     permissions: permissionsES,
     vacationDetail: vacationDetailES,
     profile: profileES,
+    salaries: salariesES,
     misc: { language: 'Idioma' },
   },
 };

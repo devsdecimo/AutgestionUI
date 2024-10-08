@@ -99,6 +99,14 @@ const routes = [
       layout: MainLayout,
       title: 'Vacaciones'
     }
+  },
+  {
+    path: '/salaries',
+    component: () => import('../pages/salaries/salaries.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Salarios'
+    }
   }
 ]
 

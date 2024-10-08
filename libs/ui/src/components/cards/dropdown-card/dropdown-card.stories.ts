@@ -39,7 +39,17 @@ const Template: StoryFn = (args) => ({
 });
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+
+  title: 'Persona',
+  icon: ['fas', 'user'],
+  sections: [
+    { title: 'Puesto', content: 'Charlene Reed ' },
+    { title: 'Salario Base', content: '897,580.74' },
+    { title: 'Horario', content: 'Tiempo Completo' },
+  ],
+  link: '/persona',
+};
 
 
 

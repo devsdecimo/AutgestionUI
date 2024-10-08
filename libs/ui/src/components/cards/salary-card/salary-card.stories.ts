@@ -45,12 +45,28 @@ const Template: StoryFn = (args) => ({
 export const Colones = Template.bind({});
 Colones.args = {
   currency: 'Colones',
-  salaryId: 10
+  salaryId: 10,
+  startDate: '16/02/2024',
+  endDate:'29/02/2024',
+  docLink: '/ruta-a-mi-doc',
+  labels: {
+    period: 'Periodo',
+    download: 'Descargar',
+    seeMore: 'Ver Más'
+  }
 };
 export const Dollars = Template.bind({});
 Dollars.args = {
   currency: 'Dólares',
-  salaryId: 11
+  salaryId: 11,
+  startDate: '16/02/2024',
+  endDate:'29/02/2024',
+  docLink: '/ruta-a-mi-doc',
+  labels: {
+    period: 'Periodo',
+    download: 'Descargar',
+    seeMore: 'Ver Más'
+  }
 };
 
 

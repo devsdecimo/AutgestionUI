@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // Types
-import type { DropdownOption } from '@ventura/ui';
+import { DropdownOption, FilePicker } from '@ventura/ui';
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { Dropdown } from '@ventura/ui';
@@ -51,6 +51,7 @@ const dropdownOptions: DropdownOption[] = [
 
 <template>
   <div class="p-10">
+    <FilePicker/>
     <div class="grid grid-cols-12 gap-4">
       <div class="col-span-2 card">
         <div class="card__content">

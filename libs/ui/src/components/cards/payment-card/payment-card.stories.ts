@@ -44,12 +44,30 @@ const Template: StoryFn = (args) => ({
 
 export const Colons = Template.bind({});
 Colons.args = {
-  currency: 'Colones'
+  currency: 'Colones',
+  name: 'Transferencia',
+  bank: 'Banco de Costa Rica',
+  account: 'CR02015202001159781714',
+  labels: {
+    name: 'Forma de Pago',
+    bank: 'Banco',
+    currency: 'Moneda',
+    account: 'Cuenta',
+  }
 };
 
 export const Dollars = Template.bind({});
 Dollars.args = {
-  currency: 'Dólares'
+  currency: 'Dólares',
+  name: 'Transferencia',
+  bank: 'Banco de Costa Rica',
+  account: 'CR02015202001159781714',
+  labels: {
+    name: 'Forma de Pago',
+    bank: 'Banco',
+    currency: 'Moneda',
+    account: 'Cuenta',
+  }
 };
 
 

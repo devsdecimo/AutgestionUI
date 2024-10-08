@@ -7,11 +7,18 @@ import type { SalaryCompositionCardProps } from '../../../types/cards/salary-com
 const props = withDefaults(defineProps<SalaryCompositionCardProps>(), {
   type: 'main',
   icon: ['fas', 'money-check'],
-  concept: 'Salario Base Contrato',
+  concept: 'Lorem Ipsum',
   currency: 'Colones',
   percent: 100,
-  unit: 'Mensual',
-  value: 100000
+  unit: 'Lorem',
+  value: 100000,
+  labels: {
+    concept: 'Label Concepto',
+    currency: 'Label Moneda',
+    percent: 'Label Porcentaje',
+    unit: 'Label Unidad',
+    value: 'Label Valor',
+  }
 });
 const formattedPercent = Intl.NumberFormat('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(props.percent);
 const formattedValue = Intl.NumberFormat('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(props.value);
@@ -35,24 +42,24 @@ const salaryCompositionCardTypeConfig = {
         <FontAwesomeIcon :icon="icon" :class="salaryCompositionCardTypeConfig[type].iconClass"></FontAwesomeIcon>
       </div>
       <div class="col-span-1 md:col-span-3 lg:col-span-2 self-center">
-        <h4>Concepto</h4>
+        <h4>{{labels.concept}}</h4>
         <span>{{concept}}</span>
       </div>
       <div class="self-center">
-        <h4>Moneda</h4>
+        <h4>{{labels.currency}}</h4>
         <span>{{currency}}</span>
       </div>
       <div class="self-center">
-        <h4>Porcentaje</h4>
+        <h4>{{labels.percent}}</h4>
         <span>{{formattedPercent}}</span>
       </div>
       <div class="col-span-1 md:col-span-2 self-center">
-        <h4>Unidad de Pago</h4>
+        <h4>{{labels.unit}}</h4>
         <span>{{unit}}</span>
       </div>
       <div  class="col-span-1 md:col-span-2 self-center">
         <div class="py-2 px-6" :class="salaryCompositionCardTypeConfig[type].subcardClass">
-          <h4>Valor</h4>
+          <h4>{{labels.value}}</h4>
           <span>{{formattedValue}}</span>
         </div>
       </div>

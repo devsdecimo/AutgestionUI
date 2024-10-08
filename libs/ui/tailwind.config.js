@@ -12,7 +12,10 @@ const config = {
   theme: {
     extend: {
       colors: {
-        main: '#3377FF',
+        main: 'var(--color-main)',
+        second: 'var(--color-second)',
+        third: 'var(--color-third)',
+        fourth: 'var(--color-fourth)',
         error: {
           DEFAULT: '#FF3B3B',
           light: '#FF8080',

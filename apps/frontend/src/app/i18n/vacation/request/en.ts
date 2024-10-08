@@ -1,25 +1,25 @@
 const vacationRequestEN = {
-  title: 'Solicitud de Vacaciones',
-  subtitle: 'Opciones de Búsqueda',
+  title: 'Vacations Request',
+  subtitle: 'Search Options',
   formLabels: {
-    state: 'Estado',
-    startDate: 'Fecha Inicial',
-    endDate: 'Fecha Final',
-    contributorName: 'Nombre del Colaborador',
+    state: 'State',
+    startDate: 'Start Date',
+    endDate: 'End Date',
+    contributorName: 'Contributor Name',
     selectOption: 'Choose an Option'
   },
   btnLabels: {
-    search: 'Buscar',
-    createRequest: 'Crear Solicitud',
-    seeMore: 'Ver Más'
+    search: 'Search',
+    createRequest: 'Create Request',
+    seeMore: 'See More'
   },
   tableHeaders: {
-    policy: 'Política',
-    requestNumber: 'No. Solicitud',
-    registrationDate: 'Registro',
-    state: 'Estado',
-    days:'Días ',
-    details: 'Detalles'
+    policy: 'Policy',
+    requestNumber: 'Request Number',
+    registrationDate: 'Registration',
+    state: 'State',
+    days:'Days ',
+    details: 'Details'
   },
   stateOptions: {
     approved: 'Approved',

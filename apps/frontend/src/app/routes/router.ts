@@ -91,6 +91,14 @@ const routes = [
       layout: MainLayout,
       title: 'Permisos'
     }
+  },
+  {
+    path: '/vacations/request/:id',
+    component: () => import('../pages/vacation/detail/detail.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Vacaciones'
+    }
   }
 ]
 

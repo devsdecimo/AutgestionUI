@@ -22,6 +22,8 @@ import personalReferencesEN from './personal-references/en';
 import personalReferencesES from './personal-references/es';
 import permissionsEN from './permissions/en';
 import permissionsES from './permissions/es';
+import vacationDetailEN from './vacation/detail/en';
+import vacationDetailES from './vacation/detail/es';
 
 const messages = {
   en: {
@@ -31,11 +33,11 @@ const messages = {
     home: {
       ...homeEN,
     },
-    contract:{
-      ...contractEN
+    contract: {
+      ...contractEN,
     },
     additionalIndentifications: {
-      ...addtionalIdentificationsEN
+      ...addtionalIdentificationsEN,
     },
     record: {
       ...recordEN,
@@ -52,8 +54,11 @@ const messages = {
     permissions: {
       ...permissionsEN,
     },
+    vacationDetail: {
+      ...vacationDetailEN,
+    },
     misc: {
-      language: 'Language'
+      language: 'Language',
     },
     profile: {
       ...profileEN,
@@ -61,16 +66,16 @@ const messages = {
   },
   es: {
     login: {
-     ...loginES,
+      ...loginES,
     },
     home: {
       ...homeES,
     },
-    contract:{
-      ...contractES
+    contract: {
+      ...contractES,
     },
     additionalIndentifications: {
-      ...addtionalIdentificationsES
+      ...addtionalIdentificationsES,
     },
     record: {
       ...recordES,
@@ -83,12 +88,15 @@ const messages = {
     },
     personalReferences: {
       ...personalReferencesES,
-  },
+    },
     permissions: {
       ...permissionsES,
     },
+    vacationDetail: {
+      ...vacationDetailES,
+    },
     misc: {
-      language: 'Idioma'
+      language: 'Idioma',
     },
     profile: {
       ...profileES,
@@ -96,15 +104,14 @@ const messages = {
   },
 };
 
-
 // Función para obtener el idioma predeterminado
 const getDefaultLocale = (): string => {
   const browserLocale = navigator.language;
 
   if (browserLocale.startsWith('es')) {
-  return 'es';
+    return 'es';
   } else {
-  return 'en';
+    return 'en';
   }
 };
 

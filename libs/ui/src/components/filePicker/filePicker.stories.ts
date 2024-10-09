@@ -1,17 +1,24 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
-import filePicker from './filePicker.vue';
+import { Meta, StoryFn, StoryObj } from '@storybook/vue3';
+import FilePicker from './filePicker.vue';
 
 import { within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
-const meta: Meta<typeof filePicker> = {
-  component: filePicker,
+export default {
+  component: FilePicker,
   title: 'components/filePicker',
-};
-export default meta;
-type Story = StoryObj<typeof meta>;
+} as Meta;
 
-export const Primary = {
-  args: {},
-};
+const Template: StoryFn = (args) => ({
+  components: { FilePicker },
+  setup() {
+    return { args };
+  },
+  template: `
+    <FilePicker v-bind="args"></FilePicker>
+  `,
+});
+
+export const Primary = Template.bind({});
+Primary.args = {};
 

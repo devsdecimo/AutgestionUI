@@ -50,11 +50,35 @@ const Template: StoryFn = (args) => ({
 
 export const Main = Template.bind({});
 Main.args = {
-  type: 'main'
+  type: 'main',
+  concept: 'Salario Base Contrato',
+  currency: 'Colones',
+  percent: 100,
+  unit: 'Mensual',
+  value: 100000,
+  labels: {
+    concept: 'Concepto',
+    currency: 'Moneda',
+    percent: 'Porcentaje',
+    unit: 'Unidad de Pago',
+    value: 'Valor',
+  }
 };
 export const Dark = Template.bind({});
 Dark.args = {
-  type: 'dark-2'
+  type: 'dark-2',
+  concept: 'Salario Base Contrato',
+  currency: 'Colones',
+  percent: 100,
+  unit: 'Mensual',
+  value: 100000,
+  labels: {
+    concept: 'Concepto',
+    currency: 'Moneda',
+    percent: 'Porcentaje',
+    unit: 'Unidad de Pago',
+    value: 'Valor',
+  }
 };
 
 

@@ -4,10 +4,15 @@ import type { JobCardProps } from '../../../types/cards/job-card';
 
 // Definir las props y sus valores por defecto con withDefaults
 const props = withDefaults(defineProps<JobCardProps>(), {
-  name: 'Jefe de Sistemas Informáticos',
-  state: 'Activo',
-  schedule: 'CH, L-J, 7:30 - 4:30  V, 7:30 - 4:00',
-  color: 'dark-2'
+  name: 'Lorem Ipsum',
+  state: 'Lorem',
+  schedule: 'Lorem Ipsum',
+  color: 'dark-2',
+  labels:{
+    name: 'Label Puesto',
+    state: 'Label Estado',
+    schedule: 'Label Horario',
+  }
 });
 
 const jobCardTypeConfig = {
@@ -31,7 +36,7 @@ const jobCardTypeConfig = {
           <FontAwesomeIcon :icon="['fas', 'fa-user']" />
         </div>
         <div class="text-sm">
-          <span class="block font-bold">Puesto</span>
+          <span class="block font-bold">{{labels.name}}</span>
           <span class="block text-dark-4">{{name}}</span>
         </div>
       </div>
@@ -40,14 +45,14 @@ const jobCardTypeConfig = {
       <div class="job-card__cards-container">
         <div :class="jobCardTypeConfig[color].subcardClass">
           <div class="job-card__subcard-content">
-            <span class="block">Estado de Contrato</span>
+            <span class="block">{{labels.state}}</span>
             <span class="block font-bold">{{state}}</span>
           </div>
         </div>
 
         <div :class="jobCardTypeConfig[color].subcardClass">
           <div class="job-card__subcard-content">
-            <span class="block">Horario Establecido</span>
+            <span class="block">{{labels.schedule}}</span>
             <span class="block font-bold">{{schedule}}</span>
           </div>
         </div>

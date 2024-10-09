@@ -18,6 +18,22 @@ const routes = [
     component: () => import('../pages/login/login.vue'),
     meta: {
       layout: AuthLayout
+    },
+  },
+    {
+      path: '/additional-identifications',
+      component: () => import('../pages/additional-identifications/additional-identifications.vue'),
+      meta: {
+        layout: MainLayout,
+        title: 'Identificaciones Adicionales'
+      }
+    },
+  {
+    path: '/profile',
+    component: () => import('../pages/profile/profile.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Perfil'
     }
   },
   {
@@ -42,6 +58,14 @@ const routes = [
     meta: {
       layout: MainLayout,
       title: 'Expediente'
+    },
+  },
+  {
+    path: '/personal-references',
+    component: () => import('../pages/personal-references/personal-references.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Referencias Personales'
     }
   },
   {
@@ -66,6 +90,14 @@ const routes = [
     meta: {
       layout: MainLayout,
       title: 'Vacaciones'
+    }
+  },
+  {
+    path: '/permissions',
+    component: () => import('../pages/permissions/permissions.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Permisos'
     }
   },
   {

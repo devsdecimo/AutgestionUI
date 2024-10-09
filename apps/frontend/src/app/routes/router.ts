@@ -93,6 +93,14 @@ const routes = [
     }
   },
   {
+    path: '/vacations/year-report',
+    component: () => import('../pages/vacation/year-report/year-report.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Vacaciones'
+    }
+  },
+  {
     path: '/permissions',
     component: () => import('../pages/permissions/permissions.vue'),
     meta: {

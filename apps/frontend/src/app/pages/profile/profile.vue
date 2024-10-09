@@ -7,7 +7,7 @@ const data = {
   user: 'Charlene Reed ',
   email: 'charlenereed@gmail.com ',
   password: 'pass1234',
-  birthday: '25/01/1990',
+  birthday: '1990-01-25',
   province: 'San José',
   canton: 'Avenida Lorem, Calle Ipsum',
   district: 'Distrito Lorem Ipsum',
@@ -16,17 +16,6 @@ const data = {
   profileURL: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
 }
 
-//Funcion para transformar string con fecha a formato valido para input date
-const convertToFormattedDate = (stringDate) => {
-  // Extraer el día, mes y año del string
-  const [day, month, year] = stringDate.split('/');
-// Crear un objeto Date en base a año, mes (meses en JavaScript empiezan en 0), y día
-  const dateObject = new Date(year, month - 1, day);
-// Obtener el formato aaaa-mm-dd para el input
-  return dateObject.toISOString().split('T')[0];
-}
-
-const formattedDate = convertToFormattedDate(data.birthday)
 
 </script>
 
@@ -70,7 +59,7 @@ const formattedDate = convertToFormattedDate(data.birthday)
             </div>
             <div>
               <label>{{ $t('profile.birthday') }}</label>
-              <input type="date" :value="formattedDate"/>
+              <input type="date" :value="data.birthday"/>
             </div>
             <div>
               <label>{{ $t('profile.province') }}</label>

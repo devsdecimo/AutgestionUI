@@ -1,6 +1,6 @@
-const vacationDetailES = {
+const vacationCreateES = {
   title: 'Solicitud de Vacaciones',
-  subtitle: 'Detalles Día',
+  subtitle: 'Crear Solicitud',
   tableHeaders: {
     accumulated: 'Días Acumulados',
     consumed: 'Días Consumidos',
@@ -10,13 +10,12 @@ const vacationDetailES = {
     availableWithReservation: 'Disponibles Con Reserva'
   },
   labels:{
-    contributorName: 'Nombre del Colaborador',
-    requestNumber: 'Número de Solicitud',
+    policy: 'Tipo de Política',
     startDate: 'Fecha de Inicio',
     endDate: 'Fecha de Reingreso',
     days: 'Cantidad de Días',
-    state: 'Estado'
+    sendRequest: 'Enviar Solicitud'
   }
 };
 
-export default vacationDetailES;
+export default vacationCreateES;

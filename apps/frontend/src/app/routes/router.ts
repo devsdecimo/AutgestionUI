@@ -101,11 +101,11 @@ const routes = [
     }
   },
   {
-    path: '/permissions',
-    component: () => import('../pages/permissions/permissions.vue'),
+    path: '/vacations/resolutions',
+    component: () => import('../pages/vacation/resolutions/resolutions.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Permisos'
+      title: 'Vacaciones'
     }
   },
   {
@@ -115,7 +115,16 @@ const routes = [
       layout: MainLayout,
       title: 'Vacaciones'
     }
-  }
+  },
+  {
+    path: '/permissions',
+    component: () => import('../pages/permissions/permissions.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Permisos'
+    }
+  },
+
 ]
 
 const router = createRouter({

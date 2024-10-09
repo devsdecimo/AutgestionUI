@@ -28,6 +28,8 @@ import vacationCreateEN from './vacation/create/en';
 import vacationCreateES from './vacation/create/es';
 import vacationYearReportEN from './vacation/year-report/en';
 import vacationYearReportES from './vacation/year-report/es';
+import vacationResolutionsEN from './vacation/resolutions/en';
+import vacationResolutionsES from './vacation/resolutions/es';
 
 const messages = {
   en: {
@@ -43,6 +45,7 @@ const messages = {
     vacationDetail: vacationDetailEN,
     vacationCreate: vacationCreateEN,
     vacationYearReport: vacationYearReportEN,
+    vacationResolutions: vacationResolutionsEN,
     profile: profileEN,
     misc: { language: 'Language' },
   },
@@ -59,6 +62,7 @@ const messages = {
     vacationDetail: vacationDetailES,
     vacationCreate: vacationCreateES,
     vacationYearReport: vacationYearReportES,
+    vacationResolutions: vacationResolutionsES,
     profile: profileES,
     misc: { language: 'Idioma' },
   },

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
+import { formatDateToString } from '../../../utils/dateUtils'
 
 const route = useRoute();
 //Data
@@ -28,12 +29,6 @@ const requestData = {
   endDate: '2024-01-20',
   state: 'approved',
   days: 5,
-  reason: 'Visita al doctor',
-}
-
-function formatDate(dateString) {
-  const [year, month, day] = dateString.split('-');
-  return `${day}/${month}/${year}`;
 }
 
 </script>
@@ -85,7 +80,7 @@ function formatDate(dateString) {
           </div>
           </div>
           <div class="p-0 lg:p-16">
-            <h3 class="mb-8">{{$t('vacationDetail.subtitle')}} {{formatDate(requestData.registrationDate)}}</h3>
+            <h3 class="mb-8">{{$t('vacationDetail.subtitle')}} {{formatDateToString(requestData.registrationDate)}}</h3>
             <div class="mobile-card">
               <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div class="flex flex-col">
@@ -109,8 +104,8 @@ function formatDate(dateString) {
                 <input type="text" :value="requestData.days" readonly>
               </div>
               <div class="flex flex-col">
-                <label>{{$t('vacationDetail.labels.reason')}}</label>
-                <input type="text" :value="requestData.reason" readonly>
+                <label>{{$t('vacationDetail.labels.state')}}</label>
+                <input type="text" :value="$t('vacationRequest.stateOptions.'+requestData.state)" readonly>
               </div>
             </div>
             </div>

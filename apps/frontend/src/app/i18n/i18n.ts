@@ -26,6 +26,10 @@ import vacationDetailEN from './vacation/detail/en';
 import vacationDetailES from './vacation/detail/es';
 import organizationLocationEN from './organizationLocation/en';
 import organizationLocationES from './organizationLocation/es';
+import asociationEN from './asociation/en';
+import asociationES from './asociation/es';
+import salariesEN from './salaries/en';
+import salariesES from './salaries/es';
 import vacationCreateEN from './vacation/create/en';
 import vacationCreateES from './vacation/create/es';
 import vacationYearReportEN from './vacation/year-report/en';
@@ -53,6 +57,8 @@ const messages = {
     vacationApprove: vacationApproveEN,
     profile: profileEN,
     organizationLocation : organizationLocationEN,
+    asociation: asociationEN,
+    salaries: salariesEN,
     misc: { language: 'Language' },
   },
   es: {
@@ -72,6 +78,8 @@ const messages = {
     vacationApprove: vacationApproveES,
     profile: profileES,
     organizationLocation : organizationLocationES,
+    asociation: asociationES,
+    salaries: salariesES,
     misc: { language: 'Idioma' },
   },
 };

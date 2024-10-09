@@ -10,38 +10,41 @@ const routes = [
     component: () => import('../pages/home/home.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Información General'
-    }
+      title: 'Información General',
+    },
   },
   {
     path: '/login',
     component: () => import('../pages/login/login.vue'),
     meta: {
-      layout: AuthLayout
+      layout: AuthLayout,
     },
   },
-    {
-      path: '/additional-identifications',
-      component: () => import('../pages/additional-identifications/additional-identifications.vue'),
-      meta: {
-        layout: MainLayout,
-        title: 'Identificaciones Adicionales'
-      }
+  {
+    path: '/additional-identifications',
+    component: () =>
+      import(
+        '../pages/additional-identifications/additional-identifications.vue'
+      ),
+    meta: {
+      layout: MainLayout,
+      title: 'Identificaciones Adicionales',
     },
+  },
   {
     path: '/profile',
     component: () => import('../pages/profile/profile.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Perfil'
-    }
+      title: 'Perfil',
+    },
   },
   {
     path: '/contract',
     component: () => import('../pages/contract/contract.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Organización'
+      title: 'Contrato'
     }
   },
   {
@@ -49,31 +52,40 @@ const routes = [
     component: () => import('../pages/organizationLocation/organizationLocation.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Contrato'
-    }
+      title: 'Organización'
+    },
   },
   {
     path: '/test',
     component: () => import('../pages/test/test.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Testing Components'
-    }
+      title: 'Testing Components',
+    },
   },
   {
     path: '/record',
     component: () => import('../pages/record/record.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Expediente'
+      title: 'Expediente',
     },
   },
   {
     path: '/personal-references',
-    component: () => import('../pages/personal-references/personal-references.vue'),
+    component: () =>
+      import('../pages/personal-references/personal-references.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Referencias Personales'
+      title: 'Referencias Personales',
+    },
+  },
+  {
+    path: '/asociation',
+    component: () => import('../pages/asociation/asociation.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Asociación'
     }
   },
   {
@@ -81,72 +93,79 @@ const routes = [
     component: () => import('../pages/vacation/vacation.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Vacaciones'
-    }
+      title: 'Vacaciones',
+    },
   },
   {
     path: '/vacations/request',
     component: () => import('../pages/vacation/request/request.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Vacaciones'
-    }
+      title: 'Vacaciones',
+    },
   },
   {
     path: '/vacations/request/create',
     component: () => import('../pages/vacation/create/create.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Vacaciones'
-    }
+      title: 'Vacaciones',
+    },
   },
   {
     path: '/vacations/year-report',
     component: () => import('../pages/vacation/year-report/year-report.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Vacaciones'
-    }
+      title: 'Vacaciones',
+    },
   },
   {
     path: '/vacations/resolutions',
     component: () => import('../pages/vacation/resolutions/resolutions.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Vacaciones'
-    }
+      title: 'Vacaciones',
+    },
   },
   {
     path: '/vacations/request/:id',
     component: () => import('../pages/vacation/detail/detail.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Vacaciones'
-    }
+      title: 'Vacaciones',
+    },
+  },
+  {
+    path: '/salaries',
+    component: () => import('../pages/salaries/salaries.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Salarios',
+    },
   },
   {
     path: '/vacations/approve/:id',
     component: () => import('../pages/vacation/approve/approve.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Vacaciones'
-    }
+      title: 'Vacaciones',
+    },
   },
   {
     path: '/permissions',
     component: () => import('../pages/permissions/permissions.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Permisos'
-    }
+      title: 'Permisos',
+    },
   },
-
-]
+];
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
-})
+});
 
-export { routes }
-export default router
+export { routes };
+export default router;

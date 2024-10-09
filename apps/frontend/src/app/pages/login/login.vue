@@ -119,7 +119,7 @@ const onSubmit = async (event: Event) => {
       </div>
 
       <!-- Botón de enviar -->
-      <div class="mt-6 flex items-center flex-col gap-2">
+      <div class="sm:mt-6 flex items-center flex-col gap-2">
         <button type="submit" class="btn btn--main">
           {{ $t('login.submit') }}
         </button>

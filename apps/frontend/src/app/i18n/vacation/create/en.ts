@@ -1,6 +1,6 @@
-const vacationDetailEN = {
+const vacationCreateEN = {
   title: 'Vacation Request',
-  subtitle: 'Detail Day',
+  subtitle: 'Create Request',
   tableHeaders: {
     accumulated: 'Accumulated Days',
     consumed: 'Consumed Days',
@@ -10,13 +10,12 @@ const vacationDetailEN = {
     availableWithReservation: 'Available With Reservation Days'
   },
   labels:{
-    contributorName: 'Contributor Name',
-    requestNumber: 'Request Number',
+    policy: 'Type of Policy',
     startDate: 'Start Date',
     endDate: 'End Date',
     days: 'Days',
-    state: 'State'
+    sendRequest: 'Send Request'
   }
 };
 
-  export default vacationDetailEN;
+  export default vacationCreateEN;

@@ -93,11 +93,27 @@ const routes = [
     }
   },
   {
-    path: '/permissions',
-    component: () => import('../pages/permissions/permissions.vue'),
+    path: '/vacations/request/create',
+    component: () => import('../pages/vacation/create/create.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Permisos'
+      title: 'Vacaciones'
+    }
+  },
+  {
+    path: '/vacations/year-report',
+    component: () => import('../pages/vacation/year-report/year-report.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Vacaciones'
+    }
+  },
+  {
+    path: '/vacations/resolutions',
+    component: () => import('../pages/vacation/resolutions/resolutions.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Vacaciones'
     }
   },
   {
@@ -107,7 +123,24 @@ const routes = [
       layout: MainLayout,
       title: 'Vacaciones'
     }
-  }
+  },
+  {
+    path: '/vacations/approve/:id',
+    component: () => import('../pages/vacation/approve/approve.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Vacaciones'
+    }
+  },
+  {
+    path: '/permissions',
+    component: () => import('../pages/permissions/permissions.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Permisos'
+    }
+  },
+
 ]
 
 const router = createRouter({

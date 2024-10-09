@@ -45,7 +45,7 @@ const hide = () => {
         <p>{{content}}</p>
       </div>
     </div>
-    <FontAwesomeIcon @click="hide" :icon="['fas', 'xmark']" class="alert__close"></FontAwesomeIcon>
+    <FontAwesomeIcon v-if="setShowMessage" @click="hide" :icon="['fas', 'xmark']" class="alert__close"></FontAwesomeIcon>
   </div>
 </template>
 

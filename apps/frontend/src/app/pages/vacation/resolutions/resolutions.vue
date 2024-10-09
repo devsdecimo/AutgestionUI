@@ -226,7 +226,7 @@ const handleSubmit = () => {
               <span>{{row.days}}</span>
             </div>
             <div>
-              <a :href="'/vacations/request/'+row.requestNumber" class="btn--main btn--small inline-block">
+              <a :href="'/vacations/approve/'+row.requestNumber" class="btn--main btn--small inline-block">
                 {{$t('vacationResolutions.btnLabels.approve')}}
               </a>
             </div>

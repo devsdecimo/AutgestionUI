@@ -117,6 +117,14 @@ const routes = [
     }
   },
   {
+    path: '/vacations/approve/:id',
+    component: () => import('../pages/vacation/approve/approve.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Vacaciones'
+    }
+  },
+  {
     path: '/permissions',
     component: () => import('../pages/permissions/permissions.vue'),
     meta: {

@@ -73,6 +73,14 @@ const routes = [
     },
   },
   {
+    path: '/asociation',
+    component: () => import('../pages/asociation/asociation.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'Asociación'
+    }
+  },
+  {
     path: '/vacations',
     component: () => import('../pages/vacation/vacation.vue'),
     meta: {

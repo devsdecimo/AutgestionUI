@@ -4,14 +4,14 @@
 
 <template>
   <div
-    class="bg-gray-100 flex min-h-full flex-col justify-center items-center py-12 sm:px-6 lg:px-8"
+    class="bg-gray-100 flex min-h-full flex-col justify-center items-center md:py-12 sm:px-6 lg:px-8"
     data-test="auth-layout"
   >
-    <div class="mt-10 sm:mx-auto w-11/12 sm:max-w-[730px]">
-      <div class="card p-14 flex justify-center items-center">
+    <div class="mt-4 md:mt-10 sm:mx-auto w-11/12 sm:max-w-[730px]">
+      <div class="card px-2 py-6 md:p-14 flex justify-center items-center">
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
           <img
-            class="mx-auto h-40 w-auto mb-10"
+            class="mx-auto md:h-40 h-28 w-auto md:mb-10 mb-6"
             src="src/images/logo-ventura-vertical.png"
             alt="Ventura"
           >

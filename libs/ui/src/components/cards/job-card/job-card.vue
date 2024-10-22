@@ -29,14 +29,14 @@ const jobCardTypeConfig = {
 </script>
 
 <template>
-  <div class="job-card">
-    <div class="job-card__content">
+  <div class="job-card card">
+    <div class="job-card__content card__content">
       <div class="flex items-center space-x-4">
         <div :class="jobCardTypeConfig[color].iconClass">
           <FontAwesomeIcon :icon="['fas', 'fa-user']" />
         </div>
         <div class="text-sm">
-          <span class="block font-bold">{{labels.name}}</span>
+          <span class="block font-semibold">{{labels.name}}</span>
           <span class="block text-dark-4">{{name}}</span>
         </div>
       </div>
@@ -44,14 +44,14 @@ const jobCardTypeConfig = {
 
       <div class="job-card__cards-container">
         <div :class="jobCardTypeConfig[color].subcardClass">
-          <div class="job-card__subcard-content">
+          <div class="job-card__subcard-content card__content">
             <span class="block">{{labels.state}}</span>
             <span class="block font-bold">{{state}}</span>
           </div>
         </div>
 
         <div :class="jobCardTypeConfig[color].subcardClass">
-          <div class="job-card__subcard-content">
+          <div class="job-card__subcard-content card__content">
             <span class="block">{{labels.schedule}}</span>
             <span class="block font-bold">{{schedule}}</span>
           </div>
@@ -63,15 +63,14 @@ const jobCardTypeConfig = {
 
 <style scoped lang="postcss">
 .job-card{
-  @apply card card;
   &__content{
-    @apply card__content space-y-4;
+    @apply space-y-4;
   }
   &__cards-container{
     @apply grid grid-cols-1 sm:grid-cols-2 gap-4;
   }
   &__subcard-content{
-    @apply card__content flex flex-col items-center justify-center text-xs space-y-2 text-sm;
+    @apply flex flex-col items-center justify-start text-xs space-y-2 text-sm;
   }
 }
 </style>

@@ -1,8 +1,6 @@
 import { createWebHistory, createRouter } from 'vue-router';
-
 // Layouts
 import { MainLayout, AuthLayout } from '@ventura/ui';
-import { useTitle } from '@vueuse/core';
 
 const routes = [
   {
@@ -10,7 +8,7 @@ const routes = [
     component: () => import('../pages/home/home.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Información General',
+      title: 'home',
     },
   },
   {
@@ -21,14 +19,14 @@ const routes = [
     },
   },
   {
-    path: '/additional-identifications',
+    path: '/record/additional-identifications',
     component: () =>
       import(
-        '../pages/additional-identifications/additional-identifications.vue'
+        '../pages/record/additional-identifications/additional-identifications.vue'
       ),
     meta: {
       layout: MainLayout,
-      title: 'Identificaciones Adicionales',
+      title: 'additionalIdentifications',
     },
   },
   {
@@ -36,23 +34,23 @@ const routes = [
     component: () => import('../pages/profile/profile.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Perfil',
+      title: 'profile',
     },
   },
   {
     path: '/contract',
-    component: () => import('../pages/contract/contract.vue'),
+    component: () => import('../pages/actions/contract/contract.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Contrato'
+      title: 'contract'
     }
   },
   {
-    path: '/organization-location',
-    component: () => import('../pages/organizationLocation/organizationLocation.vue'),
+    path: '/organization',
+    component: () => import('../pages/actions/organizationLocation/organizationLocation.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Organización'
+      title: 'organization'
     },
   },
   {
@@ -60,7 +58,7 @@ const routes = [
     component: () => import('../pages/test/test.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Testing Components',
+      title: 'test',
     },
   },
   {
@@ -68,24 +66,24 @@ const routes = [
     component: () => import('../pages/record/record.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Expediente',
+      title: 'record',
     },
   },
   {
-    path: '/personal-references',
+    path: '/record/personal-references',
     component: () =>
-      import('../pages/personal-references/personal-references.vue'),
+      import('../pages/record/personal-references/personal-references.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Referencias Personales',
+      title: 'personalReferences',
     },
   },
   {
     path: '/asociation',
-    component: () => import('../pages/asociation/asociation.vue'),
+    component: () => import('../pages/actions/asociation/asociation.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Asociación'
+      title: 'asociation'
     }
   },
   {
@@ -93,7 +91,7 @@ const routes = [
     component: () => import('../pages/vacation/vacation.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Vacaciones',
+      title: 'vacations',
     },
   },
   {
@@ -101,7 +99,7 @@ const routes = [
     component: () => import('../pages/vacation/request/request.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Vacaciones',
+      title: 'vacations',
     },
   },
   {
@@ -109,7 +107,7 @@ const routes = [
     component: () => import('../pages/vacation/create/create.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Vacaciones',
+      title: 'vacations',
     },
   },
   {
@@ -117,7 +115,7 @@ const routes = [
     component: () => import('../pages/vacation/year-report/year-report.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Vacaciones',
+      title: 'vacations',
     },
   },
   {
@@ -125,7 +123,7 @@ const routes = [
     component: () => import('../pages/vacation/resolutions/resolutions.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Vacaciones',
+      title: 'vacations',
     },
   },
   {
@@ -133,15 +131,7 @@ const routes = [
     component: () => import('../pages/vacation/detail/detail.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Vacaciones',
-    },
-  },
-  {
-    path: '/salaries',
-    component: () => import('../pages/salaries/salaries.vue'),
-    meta: {
-      layout: MainLayout,
-      title: 'Salarios',
+      title: 'vacations',
     },
   },
   {
@@ -149,7 +139,23 @@ const routes = [
     component: () => import('../pages/vacation/approve/approve.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Vacaciones',
+      title: 'vacations',
+    },
+  },
+  {
+    path: '/salaries',
+    component: () => import('../pages/salaries/salaries.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'salaries',
+    },
+  },
+  {
+    path: '/salaries/:id',
+    component: () => import('../pages/salaries/detail/detail.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'detailSalary',
     },
   },
   {
@@ -157,9 +163,73 @@ const routes = [
     component: () => import('../pages/permissions/permissions.vue'),
     meta: {
       layout: MainLayout,
-      title: 'Permisos',
+      title: 'permissions',
     },
   },
+  {
+    path: '/payment',
+    component: () => import('../pages/actions/payment/payment.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'payment'
+    }
+  },
+  {
+    path: '/permissions/create',
+    component: () => import('../pages/permissions/create/create.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'permissions',
+    }
+  },
+  {
+    path: '/permissions/resolutions',
+    component: () => import('../pages/permissions/resolutions/resolutions.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'permissions',
+    }
+  },
+  {
+    path: '/actions',
+    component: () => import('../pages/actions/actions.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'actions',
+    }
+  },
+  {
+    path: '/requests',
+    component: () => import('../pages/requests/requests.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'requests',
+    },
+  },
+  {
+    path: '/requests/:id',
+    component: () => import('../pages/requests/detail/detail.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'requests',
+    },
+  },
+  {
+    path: '/time',
+    component: () => import('../pages/time/time.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'time',
+    },
+  },
+  {
+    path: '/time/records',
+    component: () => import('../pages/time/records/records.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'timeRecords',
+    },
+  }
 ];
 
 const router = createRouter({

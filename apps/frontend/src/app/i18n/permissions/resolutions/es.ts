@@ -1,0 +1,25 @@
+const permissionsResolutionsES = {
+    applicationBtn: 'Solicitud de Permisos',
+    resolutionBtn: 'Resolución Solicitud de Permisos',
+    mainTitle: 'Solicitud de Permisos',
+    searchOpts: 'Opciones de Busqueda',
+    state: 'Estado',
+    approved: 'Aprobado',
+    rejected: 'Rechazado',
+    startDate: 'Fecha Inicial',
+    endDate: 'Fecha Final',
+    employeeName: 'Nombre del Colaborador',
+    search: 'Buscar',
+    completeName: 'Nombre Completo',
+    applicationNumber: 'No. Solicitud',
+    identification: 'Identificación',
+    actionType: 'Tipo de Acción',
+    register: 'Registro',
+    start: 'Inicio',
+    end: 'Final',
+    justification: 'Justificación',
+    supportDoc: 'Documento de Soporte',
+    time: 'Tiempo',
+}
+
+export default permissionsResolutionsES;

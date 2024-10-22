@@ -1,98 +1,98 @@
 <template>
   <!-- container botones -->
-  <div class="flex gap-10 overflow-auto max-w-[100vw] px-10 py-5">
-    <button class="btn--main btn--small">
+  <div class="submenu-container">
+    <a class="submenu-container__item btn--small" href="/record">
         {{ $t('record.recordButton') }}
-    </button>
-    <button class="btn--main btn--small btn--outline">
+    </a>
+    <a class="submenu-container__item btn--small btn--outline" href="/record/additional-identifications">
         {{ $t('record.identificationButton') }}
-    </button>
-    <button class="btn--main btn--small btn--outline">
+    </a>
+    <a class="submenu-container__item btn--small btn--outline" href="/record/personal-references">
         {{ $t('record.referencesButton') }}
-    </button>
-    
+    </a>
+
 </div>
-  <div class="flex flex-col items-start content-center gap-10 px-6 md:mt-4">
+  <div class="main-container">
 
       <!-- titulo -->
-      <div>
-          <h1 class="font-bold text-base hidden md:block leading-5">{{ $t('record.maintitle') }}</h1>
-      </div>
+    <h1 class="general-title hidden md:block">{{ $t('record.maintitle') }}</h1>
 
       <!-- formulario -->
-      <div class="grid grid-cols-1 md:grid-cols-2 md:p-20 bg-transparent md:bg-white drop-shadow-lg rounded-3xl gap-10 w-full items-center md:items-start">
+    <div class="md:card input-form w-full">
+      <div class="grid grid-cols-1 md:grid-cols-2 md:p-10 lg:p-20 gap-10 items-center md:items-start">
           <!-- Record Number -->
-          <div class="flex flex-col items-start justify-center gap-5">
-              <label class="text-dark-2 text-base font-normal leading-7" for="recordNumber">{{ $t('record.recordNumber') }}</label>
-              <input class="!border-dark-4 !bg-white hover:cursor-default !font-bold text-base !w-5/6 md:w-full" type="text" id="recordNumber" name="recordNumber" :value="formData.recordNumber" readonly/>
+          <div class="flex flex-col">
+              <label for="recordNumber">{{ $t('record.recordNumber') }}</label>
+              <input type="text" id="recordNumber" name="recordNumber" :value="formData.recordNumber" readonly/>
           </div>
-          
+
           <!-- Employee Code -->
-          <div class="flex flex-col items-start justify-center gap-5">
-              <label class="text-dark-2 text-base font-normal leading-7" for="employeeCode">{{ $t('record.employeeCode') }}</label>
-              <input class="!border-dark-4 !bg-white hover:cursor-default !font-bold text-base !w-5/6 md:w-full" type="text" id="employeeCode" name="employeeCode" :value="formData.employeeCode" readonly/>
+          <div class="flex flex-col">
+              <label for="employeeCode">{{ $t('record.employeeCode') }}</label>
+              <input type="text" id="employeeCode" name="employeeCode" :value="formData.employeeCode" readonly/>
           </div>
 
           <!-- Opening Date -->
-          <div class="flex flex-col items-start justify-center gap-5">
-              <label class="text-dark-2 text-base font-normal leading-7" for="openingDate">{{ $t('record.openingDate') }}</label>
-              <input class="!border-dark-4 !bg-white hover:cursor-default !font-bold text-base !w-5/6 md:w-full" type="text" id="openingDate" name="openingDate" :value="formData.openingDate" readonly/>
+          <div class="flex flex-col">
+              <label for="openingDate">{{ $t('record.openingDate') }}</label>
+              <input type="text" id="openingDate" name="openingDate" :value="formData.openingDate" readonly/>
           </div>
 
           <!-- Record State -->
-          <div class="flex flex-col items-start justify-center gap-5">
-              <label class="text-dark-2 text-base font-normal leading-7" for="recordState">{{ $t('record.recordState') }}</label>
-              <input class="!border-dark-4 !bg-white hover:cursor-default !font-bold text-base !w-5/6 md:w-full" type="text" id="recordState" name="recordState" :value="formData.recordState" readonly/>
+          <div class="flex flex-col">
+              <label for="recordState">{{ $t('record.recordState') }}</label>
+              <input type="text" id="recordState" name="recordState" :value="formData.recordState" readonly/>
           </div>
 
           <!-- Employee Name -->
-          <div class="flex flex-col items-start justify-center gap-5">
-              <label class="text-dark-2 text-base font-normal leading-7" for="employeeName">{{ $t('record.employeeName') }}</label>
-              <input class="!border-dark-4 !bg-white hover:cursor-default !font-bold text-base !w-5/6 md:w-full" type="text" id="employeeName" name="employeeName" :value="formData.employeeName" readonly/>
+          <div class="flex flex-col">
+              <label for="employeeName">{{ $t('record.employeeName') }}</label>
+              <input type="text" id="employeeName" name="employeeName" :value="formData.employeeName" readonly/>
           </div>
 
           <!-- Identification -->
-          <div class="flex flex-col items-start justify-center gap-5">
-              <label class="text-dark-2 text-base font-normal leading-7" for="identification">{{ $t('record.identification') }}</label>
-              <input class="!border-dark-4 !bg-white hover:cursor-default !font-bold text-base !w-5/6 md:w-full" type="text" id="identification" name="identification" :value="formData.identification" readonly/>
+          <div class="flex flex-col">
+              <label for="identification">{{ $t('record.identification') }}</label>
+              <input type="text" id="identification" name="identification" :value="formData.identification" readonly/>
           </div>
 
           <!-- Civil Status -->
-          <div class="flex flex-col items-start justify-center gap-5">
-              <label class="text-dark-2 text-base font-normal leading-7" for="civilStatus">{{ $t('record.civilStatus') }}</label>
-              <input class="!border-dark-4 !bg-white hover:cursor-default !font-bold text-base !w-5/6 md:w-full" type="text" id="civilStatus" name="civilStatus" :value="formData.civilStatus" readonly/>
+          <div class="flex flex-col">
+              <label for="civilStatus">{{ $t('record.civilStatus') }}</label>
+              <input type="text" id="civilStatus" name="civilStatus" :value="formData.civilStatus" readonly/>
           </div>
 
           <!-- Citizenship -->
-          <div class="flex flex-col items-start justify-center gap-5">
-              <label class="text-dark-2 text-base font-normal leading-7" for="citizenship">{{ $t('record.citizenship') }}</label>
-              <input class="!border-dark-4 !bg-white hover:cursor-default !font-bold text-base !w-5/6 md:w-full" type="text" id="citizenship" name="citizenship" :value="formData.citizenship" readonly/>
+          <div class="flex flex-col">
+              <label for="citizenship">{{ $t('record.citizenship') }}</label>
+              <input type="text" id="citizenship" name="citizenship" :value="formData.citizenship" readonly/>
           </div>
 
           <!-- Phone Number -->
-          <div class="flex flex-col items-start justify-center gap-5">
-              <label class="text-dark-2 text-base font-normal leading-7" for="phoneNumber">{{ $t('record.phoneNumber') }}</label>
-              <input class="!border-dark-4 !bg-white hover:cursor-default !font-bold text-base !w-5/6 md:w-full" type="text" id="phoneNumber" name="phoneNumber" :value="formData.phoneNumber" readonly/>
+          <div class="flex flex-col">
+              <label for="phoneNumber">{{ $t('record.phoneNumber') }}</label>
+              <input type="text" id="phoneNumber" name="phoneNumber" :value="formData.phoneNumber" readonly/>
           </div>
 
           <!-- Mobile Phone Number -->
-          <div class="flex flex-col items-start justify-center gap-5">
-              <label class="text-dark-2 text-base font-normal leading-7" for="mobilePhoneNumber">{{ $t('record.mobilePhoneNumer') }}</label>
-              <input class="!border-dark-4 !bg-white hover:cursor-default !font-bold text-base !w-5/6 md:w-full" type="text" id="mobilePhoneNumber" name="mobilePhoneNumber" :value="formData.mobilePhoneNumer" readonly/>
+          <div class="flex flex-col">
+              <label for="mobilePhoneNumber">{{ $t('record.mobilePhoneNumer') }}</label>
+              <input type="text" id="mobilePhoneNumber" name="mobilePhoneNumber" :value="formData.mobilePhoneNumer" readonly/>
           </div>
 
           <!-- Address -->
-          <div class="flex flex-col items-start justify-center gap-5">
-              <label class="text-dark-2 text-base font-normal leading-7" for="address">{{ $t('record.address') }}</label>
-              <input class="!border-dark-4 !bg-white hover:cursor-default !font-bold text-base !w-5/6 md:w-full" type="text" id="address" name="address" :value="formData.address" readonly/>
+          <div class="flex flex-col">
+              <label for="address">{{ $t('record.address') }}</label>
+              <input type="text" id="address" name="address" :value="formData.address" readonly/>
           </div>
 
           <!-- Email -->
-          <div class="flex flex-col items-start justify-center gap-5">
-              <label class="text-dark-2 text-base font-normal leading-7" for="email">{{ $t('record.email') }}</label>
-              <input class="!border-dark-4 !bg-white hover:cursor-default !font-bold text-base !w-5/6 md:w-full" type="text" id="email" name="email" :value="formData.email" readonly/>
+          <div class="flex flex-col">
+              <label for="email">{{ $t('record.email') }}</label>
+              <input type="text" id="email" name="email" :value="formData.email" readonly/>
           </div>
       </div>
+    </div>
   </div>
 </template>
 

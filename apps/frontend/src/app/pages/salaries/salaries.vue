@@ -1,23 +1,20 @@
 <template>
   <div
-    class="flex flex-col items-start content-center gap-10 px-6 md:mt-4 mb-12"
+    class="main-container"
   >
     <div>
-      <h1 class="font-bold text-base leading-5 pt-10">
+      <h1 class="general-title pb-6">
         {{ $t('salaries.title') }}
       </h1>
-    </div>
-
-    <div>
-      <h2 class="font-bold text-base leading-2 text-dark-4">
+      <h2 class="general-text">
         {{ $t('salaries.searchOptions') }}
       </h2>
     </div>
 
     <div class="card w-full p-6">
-      <form @submit.prevent="handleSubmit">
+      <form class="filter-form" @submit.prevent="handleSubmit">
         <div
-          class="card__content grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8"
+          class=" grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8 relative"
         >
           <div class="flex flex-col">
             <label>{{ $t('salaries.period') }}</label>
@@ -36,17 +33,17 @@
           </div>
           <div class="flex flex-col">
             <label>{{ $t('salaries.startDate') }}</label>
-            <input type="date" v-model="form.startDate" />
+                <FormattableDateField :datePattern="dateFormat" :placeholder="datePlaceholder" class="!border-dark-4 !bg-white !text-dark-2 !font-normal text-base w-full md:w-full"   id="startDate" name="startDate" v-model="form.startDate" />
           </div>
           <div class="flex flex-col">
             <label>{{ $t('salaries.endDate') }}</label>
-            <input type="date" v-model="form.endDate" />
+                <FormattableDateField :datePattern="dateFormat" :placeholder="datePlaceholder" class="!border-dark-4 !bg-white !text-dark-2 !font-normal text-base w-full md:w-full"   id="endDate" name="endDate" v-model="form.endDate" />
           </div>
 
-          <div class="lg:col-start-2 xl:col-start-4 grid grid-cols-2">
+          <div class="right-0 bottom-0 lg:absolute text-center">
             <button
               type="submit"
-              class="btn--main btn--small col-start-2 font-semibold py-2 leading-1"
+              class="btn--main font-semibold"
             >
               {{ $t('salaries.search') }}
             </button>
@@ -56,10 +53,10 @@
     </div>
 
     <div class="grid grid-cols-1 gap-10 w-full items-center md:items-start">
-      <div class="grid grid-cols-1 md:grid-cols-2 w-full gap-4">
-        <SalaryCard 
-          v-for="(item, index) in salariesData.salaries" 
-          v-bind="item" 
+      <div class="grid grid-cols-1 lg:grid-cols-2 w-full gap-4">
+        <SalaryCard
+          v-for="(item, index) in salariesData.salaries"
+          v-bind="item"
           :key="index"
           :labels="{
             period: $t('salaries.period'),
@@ -74,7 +71,11 @@
 
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
-import { SalaryCard } from '@ventura/ui';
+import { SalaryCard, FormattableDateField } from '@ventura/ui';
+
+const dateFormat = localStorage.getItem('dateFormat');
+const datePlaceholder = localStorage.getItem('datePlaceholder');
+
 // Definimos los datos en el script del componente
 const salariesData = reactive({
   salaries: [
@@ -123,3 +124,4 @@ const handleSubmit = () => {
   }
 };
 </script>
+

@@ -1,4 +1,3 @@
-export { default as ActionsDropdown } from './components/actions-dropdown/actions-dropdown.vue';
 // Layouts
 export { default as MainLayout } from './layouts/main/main.vue';
 export { default as AuthLayout } from './layouts/auth/auth.vue';
@@ -16,6 +15,10 @@ export { default as Alert } from './components/alert/alert.vue';
 export { default as SalaryCard } from './components/cards/salary-card/salary-card.vue';
 export { default as PermitCard } from './components/cards/permit-card/permit-card.vue';
 export { default as SalaryCompositionCard } from './components/cards/salary-composition-card/salary-composition-card.vue';
+export { default as FormattableDateField } from './components/formattabaleDateField/formattableDateField.vue';
+export { default as DropdownGrid } from './components/dropdown-grid/dropdown-grid.vue';
+export { default as Clock } from './components/clock/clock.vue';
+export { default as ActionsDropdown } from './components/actions-dropdown/actions-dropdown.vue';
 
 // Types
 export * from './types/side-menu';

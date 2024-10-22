@@ -58,6 +58,15 @@
   "targetDefaults": {
     "e2e-ci--**/*": {
       "dependsOn": ["^build"]
+    },
+    "build": {
+      "dependsOn": ["^build"]
+    },
+    "build--frontend": {
+      "dependsOn": ["build:ui"] 
+    },
+    "e2e-ci--**/*": {
+      "dependsOn": ["^build"]
     }
   }
 }

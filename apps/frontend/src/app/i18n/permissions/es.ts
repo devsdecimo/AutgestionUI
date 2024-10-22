@@ -2,7 +2,7 @@ const permissionsES = {
     applicationBtn: 'Solitud de Permisos',
     resolutionBtn: 'Resolución Solicitud de Permisos',
     mainTitle: 'Solicitud de Permisos',
-    searchOpts: 'Options de Busqueda',
+    searchOpts: 'Opciones de Busqueda',
     state: 'Estado',
     approved: 'Aprobado',
     rejected: 'Rechazado',

@@ -33,52 +33,52 @@ const props = withDefaults(defineProps<PermitCardProps>(), {
 </script>
 
 <template>
-  <div class="permit-card">
+  <div class="permit-card card">
     <div class="card__content">
       <div class="grid grid-cols-1 md:grid-cols-10 gap-4">
         <div class="col-span-1 md:col-span-10">
           <h4>{{labels.name}}</h4>
-          <span>{{name}}</span>
+          <span class="general-title">{{name}}</span>
         </div>
         <div class="col-span-1 md:col-span-3">
           <h4>{{labels.applicationNumber}}</h4>
-          <span>{{applicationNumber}}</span>
+          <span class="general-title">{{applicationNumber}}</span>
         </div>
         <div class="col-span-1 md:col-span-3">
           <h4>{{labels.id}}</h4>
-          <span>{{id}}</span>
+          <span class="general-title">{{id}}</span>
         </div>
         <div class="col-span-1 md:col-span-4">
           <h4>{{labels.actionType}}</h4>
-          <span>{{actionType}}</span>
+          <span class="general-title">{{actionType}}</span>
         </div>
         <div class="col-span-1 md:col-span-3">
           <h4>{{labels.registrationDate}}</h4>
-          <span>{{registrationDate}}</span>
+          <span class="general-title">{{registrationDate}}</span>
         </div>
         <div class="col-span-1 md:col-span-3">
           <h4>{{labels.startDate}}</h4>
-          <span>{{startDate}}</span>
+          <span class="general-title">{{startDate}}</span>
         </div>
         <div class="col-span-1 md:col-span-4">
           <h4>{{labels.endDate}}</h4>
-          <span>{{endDate}}</span>
+          <span class="general-title">{{endDate}}</span>
         </div>
         <div class="col-span-1 md:col-span-3">
           <h4>{{labels.reason}}</h4>
-          <span>{{reason}}</span>
+          <span class="general-title">{{reason}}</span>
         </div>
         <div class="col-span-1 md:col-span-3">
           <h4>{{labels.state}}</h4>
-          <span>{{state}}</span>
+          <span class="general-title">{{state}}</span>
         </div>
         <div class="col-span-1 md:col-span-4">
           <h4>{{labels.doc}}</h4>
-          <span>{{doc}}</span>
+          <span class="general-title">{{doc}}</span>
         </div>
         <div class="col-span-1 md:col-span-3">
           <h4>{{labels.time}}</h4>
-          <span>{{time}}</span>
+          <span class="general-title">{{time}}</span>
         </div>
       </div>
     </div>
@@ -87,12 +87,8 @@ const props = withDefaults(defineProps<PermitCardProps>(), {
 
 <style scoped lang="postcss">
 .permit-card{
-  @apply card;
   h4{
-    @apply font-thin text-sm;
-  }
-  span{
-    @apply font-semibold text-sm;
+    @apply font-mulish text-base text-dark-4;
   }
 }
 </style>

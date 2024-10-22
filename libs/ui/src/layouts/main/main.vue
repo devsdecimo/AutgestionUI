@@ -8,10 +8,12 @@ import TopBar from '../../components/top-bar/top-bar.vue';
 // Types
 import type { SideMenuLinks } from '../../types/side-menu';
 
+import logo from '../../images/logo-ventura.svg';
+
 const sideMenuLinks: SideMenuLinks[] = [
   { text: 'General', icon: ['fas', 'home'], route: '/' },
   { text: 'Mi Perfil', icon: ['fas', 'user'], route: '/profile' },
-  { text: 'Acciones', icon: ['fas', 'clipboard'], route: '/contract' },
+  { text: 'Acciones', icon: ['fas', 'clipboard'], route: '/actions' },
   { text: 'Vacaciones', icon: ['fas', 'plane'], route: '/vacations' },
   { text: 'Permisos', icon: ['fas', 'calendar-check'], route: '/permissions'},
   { text: 'Salarios', icon: ['fas', 'money-bill'], route: '/salaries'},
@@ -27,7 +29,7 @@ const mobileSideMenu = useTemplateRef<typeof SideMenu>('mobile-side-menu')
     <aside>
       <SideMenu
         :links="sideMenuLinks"
-        logo-src="src/images/logo-ventura.svg"
+        :logo-src="logo"
       />
     </aside>
 
@@ -58,19 +60,19 @@ const mobileSideMenu = useTemplateRef<typeof SideMenu>('mobile-side-menu')
   @apply flex h-full overflow-hidden;
 
   aside {
-    @apply hidden sm:block border-r border-light;
+    @apply hidden lg:block border-r border-light;
   }
 
   header {
     @apply relative;
 
     .side-menu__mobile-container {
-      @apply sm:hidden h-screen absolute top-[80px] z-10;
+      @apply lg:hidden h-screen absolute top-[80px] z-10;
     }
   }
 
   main {
-    @apply h-full grow flex flex-col;
+    @apply h-full grow flex flex-col overflow-hidden;
 
     section {
       @apply flex-1 overflow-y-auto bg-light-4;

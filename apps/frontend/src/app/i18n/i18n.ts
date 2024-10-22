@@ -30,6 +30,8 @@ import asociationEN from './asociation/en';
 import asociationES from './asociation/es';
 import salariesEN from './salaries/en';
 import salariesES from './salaries/es';
+import salaryDetailEN from './salaries/detail/en';
+import salaryDetailES from './salaries/detail/es';
 import vacationCreateEN from './vacation/create/en';
 import vacationCreateES from './vacation/create/es';
 import vacationYearReportEN from './vacation/year-report/en';
@@ -38,6 +40,24 @@ import vacationResolutionsEN from './vacation/resolutions/en';
 import vacationResolutionsES from './vacation/resolutions/es';
 import vacationApproveEN from './vacation/approve/en';
 import vacationApproveES from './vacation/approve/es';
+import paymentEN from './payment/en';
+import paymentES from './payment/es';
+import permissionsCreateEN from './permissions/create/en';
+import permissionsCreateES from './permissions/create/es';
+import permissionsResolutionsEN from './permissions/resolutions/en';
+import permissionsResolutionsES from './permissions/resolutions/es';
+import actionsEN from './actions/en';
+import actionsES from './actions/es';
+import requestsEN from './requests/en';
+import requestsES from './requests/es';
+import requestDetailEN from './requests/detail/en';
+import requestDetailES from './requests/detail/es';
+import timeEN from './time/en';
+import timeES from './time/es';
+import timeRecordsEN from './time/records/en';
+import timeRecordsES from './time/records/es';
+import titlesEN from './titles/en';
+import titlesES from './titles/es';
 
 const messages = {
   en: {
@@ -59,6 +79,16 @@ const messages = {
     organizationLocation : organizationLocationEN,
     asociation: asociationEN,
     salaries: salariesEN,
+    salaryDetail: salaryDetailEN,
+    payment: paymentEN,
+    permissionsCreate: permissionsCreateEN,
+    permissionsResolution: permissionsResolutionsEN,
+    actions: actionsEN,
+    requests: requestsEN,
+    requestDetail: requestDetailEN,
+    time: timeEN,
+    timeRecords: timeRecordsEN,
+    titles: titlesEN,
     misc: { language: 'Language' },
   },
   es: {
@@ -80,6 +110,16 @@ const messages = {
     organizationLocation : organizationLocationES,
     asociation: asociationES,
     salaries: salariesES,
+    payment: paymentES,
+    permissionsCreate: permissionsCreateES,
+    permissionsResolution: permissionsResolutionsES,
+    actions: actionsES,
+    requests: requestsES,
+    requestDetail: requestDetailES,
+    salaryDetail: salaryDetailES,
+    time: timeES,
+    timeRecords: timeRecordsES,
+    titles: titlesES,
     misc: { language: 'Idioma' },
   },
 };

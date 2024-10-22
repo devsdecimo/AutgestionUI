@@ -47,102 +47,102 @@ const data = {
 
 <template>
   <!-- container botones -->
-  <div class="button-container">
-    <a href="/vacations/request" class="btn--main btn--small btn--outline whitespace-nowrap">
+  <div class="submenu-container">
+    <a href="/vacations/request" class="submenu-container__item btn--small btn--outline">
       {{ $t('vacation.submenuLabels.vacationRequest') }}
     </a>
-    <a href="/vacations/year-report" class="btn--main btn--small btn--outline whitespace-nowrap">
+    <a href="/vacations/year-report" class="submenu-container__item btn--small btn--outline">
       {{ $t('vacation.submenuLabels.yearReport') }}
     </a>
-    <a href="/vacations/resolutions" class="btn--main btn--small btn--outline whitespace-nowrap">
+    <a href="/vacations/resolutions" class="submenu-container__item btn--small btn--outline">
       {{ $t('vacation.submenuLabels.resolution') }}
     </a>
   </div>
   <div class="main-container">
     <section>
-      <h2>{{$t('vacation.subtitles.information')}}</h2>
+      <h2 class="general-title">{{$t('vacation.subtitles.information')}}</h2>
       <div class="information-card">
         <div class="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-2">
           <div>
-            <h4>{{$t('vacation.informationLabels.name')}}</h4>
-            <span>{{data.employeeInformation.name}}</span>
+            <h4 class="general-text">{{$t('vacation.informationLabels.name')}}</h4>
+            <span class="general-title">{{data.employeeInformation.name}}</span>
           </div>
           <div>
-            <h4>{{$t('vacation.informationLabels.code')}}</h4>
-            <span>{{data.employeeInformation.code}}</span>
+            <h4 class="general-text">{{$t('vacation.informationLabels.code')}}</h4>
+            <span class="general-title">{{data.employeeInformation.code}}</span>
           </div>
           <div>
-            <h4>{{$t('vacation.informationLabels.position')}}</h4>
-            <span>{{data.employeeInformation.position}}</span>
+            <h4 class="general-text">{{$t('vacation.informationLabels.position')}}</h4>
+            <span class="general-title">{{data.employeeInformation.position}}</span>
           </div>
         </div>
       </div>
     </section>
-    <section class="pt-10">
-      <h2>{{$t('vacation.subtitles.balance')}}</h2>
+    <section>
+      <h2 class="general-title">{{$t('vacation.subtitles.balance')}}</h2>
       <div class="card pb-8">
         <div class="card__content grid grid-cols-1 lg:grid-cols-6 gap-4 lg:gap-2">
           <div>
-            <h4>{{$t('vacation.tableHeaders.accumulated')}}</h4>
-            <span>{{data.balance.accumulated}}</span>
+            <h4 class="general-text">{{$t('vacation.tableHeaders.accumulated')}}</h4>
+            <span class="general-title">{{data.balance.accumulated}}</span>
           </div>
           <div>
-            <h4>{{$t('vacation.tableHeaders.consumed')}}</h4>
-            <span>{{data.balance.consumed}}</span>
+            <h4 class="general-text">{{$t('vacation.tableHeaders.consumed')}}</h4>
+            <span class="general-title">{{data.balance.consumed}}</span>
           </div>
           <div>
-            <h4>{{$t('vacation.tableHeaders.requested')}}</h4>
-            <span>{{data.balance.requested}}</span>
+            <h4 class="general-text">{{$t('vacation.tableHeaders.requested')}}</h4>
+            <span class="general-title">{{data.balance.requested}}</span>
           </div>
           <div>
-            <h4>{{$t('vacation.tableHeaders.adjustment')}}</h4>
-            <span>{{data.balance.adjustment}}</span>
+            <h4 class="general-text">{{$t('vacation.tableHeaders.adjustment')}}</h4>
+            <span class="general-title">{{data.balance.adjustment}}</span>
           </div>
           <div>
-            <h4>{{$t('vacation.tableHeaders.available')}}</h4>
-            <span>{{data.balance.available}}</span>
+            <h4 class="general-text">{{$t('vacation.tableHeaders.available')}}</h4>
+            <span class="general-title">{{data.balance.available}}</span>
           </div>
           <div>
-            <h4>{{$t('vacation.tableHeaders.availableWithReservation')}}</h4>
-            <span>{{data.balance.availableWithReservation}}</span>
+            <h4 class="general-text">{{$t('vacation.tableHeaders.availableWithReservation')}}</h4>
+            <span class="general-title">{{data.balance.availableWithReservation}}</span>
           </div>
         </div>
       </div>
     </section>
-    <section class="pt-10">
-      <h2>{{$t('vacation.subtitles.typeOfPolicy')}}</h2>
+    <section>
+      <h2 class="general-title">{{$t('vacation.subtitles.typeOfPolicy')}}</h2>
       <div v-for="(policy, index) in data.typesOfPolicy" :key="index" class="relative">
         <div class="flex items-center gap-4 pb-4">
-          <span class="state" :class="policy.active?'bg-main':'bg-dark-2'">
+          <span class="general-title state" :class="policy.active?'bg-main':'bg-dark-2'">
             {{policy.active?$t('vacation.activeLabel'):$t('vacation.inactiveLabel')}}
           </span>
-          <h3>{{policy.title}}</h3>
+          <h3 class="general-text">{{policy.title}}</h3>
         </div>
         <div class="card pb-4 mb-8">
           <div class="card__content grid grid-cols-1 lg:grid-cols-6 gap-4 lg:gap-2 pt-16 lg:pt-4">
             <div>
-              <h4>{{$t('vacation.tableHeaders.accumulated')}}</h4>
-              <span>{{policy.balance.accumulated}}</span>
+              <h4 class="general-text">{{$t('vacation.tableHeaders.accumulated')}}</h4>
+              <span class="general-title">{{policy.balance.accumulated}}</span>
             </div>
             <div>
-              <h4>{{$t('vacation.tableHeaders.consumed')}}</h4>
-              <span>{{policy.balance.consumed}}</span>
+              <h4 class="general-text">{{$t('vacation.tableHeaders.consumed')}}</h4>
+              <span class="general-title">{{policy.balance.consumed}}</span>
             </div>
             <div>
-              <h4>{{$t('vacation.tableHeaders.requested')}}</h4>
-              <span>{{policy.balance.requested}}</span>
+              <h4 class="general-text">{{$t('vacation.tableHeaders.requested')}}</h4>
+              <span class="general-title">{{policy.balance.requested}}</span>
             </div>
             <div>
-              <h4>{{$t('vacation.tableHeaders.adjustment')}}</h4>
-              <span>{{policy.balance.adjustment}}</span>
+              <h4 class="general-text">{{$t('vacation.tableHeaders.adjustment')}}</h4>
+              <span class="general-title">{{policy.balance.adjustment}}</span>
             </div>
             <div>
-              <h4>{{$t('vacation.tableHeaders.available')}}</h4>
-              <span>{{policy.balance.available}}</span>
+              <h4 class="general-text">{{$t('vacation.tableHeaders.available')}}</h4>
+              <span class="general-title">{{policy.balance.available}}</span>
             </div>
             <div>
-              <h4>{{$t('vacation.tableHeaders.availableWithReservation')}}</h4>
-              <span>{{policy.balance.availableWithReservation}}</span>
+              <h4 class="general-text">{{$t('vacation.tableHeaders.availableWithReservation')}}</h4>
+              <span class="general-title">{{policy.balance.availableWithReservation}}</span>
             </div>
           </div>
         </div>
@@ -153,20 +153,11 @@ const data = {
 </template>
 
 <style scoped lang="postcss">
-.main-container{
-  @apply p-10;
-}
-.button-container{
-  @apply flex gap-10 overflow-auto max-w-[100vw] px-10 py-5;
-}
+
 h2{
-  @apply font-bold text-base leading-5 pb-8 text-dark;
-}
-h3, h4{
-  @apply text-dark-2;
+  @apply pb-8;
 }
 span{
-  @apply text-dark font-bold;
   &.state{
     @apply rounded-2xl p-1 text-center text-white w-20 text-xs;
     @media screen and (max-width:1024px){

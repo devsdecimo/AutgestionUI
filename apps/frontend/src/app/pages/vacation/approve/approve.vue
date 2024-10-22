@@ -56,69 +56,69 @@ const handleSubmit = () => {
 
 <template>
   <!-- container botones -->
-  <div class="button-container">
-    <a href="/vacations/request" class="btn--main btn--small btn--outline whitespace-nowrap">
+  <div class="submenu-container">
+    <a href="/vacations/request" class="submenu-container__item btn--small btn--outline">
       {{ $t('vacation.submenuLabels.vacationRequest') }}
     </a>
-    <a href="/vacations/year-report" class="btn--main btn--small btn--outline whitespace-nowrap">
+    <a href="/vacations/year-report" class="submenu-container__item btn--small btn--outline">
       {{ $t('vacation.submenuLabels.yearReport') }}
     </a>
-    <a href="/vacations/resolutions" class="btn--main btn--small whitespace-nowrap">
+    <a href="/vacations/resolutions" class="submenu-container__item btn--small">
       {{ $t('vacation.submenuLabels.resolution') }}
     </a>
   </div>
   <div class="main-container">
     <section>
-      <h2>{{$t('vacationApprove.title')}}</h2>
+      <h2 class="general-title pb-8">{{$t('vacationApprove.title')}}</h2>
       <div class="lg:card pb-8">
         <div>
           <div class="card--main p-4 mb-8 lg:mb-0 lg:px-10 xl:px-20 2xl:px-40" >
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-2">
               <div>
-                <span>{{employeeData.name}}</span>
-                <h4>{{employeeData.code}}</h4>
+                <span class="general-title">{{employeeData.name}}</span>
+                <h4 class="general-text">{{employeeData.code}}</h4>
               </div>
               <div>
-                <h4>{{$t('vacationApprove.balanceHeaders.policy')}}</h4>
-                <span>{{requestData.typeOfPolicy.title}}</span>
+                <h4 class="general-text">{{$t('vacationApprove.balanceHeaders.policy')}}</h4>
+                <span class="general-title">{{requestData.typeOfPolicy.title}}</span>
               </div>
               <div>
-                <h4>{{$t('vacationApprove.balanceHeaders.accumulated')}}</h4>
-                <span>{{requestData.typeOfPolicy.balance.accumulated}}</span>
+                <h4 class="general-text">{{$t('vacationApprove.balanceHeaders.accumulated')}}</h4>
+                <span class="general-title">{{requestData.typeOfPolicy.balance.accumulated}}</span>
               </div>
               <div>
-                <h4>{{$t('vacationApprove.balanceHeaders.enjoyed')}}</h4>
-                <span>{{requestData.typeOfPolicy.balance.consumed}}</span>
+                <h4 class="general-text">{{$t('vacationApprove.balanceHeaders.enjoyed')}}</h4>
+                <span class="general-title">{{requestData.typeOfPolicy.balance.consumed}}</span>
               </div>
               <div>
-                <h4>{{$t('vacationApprove.balanceHeaders.available')}}</h4>
-                <span>{{requestData.typeOfPolicy.balance.available}}</span>
+                <h4 class="general-text">{{$t('vacationApprove.balanceHeaders.available')}}</h4>
+                <span class="general-title">{{requestData.typeOfPolicy.balance.available}}</span>
               </div>
             </div>
           </div>
           <div class="p-0 lg:p-20">
-            <h3 class="mb-8">{{$t('vacationApprove.subtitle')}}</h3>
+            <h3 class="general-title mb-8">{{$t('vacationApprove.subtitle')}}</h3>
             <div class="mobile-card">
-              <form @submit.prevent="handleSubmit">
+              <form class="input-form" @submit.prevent="handleSubmit">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   <div class="flex flex-col">
-                    <label>{{$t('vacationApprove.labels.typeOfPolicy')}}</label>
+                    <label>{{$t('vacationApprove.formLabels.typeOfPolicy')}}</label>
                     <input type="text" :value="requestData.typeOfPolicy.title" readonly>
                   </div>
                   <div class="flex flex-col">
-                    <label>{{$t('vacationApprove.labels.days')}}</label>
+                    <label>{{$t('vacationApprove.formLabels.days')}}</label>
                     <input type="text" :value="requestData.days" readonly>
                   </div>
                   <div class="flex flex-col">
-                    <label>{{$t('vacationApprove.labels.startDate')}}</label>
+                    <label>{{$t('vacationApprove.formLabels.startDate')}}</label>
                     <input type="date" :value="requestData.startDate" readonly>
                   </div>
                   <div class="flex flex-col">
-                    <label>{{$t('vacationApprove.labels.endDate')}}</label>
+                    <label>{{$t('vacationApprove.formLabels.endDate')}}</label>
                     <input type="date" :value="requestData.endDate" readonly>
                   </div>
                   <div class="flex flex-col lg:col-span-2">
-                    <label>{{$t('vacationApprove.labels.reason')}}</label>
+                    <label>{{$t('vacationApprove.formLabels.reason')}}</label>
                     <input type="text" v-model="form.reason">
                   </div>
                   <div class="col-start-1 lg:col-start-2 mx-8 lg:mx-0 mb-6 lg:mt-0 flex flex-col lg:flex-row justify-end gap-6">
@@ -140,30 +140,6 @@ const handleSubmit = () => {
 </template>
 
 <style scoped lang="postcss">
-.main-container{
-  @apply p-10;
-}
-.button-container{
-  @apply flex gap-10 overflow-auto max-w-[100vw] px-10 py-5;
-}
-h2{
-  @apply font-bold text-base leading-5 pb-8 text-dark;
-}
-h3{
-  @apply text-dark text-base font-bold;
-}
-h4{
-  @apply text-dark-2;
-}
-span{
-  @apply text-dark font-bold;
-}
-label{
-  @apply text-dark-2 mb-3;
-}
-input, select{
-  @apply font-bold border-dark-4 text-base text-dark;
-}
 .mobile-card{
   @media screen and (max-width:1024px){
     @apply card p-4;

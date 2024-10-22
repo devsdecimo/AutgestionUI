@@ -36,7 +36,7 @@ const Template: StoryFn = (args) => ({
     return { args, headers, tableRows };
   },
   template: `
-    <div >
+    <div class="table-container">
       <table>
         <thead>
           <tr>

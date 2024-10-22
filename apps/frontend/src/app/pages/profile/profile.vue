@@ -21,7 +21,7 @@ const data = {
 
 <template>
   <div class="main-container">
-    <div class="md:card--shadow md:p-10">
+    <div class="main-container__card">
       <div class="main-container__header">
         <h2>{{ $t('profile.title') }}</h2>
       </div>
@@ -54,8 +54,8 @@ const data = {
               <input type="password" :value="data.password"/>
             </div>
             <div class="lg:col-span-2 flex flex-col lg:flex-row gap-6 justify-end pb-4 lg:pb-0">
-              <button class="btn--main">{{ $t('profile.edit') }}</button>
-              <button class="btn--main">{{ $t('profile.save') }}</button>
+              <button class="btn--main font-semibold">{{ $t('profile.edit') }}</button>
+              <button class="btn--main font-semibold">{{ $t('profile.save') }}</button>
             </div>
             <div>
               <label>{{ $t('profile.birthday') }}</label>
@@ -91,18 +91,6 @@ const data = {
 </template>
 
 <style scoped lang="postcss">
-.main-container{
-  @apply p-10;
-  &__header{
-    @apply border-b border-light;
-    h2{
-      @apply text-main font-bold text-sm pb-3 pl-2;
-    }
-    &::after {
-      @apply block w-28 h-0.5 bg-main relative bottom-0 left-0;
-      content: '';
-    }
-  }
   .profile-edit-btn{
     @apply absolute rounded-full bg-main text-white p-0 flex items-center justify-center;
     right:5%;
@@ -115,5 +103,5 @@ const data = {
     }
 
   }
-}
+
 </style>

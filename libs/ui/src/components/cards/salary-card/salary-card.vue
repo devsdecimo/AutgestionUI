@@ -28,27 +28,27 @@ const currencyIconConfig = {
 </script>
 
 <template>
-  <div class="salary-card relative">
-    <div class="salary-card__content">
-      <div class="grid grid-cols-4 sm:grid-cols-5">
+  <div class="salary-card card relative">
+    <div class="salary-card__content card__content">
+      <div class="grid grid-cols-4 md:grid-cols-5">
         <div class="icon-pill--main col-span-1">
           <FontAwesomeIcon :icon="currencyIconConfig[currency].icon" />
         </div>
-        <div class="text-sm text-center sm:text-left col-span-2 sm:col-span-4">
+        <div class="text-base text-center md:text-left col-span-2 md:col-span-4">
           <div>
-            <span class="font-thin text-dark-2">{{labels.period}}</span>
+            <span class="font-mulish text-dark-2">{{labels.period}}</span>
           </div>
-          <div class="flex flex-col sm:flex-row sm:gap-2">
-          <span class="font-semibold text-dark-1">{{startDate}}</span>
-          <span class="font-semibold text-dark-1">-</span>
-          <span class="font-semibold text-dark-1">{{endDate}}</span>
+          <div class="flex flex-col md:flex-row md:gap-2 general-title">
+          <span>{{startDate}}</span>
+          <span>-</span>
+          <span>{{endDate}}</span>
           </div>
         </div>
       </div>
-      <div class="grid grid-cols-2 sm:grid-cols-5 gap-4 sm:gap-0 mt-10 sm:mt-0">
-        <a :href="docLink" class="salary-card__download-btn">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-0 mt-10 md:mt-0">
+        <a :href="docLink" class="salary-card__download-btn btn--main">
           <FontAwesomeIcon :icon="['fas', 'download']" class="mr-2"></FontAwesomeIcon>{{labels.download}}</a>
-        <a :href="'/salarios/'+salaryId" class="salary-card__open-btn">{{labels.seeMore}}</a>
+        <a :href="'/salaries/'+salaryId" class="salary-card__open-btn btn--main">{{labels.seeMore}}</a>
       </div>
     </div>
   </div>
@@ -56,18 +56,17 @@ const currencyIconConfig = {
 
 <style scoped lang="postcss">
 .salary-card{
-  @apply card card;
   &__download-btn{
-    @apply btn--main flex items-center justify-center;
-    @media screen and (min-width:640px) {
+    @apply flex items-center justify-center font-mulish font-bold text-sm;
+    @media screen and (min-width:768px) {
       @apply bg-transparent text-main border-none px-0 col-start-2 justify-start !important;
     }
   }
   &__open-btn{
-    @apply  btn--main static sm:absolute bottom-6 right-6 flex items-center justify-center;
+    @apply text-sm static md:absolute bottom-6 right-6 flex items-center justify-center font-mulish font-bold;
   }
   &__content{
-    @apply card__content space-y-10 sm:space-y-0;
+    @apply space-y-10 md:space-y-0;
   }
 }
 </style>

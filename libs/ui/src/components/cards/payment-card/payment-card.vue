@@ -27,22 +27,22 @@ const currencyIconConfig = {
 </script>
 
 <template>
-  <div class="payment-card">
-    <div class="payment-card__content">
+  <div class="payment-card card">
+    <div class="payment-card__content card__content">
       <div class="flex items-start space-x-4">
-        <div class="text-sm grow space-y-2">
+        <div class="text-base grow space-y-2">
           <div>
             <span class="payment-card__title">{{labels.name}}</span>
-            <span class="payment-card__info">{{name}}</span>
+            <span class="payment-card__info general-title">{{name}}</span>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <span class="payment-card__title">{{labels.bank}}</span>
-              <span class="payment-card__info">{{bank}}</span>
+              <span class="payment-card__info general-title">{{bank}}</span>
             </div>
             <div>
               <span class="payment-card__title">{{labels.currency}}</span>
-              <span class="payment-card__info">{{currency}}</span>
+              <span class="payment-card__info general-title">{{currency}}</span>
             </div>
           </div>
         </div>
@@ -51,9 +51,9 @@ const currencyIconConfig = {
         </div>
       </div>
     </div>
-    <div class="card__footer text-sm">
+    <div class="card__footer text-base">
       <span class="payment-card__title">{{labels.account}}</span>
-      <span class="payment-card__info">{{account}}</span>
+      <span class="payment-card__info general-title">{{account}}</span>
     </div>
   </div>
 </template>
@@ -61,16 +61,14 @@ const currencyIconConfig = {
 <style scoped lang="postcss">
 
 .payment-card{
-
-  @apply  col-span-3 card card;
   &__content{
-    @apply card__content space-y-4;
+    @apply space-y-4;
   }
   &__title{
-    @apply block text-dark-4;
+    @apply block text-dark-4 font-mulish;
   }
   &__info{
-    @apply block font-medium;
+    @apply block;
   }
 }
 </style>

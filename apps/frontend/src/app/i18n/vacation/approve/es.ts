@@ -1,7 +1,7 @@
 const vacationApproveES = {
   title: 'Solicitud de Vacaciones',
   subtitle: 'Aprobar Solicitud',
-  labels: {
+  formLabels: {
     typeOfPolicy: 'Tipo de Política',
     days: 'Cantidad de Días',
     startDate: 'Fecha de Inicio',

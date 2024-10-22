@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { formatDateToString } from '../../../utils/dateUtils';
+import { FormattableDateField } from '@ventura/ui';
+
+const dateFormat = localStorage.getItem('dateFormat');
+const datePlaceholder = localStorage.getItem('datePlaceholder');
 
 //Data para simular busqueda
 const employeesData = [
@@ -99,23 +103,23 @@ const handleSubmit = () => {
 
 <template>
   <!-- container botones -->
-  <div class="button-container">
-    <a href="/vacations/request" class="btn--main btn--small whitespace-nowrap">
+  <div class="submenu-container">
+    <a href="/vacations/request" class="submenu-container__item btn--small">
       {{ $t('vacation.submenuLabels.vacationRequest') }}
     </a>
-    <a href="/vacations/year-report" class="btn--main btn--small btn--outline whitespace-nowrap">
+    <a href="/vacations/year-report" class="submenu-container__item btn--small btn--outline">
       {{ $t('vacation.submenuLabels.yearReport') }}
     </a>
-    <a href="/vacations/resolutions" class="btn--main btn--small btn--outline whitespace-nowrap">
+    <a href="/vacations/resolutions" class="submenu-container__item btn--small btn--outline">
       {{ $t('vacation.submenuLabels.resolution') }}
     </a>
   </div>
   <div class="main-container">
     <section>
-      <h2>{{$t('vacationRequest.title')}}</h2>
-      <h3>{{$t('vacationRequest.subtitle')}}</h3>
+      <h2 class="general-title">{{$t('vacationRequest.title')}}</h2>
+      <h3 class="general-text">{{$t('vacationRequest.subtitle')}}</h3>
       <div class="card">
-        <form @submit.prevent="handleSubmit">
+        <form class="filter-form" @submit.prevent="handleSubmit">
           <div class="card__content grid grid-cols-1 lg:grid-cols-2  xl:grid-cols-4 gap-8">
             <div class="flex flex-col">
               <label>{{$t('vacationRequest.formLabels.state')}}</label>
@@ -126,11 +130,11 @@ const handleSubmit = () => {
             </div>
             <div class="flex flex-col">
               <label>{{$t('vacationRequest.formLabels.startDate')}}</label>
-              <input type="date"  v-model="form.startDate">
+                <FormattableDateField :datePattern="dateFormat" :placeholder="datePlaceholder" class="!border-dark-4 !bg-white !text-dark-2 !font-normal text-base w-full md:w-full"   id="startDate" name="startDate" v-model="form.startDate" />
             </div>
             <div class="flex flex-col">
               <label>{{$t('vacationRequest.formLabels.endDate')}}</label>
-              <input type="date"  v-model="form.endDate">
+                <FormattableDateField :datePattern="dateFormat" :placeholder="datePlaceholder" class="!border-dark-4 !bg-white !text-dark-2 !font-normal text-base w-full md:w-full"   id="endDate" name="endDate" v-model="form.endDate" />
             </div>
             <div class="flex flex-col">
               <label>{{$t('vacationRequest.formLabels.contributorName')}}</label>
@@ -140,17 +144,17 @@ const handleSubmit = () => {
               </select>
             </div>
             <div class="lg:col-start-2 xl:col-start-4 grid grid-cols-2">
-              <button type="submit" class="btn--main  btn--small col-start-2 font-semibold">{{$t('vacationRequest.btnLabels.search')}}</button>
+              <button type="submit" class="btn--main col-start-2 font-semibold">{{$t('vacationRequest.btnLabels.search')}}</button>
             </div>
             </div>
         </form>
       </div>
     </section>
-    <section class="pt-10">
+    <section>
       <a href="/vacations/request/create" class="btn--main mb-8 inline-block font-semibold">{{$t('vacationRequest.btnLabels.createRequest')}}</a>
       <div v-if="searchData" class="pb-8">
-        <!-- Version Desktop -->
-        <table class="hidden lg:table">
+        <div class="table-container">
+          <table>
           <thead>
             <tr>
               <th>{{$t('vacationRequest.tableHeaders.policy')}}</th>
@@ -163,12 +167,12 @@ const handleSubmit = () => {
           </thead>
           <tbody>
           <tr v-for="(row, rowIndex) in searchData.requests" :key="rowIndex">
-            <td>{{row.policy}}</td>
-            <td>{{row.requestNumber}}</td>
-            <td>{{formatDateToString(row.registrationDate)}}</td>
-            <td>{{$t('vacationRequest.stateOptions.'+row.state)}}</td>
-            <td>{{row.days}}</td>
-            <td>
+            <td :data-label="$t('vacationRequest.tableHeaders.policy')">{{row.policy}}</td>
+            <td :data-label="$t('vacationRequest.tableHeaders.requestNumber')">{{row.requestNumber}}</td>
+            <td :data-label="$t('vacationRequest.tableHeaders.registrationDate')">{{formatDateToString(row.registrationDate)}}</td>
+            <td :data-label="$t('vacationRequest.tableHeaders.state')">{{$t('vacationRequest.stateOptions.'+row.state)}}</td>
+            <td :data-label="$t('vacationRequest.tableHeaders.days')">{{row.days}}</td>
+            <td class="text-right">
               <a :href="'/vacations/request/'+row.requestNumber" class="btn--main btn--small inline-block">
               {{$t('vacationRequest.btnLabels.seeMore')}}
             </a>
@@ -176,35 +180,6 @@ const handleSubmit = () => {
           </tr>
           </tbody>
         </table>
-        <!-- Version Mobile -->
-        <div v-for="(row, index) in searchData.requests" :key="index" class="block lg:hidden card mb-10">
-          <div class="card__content flex flex-col gap-6">
-            <div>
-              <h3>{{$t('vacationRequest.tableHeaders.policy')}}</h3>
-              <span>{{row.policy}}</span>
-            </div>
-            <div>
-              <h3>{{$t('vacationRequest.tableHeaders.requestNumber')}}</h3>
-              <span>{{row.requestNumber}}</span>
-            </div>
-            <div>
-              <h3>{{$t('vacationRequest.tableHeaders.registrationDate')}}</h3>
-              <span>{{row.registrationDate}}</span>
-            </div>
-            <div>
-              <h3>{{$t('vacationRequest.tableHeaders.state')}}</h3>
-              <span>{{$t('vacationRequest.stateOptions.'+row.state)}}</span>
-            </div>
-            <div>
-              <h3>{{$t('vacationRequest.tableHeaders.days')}}</h3>
-              <span>{{row.days}}</span>
-            </div>
-            <div>
-              <a :href="'/vacations/request/'+row.requestNumber" class="btn--main btn--small inline-block">
-                {{$t('vacationRequest.btnLabels.seeMore')}}
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -213,25 +188,10 @@ const handleSubmit = () => {
 </template>
 
 <style scoped lang="postcss">
-.main-container{
-  @apply p-10;
-}
-.button-container{
-  @apply flex gap-10 overflow-auto max-w-[100vw] px-10 py-5;
-}
 h2{
-  @apply font-bold text-base leading-5 pb-8 text-dark;
-}
-label{
-  @apply text-dark-2 mb-3;
+  @apply pb-8;
 }
 h3{
-  @apply mb-6 text-dark-2;
-}
-span{
-  @apply text-dark font-bold;
-}
-input, select{
-  @apply border-dark-4 text-base text-dark-2 font-normal;
+  @apply mb-6;
 }
 </style>

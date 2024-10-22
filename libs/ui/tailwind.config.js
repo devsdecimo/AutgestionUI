@@ -11,6 +11,10 @@ const config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        inter: ['Inter'],
+        mulish: ['Mulish'],
+      },
       colors: {
         main: 'var(--color-main)',
         second: 'var(--color-second)',

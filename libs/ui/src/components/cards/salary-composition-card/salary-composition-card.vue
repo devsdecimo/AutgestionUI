@@ -36,31 +36,31 @@ const salaryCompositionCardTypeConfig = {
 </script>
 
 <template>
-  <div class="salary-composition-card">
+  <div class="salary-composition-card card">
     <div class="salary-composition-card__content">
       <div>
         <FontAwesomeIcon :icon="icon" :class="salaryCompositionCardTypeConfig[type].iconClass"></FontAwesomeIcon>
       </div>
       <div class="col-span-1 md:col-span-3 lg:col-span-2 self-center">
         <h4>{{labels.concept}}</h4>
-        <span>{{concept}}</span>
+        <span class="general-title">{{concept}}</span>
       </div>
       <div class="self-center">
         <h4>{{labels.currency}}</h4>
-        <span>{{currency}}</span>
+        <span class="general-title">{{currency}}</span>
       </div>
       <div class="self-center">
         <h4>{{labels.percent}}</h4>
-        <span>{{formattedPercent}}</span>
+        <span class="general-title">{{formattedPercent}}</span>
       </div>
       <div class="col-span-1 md:col-span-2 self-center">
         <h4>{{labels.unit}}</h4>
-        <span>{{unit}}</span>
+        <span class="general-title">{{unit}}</span>
       </div>
       <div  class="col-span-1 md:col-span-2 self-center">
         <div class="py-2 px-6" :class="salaryCompositionCardTypeConfig[type].subcardClass">
-          <h4>{{labels.value}}</h4>
-          <span>{{formattedValue}}</span>
+          <h4 class="!text-white">{{labels.value}}</h4>
+          <span class="general-title !text-white">{{formattedValue}}</span>
         </div>
       </div>
     </div>
@@ -70,12 +70,9 @@ const salaryCompositionCardTypeConfig = {
 <style scoped lang="postcss">
 
 .salary-composition-card{
-  @apply card p-4;
+  @apply p-4;
   h4{
-    @apply font-thin text-sm;
-  }
-  span{
-    @apply font-semibold text-sm;
+    @apply font-mulish text-base text-dark-4;
   }
   &__content{
     @apply grid grid-cols-1 md:grid-cols-10 lg:grid-cols-9 gap-4;

@@ -1,0 +1,25 @@
+const permissionsResolutionsEN = {
+    applicationBtn: 'Permissions Aplication',
+    resolutionBtn: 'Resolution of Permit Applications',
+    mainTitle: 'Permissions Aplication',
+    searchOpts: 'Search Options',
+    state: 'State',
+    approved: 'Approved',
+    rejected: 'Rejected',
+    startDate: 'Start Date',
+    endDate: 'End Date',
+    employeeName: 'Employee Name',
+    search: 'Search',
+    completeName: 'Complete Name',
+    applicationNumber: 'Application Number',
+    identification: 'Identification',
+    actionType: 'Action Type',
+    register:   'Register',
+    start: 'Start',
+    end: 'End',
+    justification: 'Justification',
+    supportDoc: 'Supporting Document',
+    time: 'Time',
+}
+
+export default permissionsResolutionsEN;

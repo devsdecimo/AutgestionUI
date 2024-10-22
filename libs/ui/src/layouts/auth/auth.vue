@@ -1,5 +1,7 @@
 <script setup lang="ts">
 // defineProps<{}>()
+import logoDev from '../../images/logo-developers.svg';
+import logoVert from '../../images/logo-ventura-vertical.png';
 </script>
 
 <template>
@@ -12,14 +14,14 @@
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
           <img
             class="mx-auto md:h-40 h-28 w-auto md:mb-10 mb-6"
-            src="src/images/logo-ventura-vertical.png"
+            :src="logoVert"
             alt="Ventura"
           >
         </div>
         <slot />
         <img
           class="mx-auto h-12 w-auto mb-7 mt-12"
-          src="src/images/logo-developers.svg"
+          :src="logoDev"
           alt="Develope by MDG"
         >
       </div>

@@ -46,7 +46,7 @@ const selectOption = (option?: DropdownOption) => {
 
     <div
       v-if="isOpen"
-      class="dropdown__menu-holder"
+      class="dropdown__menu-holder card"
     >
       <ul class="dropdown__menu">
         <li
@@ -74,7 +74,7 @@ const selectOption = (option?: DropdownOption) => {
   @apply relative;
 
   &__menu-holder {
-    @apply absolute z-10 mt-2 w-full overflow-hidden card;
+    @apply absolute z-10 mt-2 w-full overflow-hidden;
   }
 
   &__menu {

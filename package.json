@@ -5,7 +5,8 @@
   "scripts": {
     "frontend:serve": "nx run frontend:serve",
     "frontend:test": "nx run frontend:test",
-    "ui:storybook": "nx run ui:storybook"
+    "ui:storybook": "nx run ui:storybook",
+    "build": "nx build ui && nx build frontend"
   },
   "private": true,
   "dependencies": {
@@ -16,6 +17,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/vue-fontawesome": "^3.0.8",
     "@vueuse/core": "^11.1.0",
+    "flatpickr": "^4.6.13",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "vue": "^3.3.4",

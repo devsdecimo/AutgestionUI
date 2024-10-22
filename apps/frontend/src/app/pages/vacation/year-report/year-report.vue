@@ -37,51 +37,51 @@ const data = {
 
 <template>
   <!-- container botones -->
-  <div class="button-container">
-    <a href="/vacations/request" class="btn--main btn--small btn--outline whitespace-nowrap">
+  <div class="submenu-container">
+    <a href="/vacations/request" class="submenu-container__item btn--small btn--outline">
       {{ $t('vacation.submenuLabels.vacationRequest') }}
     </a>
-    <a href="/vacations/year-report" class="btn--main btn--small whitespace-nowrap">
+    <a href="/vacations/year-report" class="submenu-container__item btn--small">
       {{ $t('vacation.submenuLabels.yearReport') }}
     </a>
-    <a href="/vacations/resolutions" class="btn--main btn--small btn--outline whitespace-nowrap">
+    <a href="/vacations/resolutions" class="submenu-container__item btn--small btn--outline">
       {{ $t('vacation.submenuLabels.resolution') }}
     </a>
   </div>
   <div class="main-container">
-    <h2>{{$t('vacationYearReport.title')}}</h2>
-    <section class="pb-10"  v-for="(policy, index) in data.typesOfPolicy" :key="index">
-      <h3>{{policy.title}}</h3>
-      <h2>{{$t('vacationYearReport.labels.openingDate')+": "+formatDateToString(policy.openingDate)}}</h2>
+    <h2 class="general-title">{{$t('vacationYearReport.title')}}</h2>
+    <section v-for="(policy, index) in data.typesOfPolicy" :key="index">
+      <h3 class="general-text">{{policy.title}}</h3>
+      <h2 class="pb-8 general-title">{{$t('vacationYearReport.labels.openingDate')+": "+formatDateToString(policy.openingDate)}}</h2>
       <div class="card">
         <div class="card__content grid grid-cols-1 lg:grid-cols-7 gap-4 lg:gap-2">
           <div class="py-3">
-            <h4>{{$t('vacationYearReport.labels.period')}}</h4>
-            <span>{{policy.period}}</span>
+            <h4 class="general-text">{{$t('vacationYearReport.labels.period')}}</h4>
+            <span class="general-title">{{policy.period}}</span>
           </div>
           <div class="py-3">
-            <h4>{{$t('vacationYearReport.labels.annualFactor')}}</h4>
-            <span>{{policy.annualFactor}}</span>
+            <h4 class="general-text">{{$t('vacationYearReport.labels.annualFactor')}}</h4>
+            <span class="general-title">{{policy.annualFactor}}</span>
           </div>
           <div class="py-3">
-            <h4>{{$t('vacationYearReport.labels.monthlyFactor')}}</h4>
-            <span>{{policy.monthlyFactor}}</span>
+            <h4 class="general-text">{{$t('vacationYearReport.labels.monthlyFactor')}}</h4>
+            <span class="general-title">{{policy.monthlyFactor}}</span>
           </div>
           <div class="py-3">
-            <h4>{{$t('vacationYearReport.labels.dailyFactor')}}</h4>
-            <span>{{policy.dailyFactor}}</span>
+            <h4 class="general-text">{{$t('vacationYearReport.labels.dailyFactor')}}</h4>
+            <span class="general-title">{{policy.dailyFactor}}</span>
           </div>
           <div class="py-3">
-            <h4>{{$t('vacationYearReport.labels.accumulated')}}</h4>
-            <span>{{policy.accumulated}}</span>
+            <h4 class="general-text">{{$t('vacationYearReport.labels.accumulated')}}</h4>
+            <span class="general-title">{{policy.accumulated}}</span>
           </div>
           <div class="py-3">
-            <h4>{{$t('vacationYearReport.labels.enjoyed')}}</h4>
-            <span>{{policy.enjoyed}}</span>
+            <h4 class="general-text">{{$t('vacationYearReport.labels.enjoyed')}}</h4>
+            <span class="general-title">{{policy.enjoyed}}</span>
           </div>
           <div class="card--main py-3 px-6">
-            <h4 class="white">{{$t('vacationYearReport.labels.balance')}}</h4>
-            <span class="white">{{policy.balance}}</span>
+            <h4 class="general-text white">{{$t('vacationYearReport.labels.balance')}}</h4>
+            <span class="general-title white">{{policy.balance}}</span>
           </div>
         </div>
       </div>
@@ -91,22 +91,6 @@ const data = {
 </template>
 
 <style scoped lang="postcss">
-.main-container{
-  @apply p-10;
-}
-.button-container{
-  @apply flex gap-10 overflow-auto max-w-[100vw] px-10 py-5;
-}
-h2{
-  @apply font-bold text-base leading-5 pb-8 text-dark;
-}
-h3, h4{
-  @apply text-dark-2;
-}
-span{
-  @apply text-dark font-bold;
-
-}
 .white{
   @apply text-white !important;
 }

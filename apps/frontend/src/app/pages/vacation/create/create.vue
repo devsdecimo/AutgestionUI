@@ -1,6 +1,11 @@
 <script setup lang="ts">
 //Data
-import { ref } from 'vue';
+import { reactive, ref, watch } from 'vue';
+import { FormattableDateField } from '@ventura/ui';
+import { useDateCalculator } from '../../../utils/dateCalculator'; 
+
+const dateFormat = localStorage.getItem('dateFormat');
+const datePlaceholder = localStorage.getItem('datePlaceholder');
 
 const employeeData = {
   employeeInformation:{
@@ -22,72 +27,87 @@ const availablePolicies = [
   'Días Libres'
 ]
 
-const form = ref({
+const form = reactive({
   policy: '',
   startDate: null,
   endDate:null,
   days:0
 })
 
+// Define días libres manualmente (ejemplo: sábado = 6, domingo = 0)
+const freeDaysOfWeek = [6, 0]; // Sábado y domingo como días libres
+// Ejemplo de fechas festivas que pueden o no tener año
+const freeDates = [
+  '25/12',  // Navidad, sin año
+  '01/01',  // Año Nuevo, sin año
+  '23/10/2024', 
+];
+
+// Usa el hook para manejar la lógica de fechas y días
+useDateCalculator(form, freeDaysOfWeek, freeDates);
+
 // Función que se ejecuta al enviar el formulario
 const handleSubmit = () => {
   console.log(form.value);
 };
 
+watch(() => form.days, () => {
+      console.log('a');      
+});
 
 
 </script>
 
 <template>
   <!-- container botones -->
-  <div class="button-container">
-    <a href="/vacations/request" class="btn--main btn--small whitespace-nowrap">
+  <div class="submenu-container">
+    <a href="/vacations/request" class="submenu-container__item btn--small">
       {{ $t('vacation.submenuLabels.vacationRequest') }}
     </a>
-    <a href="/vacations/year-report" class="btn--main btn--small btn--outline whitespace-nowrap">
+    <a href="/vacations/year-report" class="submenu-container__item btn--small btn--outline">
       {{ $t('vacation.submenuLabels.yearReport') }}
     </a>
-    <a href="/vacations/resolutions" class="btn--main btn--small btn--outline whitespace-nowrap">
+    <a href="/vacations/resolutions" class="submenu-container__item btn--small btn--outline">
       {{ $t('vacation.submenuLabels.resolution') }}
     </a>
   </div>
   <div class="main-container">
     <section>
-      <h2>{{$t('vacationCreate.title')}}</h2>
+      <h2 class="general-title pb-8">{{$t('vacationCreate.title')}}</h2>
       <div class="lg:card pb-8">
         <div class="lg:card__content">
           <div class="mobile-card mb-8 lg:mb-0">
             <div class="grid grid-cols-1 lg:grid-cols-6 gap-4 lg:gap-2">
               <div>
-                <h4>{{$t('vacationCreate.tableHeaders.accumulated')}}</h4>
-                <span>{{employeeData.balance.accumulated}}</span>
+                <h4 class="general-text">{{$t('vacationCreate.tableHeaders.accumulated')}}</h4>
+                <span class="general-title">{{employeeData.balance.accumulated}}</span>
               </div>
               <div>
-                <h4>{{$t('vacationCreate.tableHeaders.consumed')}}</h4>
-                <span>{{employeeData.balance.consumed}}</span>
+                <h4 class="general-text">{{$t('vacationCreate.tableHeaders.consumed')}}</h4>
+                <span class="general-title">{{employeeData.balance.consumed}}</span>
               </div>
               <div>
-                <h4>{{$t('vacationCreate.tableHeaders.requested')}}</h4>
-                <span>{{employeeData.balance.requested}}</span>
+                <h4 class="general-text">{{$t('vacationCreate.tableHeaders.requested')}}</h4>
+                <span class="general-title">{{employeeData.balance.requested}}</span>
               </div>
               <div>
-                <h4>{{$t('vacationCreate.tableHeaders.adjustment')}}</h4>
-                <span>{{employeeData.balance.adjustment}}</span>
+                <h4 class="general-text">{{$t('vacationCreate.tableHeaders.adjustment')}}</h4>
+                <span class="general-title">{{employeeData.balance.adjustment}}</span>
               </div>
               <div>
-                <h4>{{$t('vacationCreate.tableHeaders.available')}}</h4>
-                <span>{{employeeData.balance.available}}</span>
+                <h4 class="general-text">{{$t('vacationCreate.tableHeaders.available')}}</h4>
+                <span class="general-title">{{employeeData.balance.available}}</span>
               </div>
               <div>
-                <h4>{{$t('vacationCreate.tableHeaders.availableWithReservation')}}</h4>
-                <span>{{employeeData.balance.availableWithReservation}}</span>
+                <h4 class="general-text">{{$t('vacationCreate.tableHeaders.availableWithReservation')}}</h4>
+                <span class="general-title">{{employeeData.balance.availableWithReservation}}</span>
               </div>
             </div>
           </div>
           <div class="p-0 lg:p-16">
-            <h3 class="mb-8">{{$t('vacationCreate.subtitle')}}</h3>
+            <h3 class="mb-8 general-title">{{$t('vacationCreate.subtitle')}}</h3>
             <div class="mobile-card">
-              <form @submit.prevent="handleSubmit">
+              <form class="input-form" @submit.prevent="handleSubmit">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   <div class="flex flex-col">
                     <label>{{$t('vacationCreate.labels.policy')}}</label>
@@ -102,11 +122,11 @@ const handleSubmit = () => {
                   </div>
                   <div class="flex flex-col">
                     <label>{{$t('vacationCreate.labels.startDate')}}</label>
-                    <input type="date" v-model="form.startDate">
+                  <FormattableDateField :datePattern="dateFormat" :placeholder="datePlaceholder" class="!border-dark-4 !bg-white !text-dark-2 !font-normal text-base w-full md:w-full"   id="startDate" name="startDate" v-model="form.startDate" />
                   </div>
                   <div class="flex flex-col">
                     <label>{{$t('vacationCreate.labels.endDate')}}</label>
-                    <input type="date" v-model="form.endDate">
+                    <FormattableDateField :datePattern="dateFormat" :placeholder="datePlaceholder" class="!border-dark-4 !bg-white !text-dark-2 !font-normal text-base w-full md:w-full"   id="startDate" name="startDate" v-model="form.endDate" />
                   </div>
                   <div class="col-start-1 lg:col-start-2 grid grid-cols-1 lg:grid-cols-2 mx-8 lg:mx-0 mb-6 lg:mt-0">
                     <button type="submit" class="btn--main  btn--small lg:col-start-2 font-semibold">{{$t('vacationCreate.labels.sendRequest')}}</button>
@@ -123,30 +143,6 @@ const handleSubmit = () => {
 </template>
 
 <style scoped lang="postcss">
-.main-container{
-  @apply p-10;
-}
-.button-container{
-  @apply flex gap-10 overflow-auto max-w-[100vw] px-10 py-5;
-}
-h2{
-  @apply font-bold text-base leading-5 pb-8 text-dark;
-}
-h3{
-  @apply text-dark text-base font-bold;
-}
-h4{
-  @apply text-dark-2;
-}
-span{
-  @apply text-dark font-bold;
-}
-label{
-  @apply text-dark-2 mb-3;
-}
-input, select{
-  @apply font-bold border-dark-4 text-base text-dark;
-}
 .mobile-card{
   @media screen and (max-width:1024px){
     @apply card p-4;

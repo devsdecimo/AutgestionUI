@@ -1,5 +1,5 @@
 const contractES = {
-    contractBtn: 'Contract',
+    contractBtn: 'Contrato',
     asociationBtn: 'Asociación',
     orgLocationBtn: 'Ubicación de la Organización',
     payMethodBtn: 'Forma de Pago y Composición Salarial',
@@ -13,5 +13,5 @@ const contractES = {
     contractStatus: 'Estado de Contrato',
     schedule: 'Horario Establecido',
   };
-  
+
   export default contractES;

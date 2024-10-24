@@ -43,3 +43,5 @@ Thumbs.db
 
 
 storybook-static
+
+!dist/apps/frontend/_redirects

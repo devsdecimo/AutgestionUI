@@ -229,6 +229,14 @@ const routes = [
       layout: MainLayout,
       title: 'timeRecords',
     },
+  },
+  {                                                                                                                                                                                   
+    path: '/:pathMatch(.*)*',
+    component: () => import('../pages/errors/404.vue'),
+    meta: {
+      layout: MainLayout,
+      title: 'timeRecords',
+    },                                                                                                                                                    
   }
 ];
 

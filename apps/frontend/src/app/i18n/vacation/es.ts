@@ -1,5 +1,6 @@
 const vacationES = {
   submenuLabels: {
+    vacation: 'Vacaciones',
     vacationRequest: 'Solicitud de Vacaciones',
     yearReport: 'Reporte de Vacaciones por Año',
     resolution: 'Resolución Solicitud de Vacaciones'

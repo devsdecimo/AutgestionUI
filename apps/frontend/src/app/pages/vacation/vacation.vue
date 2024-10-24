@@ -1,177 +1,62 @@
-<script setup lang="ts">
-
-//Data
-const data = {
-  employeeInformation:{
-    name: 'Jorge Trejos Castro',
-    code: '111111263',
-    position: 'Goodpack Administrativo'
-  },
-  balance:{
-    accumulated: '0.00',
-    consumed: '0.00',
-    requested: '0.00',
-    adjustment: '0.00',
-    available: '0.00',
-    availableWithReservation: '0.00',
-  },
-  typesOfPolicy:[
-    {
-    active: true,
-    title: 'Vacaciones de Ley',
-    balance:{
-      accumulated: '0.00',
-      consumed: '0.00',
-      requested: '0.00',
-      adjustment: '0.00',
-      available: '0.00',
-      availableWithReservation: '0.00',
-    }
-    },
-    {
-      active: false,
-      title: 'Días Libres',
-      balance: {
-        accumulated: '0.00',
-        consumed: '0.00',
-        requested: '0.00',
-        adjustment: '0.00',
-        available: '0.00',
-        availableWithReservation: '0.00',
-      }
-    }
-  ]
-}
-
-</script>
-
 <template>
   <!-- container botones -->
   <div class="submenu-container">
-    <a href="/vacations/request" class="submenu-container__item btn--small btn--outline">
+    <router-link 
+      to="/vacations"
+      :class="['submenu-container__item', 'btn--small', route.path === '/vacations' ? '' : 'btn--outline']"
+    >
+      {{ $t('vacation.submenuLabels.vacation') }}
+    </router-link>
+    <router-link 
+      to="/vacations/request"
+      :class="['submenu-container__item', 'btn--small', route.path === '/vacations/request' ? '' : 'btn--outline']"
+    >
       {{ $t('vacation.submenuLabels.vacationRequest') }}
-    </a>
-    <a href="/vacations/year-report" class="submenu-container__item btn--small btn--outline">
+    </router-link>
+    <router-link
+      to="/vacations/year-report"
+      :class="['submenu-container__item', 'btn--small', route.path === '/vacations/year-report' ? '' : 'btn--outline']"
+    >
       {{ $t('vacation.submenuLabels.yearReport') }}
-    </a>
-    <a href="/vacations/resolutions" class="submenu-container__item btn--small btn--outline">
+    </router-link>
+    <router-link
+      to="/vacations/resolutions"
+      :class="['submenu-container__item', 'btn--small', route.path === '/vacations/resolutions' ? '' : 'btn--outline']"
+    >
       {{ $t('vacation.submenuLabels.resolution') }}
-    </a>
+    </router-link>
   </div>
   <div class="main-container">
-    <section>
-      <h2 class="general-title">{{$t('vacation.subtitles.information')}}</h2>
-      <div class="information-card">
-        <div class="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-2">
-          <div>
-            <h4 class="general-text">{{$t('vacation.informationLabels.name')}}</h4>
-            <span class="general-title">{{data.employeeInformation.name}}</span>
-          </div>
-          <div>
-            <h4 class="general-text">{{$t('vacation.informationLabels.code')}}</h4>
-            <span class="general-title">{{data.employeeInformation.code}}</span>
-          </div>
-          <div>
-            <h4 class="general-text">{{$t('vacation.informationLabels.position')}}</h4>
-            <span class="general-title">{{data.employeeInformation.position}}</span>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <h2 class="general-title">{{$t('vacation.subtitles.balance')}}</h2>
-      <div class="card pb-8">
-        <div class="card__content grid grid-cols-1 lg:grid-cols-6 gap-4 lg:gap-2">
-          <div>
-            <h4 class="general-text">{{$t('vacation.tableHeaders.accumulated')}}</h4>
-            <span class="general-title">{{data.balance.accumulated}}</span>
-          </div>
-          <div>
-            <h4 class="general-text">{{$t('vacation.tableHeaders.consumed')}}</h4>
-            <span class="general-title">{{data.balance.consumed}}</span>
-          </div>
-          <div>
-            <h4 class="general-text">{{$t('vacation.tableHeaders.requested')}}</h4>
-            <span class="general-title">{{data.balance.requested}}</span>
-          </div>
-          <div>
-            <h4 class="general-text">{{$t('vacation.tableHeaders.adjustment')}}</h4>
-            <span class="general-title">{{data.balance.adjustment}}</span>
-          </div>
-          <div>
-            <h4 class="general-text">{{$t('vacation.tableHeaders.available')}}</h4>
-            <span class="general-title">{{data.balance.available}}</span>
-          </div>
-          <div>
-            <h4 class="general-text">{{$t('vacation.tableHeaders.availableWithReservation')}}</h4>
-            <span class="general-title">{{data.balance.availableWithReservation}}</span>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <h2 class="general-title">{{$t('vacation.subtitles.typeOfPolicy')}}</h2>
-      <div v-for="(policy, index) in data.typesOfPolicy" :key="index" class="relative">
-        <div class="flex items-center gap-4 pb-4">
-          <span class="general-title state" :class="policy.active?'bg-main':'bg-dark-2'">
-            {{policy.active?$t('vacation.activeLabel'):$t('vacation.inactiveLabel')}}
-          </span>
-          <h3 class="general-text">{{policy.title}}</h3>
-        </div>
-        <div class="card pb-4 mb-8">
-          <div class="card__content grid grid-cols-1 lg:grid-cols-6 gap-4 lg:gap-2 pt-16 lg:pt-4">
-            <div>
-              <h4 class="general-text">{{$t('vacation.tableHeaders.accumulated')}}</h4>
-              <span class="general-title">{{policy.balance.accumulated}}</span>
-            </div>
-            <div>
-              <h4 class="general-text">{{$t('vacation.tableHeaders.consumed')}}</h4>
-              <span class="general-title">{{policy.balance.consumed}}</span>
-            </div>
-            <div>
-              <h4 class="general-text">{{$t('vacation.tableHeaders.requested')}}</h4>
-              <span class="general-title">{{policy.balance.requested}}</span>
-            </div>
-            <div>
-              <h4 class="general-text">{{$t('vacation.tableHeaders.adjustment')}}</h4>
-              <span class="general-title">{{policy.balance.adjustment}}</span>
-            </div>
-            <div>
-              <h4 class="general-text">{{$t('vacation.tableHeaders.available')}}</h4>
-              <span class="general-title">{{policy.balance.available}}</span>
-            </div>
-            <div>
-              <h4 class="general-text">{{$t('vacation.tableHeaders.availableWithReservation')}}</h4>
-              <span class="general-title">{{policy.balance.availableWithReservation}}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <router-view />
   </div>
-
 </template>
 
-<style scoped lang="postcss">
+<script setup lang="ts">
+import { useRoute } from 'vue-router'; // Importa useRoute para obtener la ruta actual
 
-h2{
+// Obtener la ruta actual
+const route = useRoute();
+</script>
+
+
+<style scoped lang="postcss">
+h2 {
   @apply pb-8;
 }
-span{
-  &.state{
+span {
+  &.state {
     @apply rounded-2xl p-1 text-center text-white w-20 text-xs;
-    @media screen and (max-width:1024px){
+    @media screen and (max-width: 1024px) {
       @apply absolute top-16 left-4;
     }
   }
 }
-.information-card{
-  @media screen and (max-width:1024px){
+.information-card {
+  @media screen and (max-width: 1024px) {
     @apply card;
-    .grid{
+    .grid {
       @apply card__content;
     }
   }
 }
-
 </style>

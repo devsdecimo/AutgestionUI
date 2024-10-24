@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col gap-6">
     <h1 class="general-title hidden md:block">
-      {{ $t('permissionsResolution.mainTitle') }}
+      {{ $t('permissions.mainTitle') }}
     </h1>
-    <p class="general-text">{{ $t('permissionsResolution.searchOpts') }}</p>
+    <p class="general-text">{{ $t('permissions.searchOpts') }}</p>
   </div>
   <div class="card w-full">
     <form class="filter-form" @submit.prevent="handleSubmit">
@@ -11,7 +11,7 @@
         class="card__content grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8"
       >
         <div class="flex flex-col">
-          <label for="state">{{ $t('permissionsResolution.state') }}</label>
+          <label for="state">{{ $t('permissions.state') }}</label>
           <select
             class="select w-full"
             type="select"
@@ -20,17 +20,13 @@
             v-model="formData.state"
           >
             <option selected :value="true">
-              {{ $t('permissionsResolution.approved') }}
+              {{ $t('permissions.approved') }}
             </option>
-            <option :value="false">
-              {{ $t('permissionsResolution.rejected') }}
-            </option>
+            <option :value="false">{{ $t('permissions.rejected') }}</option>
           </select>
         </div>
         <div class="flex flex-col">
-          <label for="startDate">{{
-            $t('permissionsResolution.startDate')
-          }}</label>
+          <label for="startDate">{{ $t('permissions.startDate') }}</label>
           <FormattableDateField
             :datePattern="dateFormat"
             :placeholder="datePlaceholder"
@@ -41,7 +37,7 @@
           />
         </div>
         <div class="flex flex-col">
-          <label for="endDate">{{ $t('permissionsResolution.endDate') }}</label>
+          <label for="endDate">{{ $t('permissions.endDate') }}</label>
           <FormattableDateField
             :datePattern="dateFormat"
             :placeholder="datePlaceholder"
@@ -68,65 +64,104 @@
         </div>
         <div class="lg:col-start-2 xl:col-start-4 grid grid-cols-2">
           <button class="btn--main col-start-2 font-semibold">
-            {{ $t('permissionsResolution.search') }}
+            {{ $t('permissions.search') }}
           </button>
         </div>
       </div>
     </form>
   </div>
-  <div class="grid grid-cols-1 lg:grid-cols-2 w-full gap-16">
-    <div v-for="item in applications" :key="item.id">
-      <PermitCard
-        :name="item.employee"
-        :applicationNumber="item.applicationNumber"
-        :id="item.identification"
-        :actionType="item.actionType"
-        :registrationDate="item.register"
-        :startDate="item.start"
-        :endDate="item.end"
-        :reason="item.justification"
-        :state="item.state"
-        :doc="item.supportDocument"
-        :time="item.time"
-        :labels="labels"
-      />
-    </div>
+
+  <div>
+    <a class="btn--main block font-semibold" href="/permissions/create">
+      {{ $t('permissions.createApplication') }}
+    </a>
+  </div>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th class="text-dark-3">
+            {{ $t('permissions.applicationNumber') }}
+          </th>
+          <th class="text-dark-3">
+            {{ $t('permissions.actionType') }}
+          </th>
+          <th class="text-dark-3">
+            {{ $t('permissions.register') }}
+          </th>
+          <th class="text-dark-3">
+            {{ $t('permissions.start') }}
+          </th>
+          <th class="text-dark-3">
+            {{ $t('permissions.end') }}
+          </th>
+          <th class="text-dark-3">
+            {{ $t('permissions.time') }}
+          </th>
+          <th class="text-dark-3">
+            {{ $t('permissions.justification') }}
+          </th>
+          <th class="text-dark-3">
+            {{ $t('permissions.state') }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(row, rowIndex) in tableRows" :key="rowIndex">
+          <td
+            class="col-span-4 p-4"
+            :data-label="$t('permissions.applicationNumber')"
+          >
+            {{ row.applicationNumber }}
+          </td>
+          <td class="col-span-4 p-4" :data-label="$t('permissions.actionType')">
+            {{ row.actionType }}
+          </td>
+          <td class="col-span-4 p-4" :data-label="$t('permissions.register')">
+            {{ row.register }}
+          </td>
+          <td class="col-span-4 p-4" :data-label="$t('permissions.start')">
+            {{ row.start }}
+          </td>
+          <td class="col-span-4 p-4" :data-label="$t('permissions.end')">
+            {{ row.end }}
+          </td>
+          <td class="col-span-4 p-4" :data-label="$t('permissions.time')">
+            {{ row.time }}
+          </td>
+          <td
+            class="col-span-4 p-4"
+            :data-label="$t('permissions.justification')"
+          >
+            {{ row.justification }}
+          </td>
+          <td class="col-span-4 p-4" :data-label="$t('permissions.state')">
+            {{ row.state }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue';
-import { PermitCard, FormattableDateField } from '@ventura/ui';
-import { useI18n } from 'vue-i18n';
+import { ref } from 'vue';
+import { FormattableDateField } from '@ventura/ui';
 
 const dateFormat = localStorage.getItem('dateFormat');
 const datePlaceholder = localStorage.getItem('datePlaceholder');
 
 // Definimos los datos en el script del componente
-const formData = reactive({
+const formData = ref({
   state: true,
   startDate: '',
   endDate: '',
   employeeName: 'Jorge Trejos Castro',
 });
 
-const applications = reactive([
+const tableRows = ref([
   {
     applicationNumber: '2318',
-    identification: '111111263',
-    actionType: 'Lorem Ipsum',
-    register: '26/07/2024',
-    start: '29/07/2024',
-    end: '29/07/2024',
-    time: '10:00',
-    justification: 'Lorem Ipsum',
-    state: 'Aprobado',
-    supportDocument: 'Doc Lorem Ipsum',
-    employee: 'Jorge Trejos Castro',
-  },
-  {
-    applicationNumber: '2318',
-    identification: '111111263',
     actionType: 'Lorem Ipsum',
     register: '26/07/2024',
     start: '29/07/2024',
@@ -134,12 +169,9 @@ const applications = reactive([
     time: '00:00',
     justification: 'Lorem Ipsum',
     state: 'Aprobado',
-    supportDocument: 'Doc Lorem Ipsum',
-    employee: 'Jorge Trejos Castro',
   },
   {
     applicationNumber: '2318',
-    identification: '111111263',
     actionType: 'Lorem Ipsum',
     register: '26/07/2024',
     start: '29/07/2024',
@@ -147,12 +179,9 @@ const applications = reactive([
     time: '00:00',
     justification: 'Lorem Ipsum',
     state: 'Aprobado',
-    supportDocument: 'Doc Lorem Ipsum',
-    employee: 'Jorge Trejos Castro',
   },
   {
     applicationNumber: '2318',
-    identification: '111111263',
     actionType: 'Lorem Ipsum',
     register: '26/07/2024',
     start: '29/07/2024',
@@ -160,12 +189,9 @@ const applications = reactive([
     time: '00:00',
     justification: 'Lorem Ipsum',
     state: 'Aprobado',
-    supportDocument: 'Doc Lorem Ipsum',
-    employee: 'Jorge Trejos Castro',
   },
   {
     applicationNumber: '2318',
-    identification: '111111263',
     actionType: 'Lorem Ipsum',
     register: '26/07/2024',
     start: '29/07/2024',
@@ -173,12 +199,9 @@ const applications = reactive([
     time: '00:00',
     justification: 'Lorem Ipsum',
     state: 'Aprobado',
-    supportDocument: 'Doc Lorem Ipsum',
-    employee: 'Jorge Trejos Castro',
   },
   {
     applicationNumber: '2318',
-    identification: '111111263',
     actionType: 'Lorem Ipsum',
     register: '26/07/2024',
     start: '29/07/2024',
@@ -186,25 +209,18 @@ const applications = reactive([
     time: '00:00',
     justification: 'Lorem Ipsum',
     state: 'Aprobado',
-    supportDocument: 'Doc Lorem Ipsum',
-    employee: 'Jorge Trejos Castro',
+  },
+  {
+    applicationNumber: '2318',
+    actionType: 'Lorem Ipsum',
+    register: '26/07/2024',
+    start: '29/07/2024',
+    end: '29/07/2024',
+    time: '00:00',
+    justification: 'Lorem Ipsum',
+    state: 'Aprobado',
   },
 ]);
-
-const { t } = useI18n();
-const labels = {
-  name: t('permissionsResolution.completeName'),
-  applicationNumber: t('permissionsResolution.applicationNumber'),
-  id: t('permissionsResolution.identification'),
-  actionType: t('permissionsResolution.actionType'),
-  registrationDate: t('permissionsResolution.register'),
-  startDate: t('permissionsResolution.start'),
-  endDate: t('permissionsResolution.end'),
-  reason: t('permissionsResolution.justification'),
-  state: t('permissionsResolution.state'),
-  doc: t('permissionsResolution.supportDoc'),
-  time: t('permissionsResolution.time'),
-};
 
 //Data para simular busqueda
 const employeesData = [
@@ -275,15 +291,3 @@ const handleSubmit = () => {
   console.log(formData);
 };
 </script>
-
-<style scoped>
-h2 {
-  @apply font-bold text-base leading-5 pb-8 text-dark;
-}
-h3 {
-  @apply mb-6 text-dark-2;
-}
-span {
-  @apply text-dark font-bold;
-}
-</style>

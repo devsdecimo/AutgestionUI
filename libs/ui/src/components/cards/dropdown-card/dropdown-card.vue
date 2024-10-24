@@ -15,7 +15,7 @@
           <h4>{{ section.title }}</h4>
           <input :value="section.content" readonly class="text-center border-dark-4 font-normal">
         </div>
-        <a :href="link" class="btn--info inline-block mt-4 font-semibold">{{ buttonText }}</a>
+        <a :href="link" class="btn--main inline-block mt-4 font-semibold">{{ buttonText }}</a>
       </div>
     </div>
   </div>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { formatDateToString } from '../../../utils/dateUtils';
-import {FormattableDateField} from '@ventura/ui'
+import { FormattableDateField } from '@ventura/ui';
 
 const dateFormat = localStorage.getItem('dateFormat');
 const datePlaceholder = localStorage.getItem('datePlaceholder');
@@ -29,9 +29,9 @@ const employeesData = [
         startDate: '2024-01-15',
         endDate: '2024-01-15',
         state: 'pending',
-        days: 10
-      }
-    ]
+        days: 10,
+      },
+    ],
   },
   {
     name: 'Jane Smith',
@@ -45,7 +45,7 @@ const employeesData = [
         startDate: '2024-01-15',
         endDate: '2024-01-15',
         state: 'rejected',
-        days: 2
+        days: 2,
       },
       {
         policy: 'Sick Leave',
@@ -54,9 +54,9 @@ const employeesData = [
         startDate: '2024-01-15',
         endDate: '2024-01-15',
         state: 'approved',
-        days: 7
-      }
-    ]
+        days: 7,
+      },
+    ],
   },
   {
     name: 'Carlos Ruiz',
@@ -70,7 +70,7 @@ const employeesData = [
         startDate: '2024-01-15',
         endDate: '2024-01-15',
         state: 'pending',
-        days: 15
+        days: 15,
       },
       {
         policy: 'Health Insurance',
@@ -79,127 +79,175 @@ const employeesData = [
         startDate: '2024-01-15',
         endDate: '2024-01-15',
         state: 'approved',
-        days: 3
-      }
-    ]
-  }
+        days: 3,
+      },
+    ],
+  },
 ];
 
 //Data para opciones de estado de request
-const stateOptions = [
-  'approved',
-  'pending',
-  'rejected'
-]
+const stateOptions = ['approved', 'pending', 'rejected'];
 
 //Variables reactivas
 const searchData = ref(null);
 const form = ref({
   state: '',
   name: '',
-  startDate:null,
-  endDate:null
-})
+  startDate: null,
+  endDate: null,
+});
 
 // Función que se ejecuta al enviar el formulario (Busqueda por Empleado)
 const handleSubmit = () => {
   let result = null;
-  for(let i=0; i<employeesData.length; i++){
-    if(employeesData[i].name === form.value.name){
+  for (let i = 0; i < employeesData.length; i++) {
+    if (employeesData[i].name === form.value.name) {
       result = employeesData[i];
     }
   }
-  if(result){
+  if (result) {
     searchData.value = result;
   }
 };
-
 </script>
 
 <template>
-  <!-- container botones -->
-  <div class="submenu-container">
-    <a href="/vacations/request" class="submenu-container__item btn--small btn--outline">
-      {{ $t('vacation.submenuLabels.vacationRequest') }}
-    </a>
-    <a href="/vacations/year-report" class="submenu-container__item btn--small btn--outline">
-      {{ $t('vacation.submenuLabels.yearReport') }}
-    </a>
-    <a href="/vacations/resolutions" class="submenu-container__item btn--small">
-      {{ $t('vacation.submenuLabels.resolution') }}
-    </a>
-  </div>
-  <div class="main-container">
-    <section>
-      <h2 class="general-title pb-8">{{$t('vacationResolutions.title')}}</h2>
-      <h3 class="general-text mb-6">{{$t('vacationResolutions.subtitle')}}</h3>
-      <div class="card">
-        <form class="filter-form" @submit.prevent="handleSubmit">
-          <div class="card__content grid grid-cols-1 lg:grid-cols-2  xl:grid-cols-4 gap-8">
-            <div class="flex flex-col">
-              <label>{{$t('vacationResolutions.formLabels.state')}}</label>
-              <select class="select h-full"  v-model="form.state">
-                <option value="" hidden>{{$t('vacationResolutions.formLabels.selectOption')}}</option>
-                <option v-for="(option, index) in stateOptions" :key="index" :value="option">{{$t('vacationResolutions.stateOptions.'+option)}}</option>
-              </select>
-            </div>
-            <div class="flex flex-col">
-              <label>{{$t('vacationResolutions.formLabels.startDate')}}</label>
-                <FormattableDateField :datePattern="dateFormat" :placeholder="datePlaceholder" class="!border-dark-4 !bg-white !text-dark-2 !font-normal text-base w-full md:w-full"   id="startDate" name="startDate" v-model="form.startDate" />
-            </div>
-            <div class="flex flex-col">
-              <label>{{$t('vacationResolutions.formLabels.endDate')}}</label>
-                <FormattableDateField :datePattern="dateFormat" :placeholder="datePlaceholder" class="!border-dark-4 !bg-white !text-dark-2 !font-normal text-base w-full md:w-full"   id="endDate" name="endDate" v-model="form.endDate" />
-            </div>
-            <div class="flex flex-col">
-              <label>{{$t('vacationResolutions.formLabels.contributorName')}}</label>
-              <select class="select h-full"  v-model="form.name">
-                <option value="" hidden>{{$t('vacationResolutions.formLabels.selectOption')}}</option>
-                <option v-for="(employee, index) in employeesData" :key="index" :value="employee.name">{{employee.name}}</option>
-              </select>
-            </div>
-            <div class="lg:col-start-2 xl:col-start-4 grid grid-cols-2">
-              <button type="submit" class="btn--main col-start-2 font-semibold">{{$t('vacationResolutions.btnLabels.search')}}</button>
-            </div>
+  <section>
+    <h2 class="general-title pb-8">{{ $t('vacationResolutions.title') }}</h2>
+    <h3 class="general-text mb-6">{{ $t('vacationResolutions.subtitle') }}</h3>
+    <div class="card">
+      <form class="filter-form" @submit.prevent="handleSubmit">
+        <div
+          class="card__content grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8"
+        >
+          <div class="flex flex-col">
+            <label>{{ $t('vacationResolutions.formLabels.state') }}</label>
+            <select class="select h-full" v-model="form.state">
+              <option value="" hidden>
+                {{ $t('vacationResolutions.formLabels.selectOption') }}
+              </option>
+              <option
+                v-for="(option, index) in stateOptions"
+                :key="index"
+                :value="option"
+              >
+                {{ $t('vacationResolutions.stateOptions.' + option) }}
+              </option>
+            </select>
           </div>
-        </form>
-      </div>
-    </section>
-    <section>
-      <div v-if="searchData" class="pb-8">
-        <div class="table-container">
-          <table>
+          <div class="flex flex-col">
+            <label>{{ $t('vacationResolutions.formLabels.startDate') }}</label>
+            <FormattableDateField
+              :datePattern="dateFormat"
+              :placeholder="datePlaceholder"
+              class="!border-dark-4 !bg-white !text-dark-2 !font-normal text-base w-full md:w-full"
+              id="startDate"
+              name="startDate"
+              v-model="form.startDate"
+            />
+          </div>
+          <div class="flex flex-col">
+            <label>{{ $t('vacationResolutions.formLabels.endDate') }}</label>
+            <FormattableDateField
+              :datePattern="dateFormat"
+              :placeholder="datePlaceholder"
+              class="!border-dark-4 !bg-white !text-dark-2 !font-normal text-base w-full md:w-full"
+              id="endDate"
+              name="endDate"
+              v-model="form.endDate"
+            />
+          </div>
+          <div class="flex flex-col">
+            <label>{{
+              $t('vacationResolutions.formLabels.contributorName')
+            }}</label>
+            <select class="select h-full" v-model="form.name">
+              <option value="" hidden>
+                {{ $t('vacationResolutions.formLabels.selectOption') }}
+              </option>
+              <option
+                v-for="(employee, index) in employeesData"
+                :key="index"
+                :value="employee.name"
+              >
+                {{ employee.name }}
+              </option>
+            </select>
+          </div>
+          <div class="lg:col-start-2 xl:col-start-4 grid grid-cols-2">
+            <button type="submit" class="btn--main col-start-2 font-semibold">
+              {{ $t('vacationResolutions.btnLabels.search') }}
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+  <section>
+    <div v-if="searchData" class="pb-8">
+      <div class="table-container">
+        <table>
           <thead>
-          <tr>
-            <th>{{$t('vacationResolutions.tableHeaders.requestNumber')}}</th>
-            <th>{{$t('vacationResolutions.tableHeaders.id')}}</th>
-            <th>{{$t('vacationResolutions.tableHeaders.name')}}</th>
-            <th>{{$t('vacationResolutions.tableHeaders.registrationDate')}}</th>
-            <th>{{$t('vacationResolutions.tableHeaders.startDate')}}</th>
-            <th>{{$t('vacationResolutions.tableHeaders.endDate')}}</th>
-            <th>{{$t('vacationResolutions.tableHeaders.days')}}</th>
-            <th>{{$t('vacationResolutions.tableHeaders.action')}}</th>
-          </tr>
+            <tr>
+              <th>
+                {{ $t('vacationResolutions.tableHeaders.requestNumber') }}
+              </th>
+              <th>{{ $t('vacationResolutions.tableHeaders.id') }}</th>
+              <th>{{ $t('vacationResolutions.tableHeaders.name') }}</th>
+              <th>
+                {{ $t('vacationResolutions.tableHeaders.registrationDate') }}
+              </th>
+              <th>{{ $t('vacationResolutions.tableHeaders.startDate') }}</th>
+              <th>{{ $t('vacationResolutions.tableHeaders.endDate') }}</th>
+              <th>{{ $t('vacationResolutions.tableHeaders.days') }}</th>
+              <th>{{ $t('vacationResolutions.tableHeaders.action') }}</th>
+            </tr>
           </thead>
           <tbody>
-          <tr v-for="(row, rowIndex) in searchData.requests" :key="rowIndex">
-            <td :data-label="$t('vacationResolutions.tableHeaders.requestNumber')">{{row.requestNumber}}</td>
-            <td :data-label="$t('vacationResolutions.tableHeaders.id')">{{searchData.id}}</td>
-            <td :data-label="$t('vacationResolutions.tableHeaders.name')">{{searchData.name}}</td>
-            <td :data-label="$t('vacationResolutions.tableHeaders.registrationDate')">{{formatDateToString(row.registrationDate)}}</td>
-            <td :data-label="$t('vacationResolutions.tableHeaders.startDate')">{{formatDateToString(row.startDate)}}</td>
-            <td :data-label="$t('vacationResolutions.tableHeaders.endDate')">{{formatDateToString(row.endDate)}}</td>
-            <td :data-label="$t('vacationResolutions.tableHeaders.days')">{{row.days}}</td>
-            <td class="text-right">
-              <a :href="'/vacations/approve/'+row.requestNumber" class="btn--main btn--small inline-block">
-                {{$t('vacationResolutions.btnLabels.approve')}}
-              </a>
-            </td>
-          </tr>
+            <tr v-for="(row, rowIndex) in searchData.requests" :key="rowIndex">
+              <td
+                :data-label="
+                  $t('vacationResolutions.tableHeaders.requestNumber')
+                "
+              >
+                {{ row.requestNumber }}
+              </td>
+              <td :data-label="$t('vacationResolutions.tableHeaders.id')">
+                {{ searchData.id }}
+              </td>
+              <td :data-label="$t('vacationResolutions.tableHeaders.name')">
+                {{ searchData.name }}
+              </td>
+              <td
+                :data-label="
+                  $t('vacationResolutions.tableHeaders.registrationDate')
+                "
+              >
+                {{ formatDateToString(row.registrationDate) }}
+              </td>
+              <td
+                :data-label="$t('vacationResolutions.tableHeaders.startDate')"
+              >
+                {{ formatDateToString(row.startDate) }}
+              </td>
+              <td :data-label="$t('vacationResolutions.tableHeaders.endDate')">
+                {{ formatDateToString(row.endDate) }}
+              </td>
+              <td :data-label="$t('vacationResolutions.tableHeaders.days')">
+                {{ row.days }}
+              </td>
+              <td class="text-right">
+                <a
+                  :href="'/vacations/approve/' + row.requestNumber"
+                  class="btn--main btn--small inline-block"
+                >
+                  {{ $t('vacationResolutions.btnLabels.approve') }}
+                </a>
+              </td>
+            </tr>
           </tbody>
         </table>
-        </div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </template>

@@ -108,7 +108,7 @@ const closeDropdowns = () => {
 
     <div class="top-bar__desktop ">
       <h1 class="inline-flex">
-        {{ $t('titles.'+$route.meta.title) }}
+        {{ $t($route.meta.title) }}
       </h1>
       <div class="ml-4 flex gap-8 items-center h-full w-auto">
         <Dropdown :options="data.companies" :value="data.companies&&data.companies[0]" @onOptionSelected="changeCompany" class="whitespace-nowrap w-96" @click="closeDropdowns"/>

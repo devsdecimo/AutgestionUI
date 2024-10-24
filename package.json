@@ -6,7 +6,7 @@
     "frontend:serve": "nx run frontend:serve",
     "frontend:test": "nx run frontend:test",
     "ui:storybook": "nx run ui:storybook",
-    "build": "nx build ui && nx build frontend",
+    "build": "nx build ui && nx build frontend && node tools/scripts/copy-redirects.js",
     "start": "nx serve frontend --port=80"
   },
   "private": true,
